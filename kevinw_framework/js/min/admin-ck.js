@@ -1,0 +1,1 @@
+!function(n,$,i){$(document).ready(function(){o()});var o=function(){c()},c=function(){$("#tabs").tabs()},t=function(){$("#kevinw_picker_bgcolor").farbtastic("#kevinw_picker_input_bgcolor")}}(window.incom=window.incom||{},jQuery);
