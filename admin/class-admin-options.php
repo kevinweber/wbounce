@@ -39,6 +39,8 @@ class Wbounce_Admin_Options {
 			'_timer',
 			// Tab 'Styling'
 			'_custom_css',
+			// Tab 'Analytics'
+			//...
 		);
 		foreach ( $arr as $i ) {
 			register_setting( WBOUNCE_OPTION_KEY.'-settings-group', WBOUNCE_OPTION_KEY.$i );
@@ -55,6 +57,7 @@ class Wbounce_Admin_Options {
 		        <li><a href="#tab-content">Content</a></li>
 		        <li><a href="#tab-options">Options</a></li>
 		        <li><a href="#tab-styling">Styling</a></li>
+		        <li><a href="#tab-analytics">Analytics</a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -153,6 +156,22 @@ class Wbounce_Admin_Options {
 					        			(You don't know CSS? Try the <a href="http://kevinw.de/css-tutorial" target="_blank" title="CSS Tutorial on W3Schools">CSS Tutorial</a> on W3Schools.)
 					        		</span>
 					        	</td>
+					        </tr>
+					    </tbody>
+				    </table>
+
+			    </div>
+
+			    <div id="tab-analytics">
+
+					<h3>Analytics</h3>
+
+				    <table class="form-table">
+					    <tbody>
+					        <tr valign="top">
+						        <th scope="row" style="color: red">MORE TO COME<br><span class="description thin">with the next plugin update</span></th>
+						        <td>
+						        </td>
 					        </tr>
 					    </tbody>
 				    </table>
