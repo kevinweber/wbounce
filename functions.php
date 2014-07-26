@@ -4,7 +4,7 @@
  * Plugin URI: http://kevinw.de/wbounce
  * Description: More to come (based on https://github.com/carlsednaWBOUNCE/WBOUNCEbounce)
  * Author: Kevin Weber
- * Version: 0.1
+ * Version: 1.0
  * Author URI: http://kevinw.de/
  * License: MIT
  * Text Domain: wbounce
@@ -15,7 +15,7 @@ if ( !defined( 'WBOUNCE_OPTION_KEY' ) ) {
 }
 
 if (!defined('WBOUNCE_VERSION_NUM'))
-    define('WBOUNCE_VERSION_NUM', '0.1');
+    define('WBOUNCE_VERSION_NUM', '1.0');
 if (!defined('WBOUNCE_VERSION_KEY'))
     define('WBOUNCE_VERSION_KEY', WBOUNCE_OPTION_KEY.'_version');
 // Store the plugin version for upgrades

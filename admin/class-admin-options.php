@@ -131,7 +131,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row" style="color: red">MORE TO COME<br><span class="description thin">with the next plugin update</span></th>
+						        <th scope="row" style="color: red">MORE TO COME<br><span class="description thin">with the next updates</span></th>
 						        <td>
 						        </td>
 					        </tr>
@@ -169,7 +169,7 @@ class Wbounce_Admin_Options {
 				    <table class="form-table">
 					    <tbody>
 					        <tr valign="top">
-						        <th scope="row" style="color: red">MORE TO COME<br><span class="description thin">with the next plugin update</span></th>
+						        <th scope="row" style="color: red">MORE TO COME<br><span class="description thin">with the next updates</span></th>
 						        <td>
 						        </td>
 					        </tr>
@@ -192,7 +192,7 @@ class Wbounce_Admin_Options {
 		        	<p><a href="http://kevinw.de/wb" target="_blank">Kevin Weber</a> &ndash; that's me.<br>
 		        	I'm the developer of this plugin. Love it!</p></td>
 			        <td>
-						<p><b>It's easy:</b> You increase sales thanks to my plugin, so you donate at least <a href="http://kevinw.de/donate/wBounce/" title="Donate me" target="_blank">9,37€</a> or give this plugin a 5 star rating <a href="http://wordpress.org/support/view/plugin-reviews/wbounce?filter=5" title="Vote for wBounce" target="_blank">on WordPress.org</a>.</p>
+						<p><b>It's easy:</b> You increase sales thanks to my plugin. In exchange, you donate at least <a href="http://kevinw.de/donate/wBounce/" title="Donate me" target="_blank">9,37€</a> so I can further develop it. And please, give this plugin a 5 star rating <a href="http://wordpress.org/support/view/plugin-reviews/wbounce?filter=5" title="Vote for wBounce" target="_blank">on WordPress.org</a>.</p>
 			        </td>       
 		        <td>
 					<p><b>Speed up your site</b> by replacing embedded Youtube and Vimeo videos with a clickable preview image: <a href="http://kevinw.de/wb-ll" title="Lazy Load for Videos" target="_blank">Lazy Load for Videos</a>.</p>

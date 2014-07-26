@@ -5,10 +5,18 @@
 .wbounce-modal .modal {
 	max-width: 95%;
 }
+.wbounce-modal h4 {
+  font-size: 1.25em;
+  margin: 10px 0;
+  a {
+    text-decoration: none;
+  }
+}
 .wbounce-modal p {
   line-height: 1.4em;
 }
 .wbounce-modal form input[type=email] {
+  color: #999;
   padding: 12px;
   font-size: 1.2em;
   width: 300px;
