@@ -85,10 +85,76 @@ class Wbounce_Frontend {
 	function wp_footer() { ?>
 		<script>
 
-		document.body.onload=function(){
-			var modalId = document.getElementById('wbounce-modal');
-			var modalIdClass = modalId.getElementsByTagName('modal')[0];
-			ouibounce(modalId, {
+		// // Javascript-only version (does not work work optimal on any site and in any case; no full cross-browser support)
+		// document.body.onload=function(){
+		// 	var modalId = document.getElementById('wbounce-modal');
+		// 	var modalIdClass = modalId.getElementsByTagName('modal')[0];
+		// 	ouibounce(modalId, {
+		//       	<?php
+	 //      		// Aggressive Mode
+	 //      		if (
+	 //      			( get_option(WBOUNCE_OPTION_KEY.'_aggressive_mode') == '1' ) ||
+	 //      			( current_user_can( 'manage_options' ) && ( get_option(WBOUNCE_OPTION_KEY.'_test_mode') == '1' ) )
+	 //      		) {
+	 //      			echo 'aggressive:true,';
+		//       	}
+	 //      		// Timer
+	 //      		if ( get_option(WBOUNCE_OPTION_KEY.'_timer') != "" ) {
+	 //      			echo 'timer:'.get_option(WBOUNCE_OPTION_KEY.'_timer').',';
+	 //      		}
+		//       	?>
+		//       	// Callback
+		// 		// callback: function() {
+		// 		// 	ga('send', 'event', 'wbounce', 'bounce', document.URL);
+		// 		//	// do_action ...
+		// 		// },
+		// 	});
+		// 	addListener(document.body, 'click', function(e) {
+		//             modalId.style.display = 'none';
+		//     	}
+		// 	);
+		// 	addListener(document.getElementById('wbounce-modal-sub'), 'click', function(e) {
+		// 		cancelBubble(e);
+		// 	});
+
+		// 	var matchClass = 'modal-footer';
+		//     var elems = document.getElementsByTagName('*'), i;
+		//     for (i in elems) {
+		//         if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ')
+		//                 > -1) {
+
+		// 			addListener(elems[i], 'click', function(e) {
+		// 				modalId.style.display = 'none';
+		// 			});
+
+		//         }
+		//     }
+
+		// 	// Cancel event bubbling (as described here: http://www.javascripter.net/faq/canceleventbubbling.htm)
+		// 	function cancelBubble(e) {
+		// 		var evt = e ? e:window.event;
+		// 		if (evt.stopPropagation)    evt.stopPropagation();
+		// 		if (evt.cancelBubble!=null) evt.cancelBubble = true;
+		// 	}
+
+		// 	/**
+		// 	 * Utility to wrap the different behaviors between W3C-compliant browsers
+		// 	 * and IE when adding event handlers.
+		// 	 */
+		// 	function addListener(element, type, callback) {
+		// 	 if (element.addEventListener) element.addEventListener(type, callback);
+		// 	 else if (element.attachEvent) element.attachEvent('on' + type, callback);
+		// 	}
+		// };
+
+
+
+		// jQuery version
+			var $<?= WBOUNCE_OPTION_KEY ?> = jQuery.noConflict();
+
+			$<?= WBOUNCE_OPTION_KEY ?>(document).ready(function() {
+
+		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 		      	<?php
 	      		// Aggressive Mode
 	      		if (
@@ -102,72 +168,21 @@ class Wbounce_Frontend {
 	      			echo 'timer:'.get_option(WBOUNCE_OPTION_KEY.'_timer').',';
 	      		}
 		      	?>
-		      	// Callback
-				// callback: function() {
-				// 	ga('send', 'event', 'wbounce', 'bounce', document.URL);
-				//	// do_action ...
-				// },
+		      });
+
+		      $<?= WBOUNCE_OPTION_KEY ?>('body').on('click', function() {
+		        $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal').hide();
+		      });
+
+		      $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal .modal-footer').on('click', function() {
+		        $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal').hide();
+		      });
+
+		      $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal .modal').on('click', function(e) {
+		        e.stopPropagation();
+		      });
+
 			});
-			addListener(document.body, 'click', function(e) {
-		            modalId.style.display = 'none';
-		    	}
-			);
-			addListener(document.getElementById('wbounce-modal-sub'), 'click', function(e) {
-				cancelBubble(e);
-			});
-			// Cancel event bubbling (as described here: http://www.javascripter.net/faq/canceleventbubbling.htm)
-			function cancelBubble(e) {
-				var evt = e ? e:window.event;
-				if (evt.stopPropagation)    evt.stopPropagation();
-				if (evt.cancelBubble!=null) evt.cancelBubble = true;
-			}
-
-			/**
-			 * Utility to wrap the different behaviors between W3C-compliant browsers
-			 * and IE when adding event handlers.
-			 */
-			function addListener(element, type, callback) {
-			 if (element.addEventListener) element.addEventListener(type, callback);
-			 else if (element.attachEvent) element.attachEvent('on' + type, callback);
-			}
-		};
-
-
-
-
-			// var $<?= WBOUNCE_OPTION_KEY ?> = jQuery.noConflict();
-
-			// $<?= WBOUNCE_OPTION_KEY ?>(document).ready(function() {
-
-		 //      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
-		 //      	<?php
-	  //     		// Aggressive Mode
-	  //     		if (
-	  //     			( get_option(WBOUNCE_OPTION_KEY.'_aggressive_mode') == '1' ) ||
-	  //     			( current_user_can( 'manage_options' ) && ( get_option(WBOUNCE_OPTION_KEY.'_test_mode') == '1' ) )
-	  //     		) {
-	  //     			echo 'aggressive:true,';
-		 //      	}
-	  //     		// Timer
-	  //     		if ( get_option(WBOUNCE_OPTION_KEY.'_timer') != "" ) {
-	  //     			echo 'timer:'.get_option(WBOUNCE_OPTION_KEY.'_timer').',';
-	  //     		}
-		 //      	?>
-		 //      });
-
-		 //      // $<?= WBOUNCE_OPTION_KEY ?>('body').on('click', function() {
-		 //      //   $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal').hide();
-		 //      // });
-
-		 //      // $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal .modal-footer').on('click', function() {
-		 //      //   $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal').hide();
-		 //      // });
-
-		 //      // $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal .modal').on('click', function(e) {
-		 //      //   e.stopPropagation();
-		 //      // });
-
-			// });
 		</script>
 	<?php }
 
