@@ -5,6 +5,9 @@
 .wbounce-modal .modal {
 	max-width: 95%;
 }
+.wbounce-modal p {
+  line-height: 1.4em;
+}
 .wbounce-modal form input[type=email] {
   padding: 12px;
   font-size: 1.2em;
@@ -12,4 +15,7 @@
   border-radius: 4px;
   border: 1px solid #ccc;
   -webkit-font-smoothing: antialiased;
+}
+.wbounce-modal form input[type=submit] {
+	background-image: none;
 }
