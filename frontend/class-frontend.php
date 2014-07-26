@@ -74,7 +74,7 @@ class Wbounce_Frontend {
 	function add_actions() {
 		add_action( 'wp_head', array( $this, 'custom_css') );
 		add_action( 'wp_footer', array( $this, 'wp_footer'), 10, WBOUNCE_OPTION_KEY.'-functions' );
-		// add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_jquery' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_jquery' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style') );
 	}
