@@ -31,6 +31,10 @@ Future features:
 = Why should I use wBounce? =
 * Test the [demo](http://kevinw.de/wbounce) and you’ll see why you don’t want to miss this plugin.
 
+= Known bugs = 
+* On some sites the popup doesn’t appear on articles/pages with Youtube iFrames. Easiest workaround: Use [Lazy Load for Videos](kevinw.de/lazyloadvideos).
+* Please report me any bug so I can solve it. Thanks!
+
 == Changelog ==
 
 = 0.1 =
