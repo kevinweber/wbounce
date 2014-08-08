@@ -9,6 +9,7 @@ class Wbounce_Meta {
 
 	function __construct() {
 		$this->init_meta_boxes();
+		$this->init_post_columns();
 	}
 
 	/**
@@ -109,6 +110,63 @@ class Wbounce_Meta {
 
 
 
+	/**
+	 * Add custom column
+	 * (Based on http://shibashake.com/wordpress-theme/expand-the-wordpress-quick-edit-menu)
+	 */
+	function init_post_columns() {
+
+		$screens = array( 'posts', 'pages' );
+
+		foreach ( $screens as $screen ) {
+			add_filter( 'manage_'.$screen.'_columns', array( $this, 'add_post_columns' ) );
+			add_action( 'manage_'.$screen.'_custom_column', array( $this, 'render_post_columns' ), 10, 2 );
+		}
+
+		add_action( 'admin_footer', array( $this, 'post_columns_css' ) );
+	}
+	 
+	function add_post_columns($columns) {
+	    $columns['wbounce'] = 'wBounce';
+	    return $columns;
+	}
+
+	function render_post_columns($column_name, $id) {
+		$select_name = $this::$select_name;
+		$wbounce_status = 'default';
+		$wbounce_title = 'Default';
+
+	    switch ($column_name) {
+	    case 'wbounce':
+	        $widget_id = get_post_meta( $id, $select_name, true );
+
+	        if ($widget_id) {
+	        	$get_post_custom = get_post_meta( $id, $select_name, true );
+		        switch ($get_post_custom) {
+		        	case 'on' :
+		        		$wbounce_status = 'on';
+		        		$wbounce_title = 'On';
+		        		break;
+		        	case 'off' :
+		        		$wbounce_status = 'off';
+		        		$wbounce_title = 'Off';
+		        		break;
+		        }
+	        }
+	    	echo '<div title="'. $wbounce_title .'" class="wbounce-status '. $wbounce_status .'"></div>';
+	    }
+
+	}
+
+	/**
+	 * Add CSS for post columns
+	 */
+	function post_columns_css() {
+		$screen = get_current_screen();
+		if ( $screen->base == 'edit' ) {
+			wp_enqueue_style( 'wbounce-edit-page', plugins_url('../css/min/edit-page.css', __FILE__) );
+		}
+	}
 
 }
 
