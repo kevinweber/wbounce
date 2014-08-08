@@ -4,8 +4,8 @@ Donate link: http://kevinw.de/donate/InlineComments/
 License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimization, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 1.0
+Tested up to: 4.0
+Stable tag: 1.1
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
 
@@ -22,11 +22,16 @@ This plugin makes it extremely easy to implement exit popups. You don't have to 
 
 Demo and more information on the developer's website: [kevinw.de/wbounce](http://kevinw.de/wbounce)
 
+= Features: =
+* Set custom content via backend
+* Add custom CSS
+* Activate/deactivate wBounce for pages and posts individually
 
 = Future features: =
 * Determine sensitivity, cookie expiration, and more! 
 * Event tracking to measure wBounce with Google Analytics (a tutorial is going to be created, too)
 * A/B testing with Google Analytics
+* Define custom content for pages and posts individually
 * ... feel free to contact me and suggest new features
 
 
@@ -38,6 +43,9 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 
 
 == Changelog ==
+
+= 1.1 =
+* New feature: Deactivate wBounce for pages and posts individually
 
 = 1.0 =
 * Plugin goes public.

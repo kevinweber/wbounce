@@ -8,17 +8,16 @@ new Wbounce_Frontend();
 class Wbounce_Frontend {
 
 	function __construct() {
-		$this->create_modal();
-		$this->add_actions();
+		add_action( 'wp_head', array( $this, 'custom_css') );
+		add_action( 'wp_footer', array( $this, 'wp_footer'), 0, WBOUNCE_OPTION_KEY.'-functions' );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_jquery' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style') );
 	}
 
 	/**
 	 * Create modal
 	 */
-	function create_modal() {
-		add_filter( 'wp_footer', array( $this, 'create_modal_content' ), 0 );
-	}
-
 	function create_modal_content() { ?>
 	
 		<div id="wbounce-modal" class="wbounce-modal" style="display:none">
@@ -69,20 +68,16 @@ class Wbounce_Frontend {
 	}
 
 	/**
-	 * Add actions
+	 * Add Code to Footer
 	 */
-	function add_actions() {
-		add_action( 'wp_head', array( $this, 'custom_css') );
-		add_action( 'wp_footer', array( $this, 'wp_footer'), 10, WBOUNCE_OPTION_KEY.'-functions' );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_jquery' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style') );
+	function wp_footer() {
+		if ($this->test_if_status_is_off()) return;
+
+		$this->create_modal_content();
+		$this->load_footer_script();
 	}
 
-	/**
-	 * Add Scripts into Footer
-	 */
-	function wp_footer() { ?>
+	function load_footer_script() { ?>
 		<script>
 
 		// // Javascript-only version (does not work work optimal on any site and in any case; no full cross-browser support)
@@ -206,6 +201,8 @@ class Wbounce_Frontend {
 	 * Add Custom CSS
 	 */
 	function custom_css(){
+		if ($this->test_if_status_is_off()) return;
+
 		echo '<style type="text/css">';
 		if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_custom_css')) != '') {
 			echo stripslashes(get_option(WBOUNCE_OPTION_KEY.'_custom_css'));
@@ -218,5 +215,13 @@ class Wbounce_Frontend {
  	 */
  	function enqueue_jquery() {
      	wp_enqueue_script( 'jquery' );
+ 	}
+
+ 	/**
+ 	 * Test if status is "off" for specific post/page
+ 	 */
+ 	function test_if_status_is_off() {
+		global $post;
+		return (get_post_meta( $post->ID, 'wbounce_status', true ) == 'off' ? true : false );
  	}
 }

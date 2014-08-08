@@ -63,8 +63,8 @@ class Wbounce_Meta {
 			<label for="wbounce_check_custom">If checked: Display ...</label>
 		</p> -->
 
-		<h4>wBounce status</h4>
-		<p><label for="<?= $select_name; ?>">Use wBounce on this page?</label></p>
+		<h4>Status</h4>
+		<p><label for="<?= $select_name; ?>">Use wBounce on this page? Default is <i>on</i>.</label></p>
 		<p>
 			<select class="select" type="select" name="<?= $select_name; ?>" id="<?= $select_name; ?>">
 			<?php $meta_element_class = get_post_meta($post->ID, $select_name, true);	?>
