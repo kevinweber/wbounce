@@ -23,7 +23,7 @@ This plugin makes it extremely easy to implement exit popups. You don't have to 
 Demo and more information on the developer's website: [kevinw.de/wbounce](http://kevinw.de/wbounce)
 
 
-Future features:
+= Future features: =
 * Determine sensitivity, cookie expiration, and more! 
 * Event tracking to measure wBounce with Google Analytics (a tutorial is going to be created, too)
 * A/B testing with Google Analytics

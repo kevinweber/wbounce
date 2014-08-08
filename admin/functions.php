@@ -19,7 +19,7 @@ if (!defined('WBOUNCE_VERSION_NUM'))
 if (!defined('WBOUNCE_VERSION_KEY'))
     define('WBOUNCE_VERSION_KEY', WBOUNCE_OPTION_KEY.'_version');
 // Store the plugin version for upgrades
-add_option( WBOUNCE_VERSION_KEY, WBOUNCE_VERSION_NUM );
+add_option(WBOUNCE_VERSION_KEY, WBOUNCE_VERSION_NUM);
 
 
 if ( !defined( 'WBOUNCE_PLUGIN_NAME' ) ) {
@@ -68,7 +68,7 @@ class Wbounce_Init {
 	}
 	function admin_init() {
 		require_once( WBOUNCE_PATH . 'admin/class-admin-options.php' );
-		require_once( WBOUNCE_PATH . 'admin/class-meta.php' );
+		require_once( INCOM_PATH . 'admin/class-meta-boxes.php' );
 	}
 
 	function frontend_init() {
