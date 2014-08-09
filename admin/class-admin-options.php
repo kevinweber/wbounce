@@ -55,7 +55,7 @@ class Wbounce_Admin_Options {
 			<h2><?= WBOUNCE_PLUGIN_NAME ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#tab-content">Content <span class="newred_dot"></a></li>
+		        <li><a href="#tab-content">Content <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#tab-options">Options</a></li>
 		        <li><a href="#tab-styling">Styling</a></li>
 		        <li><a href="#tab-analytics">Analytics</a></li>

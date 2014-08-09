@@ -46,7 +46,7 @@ class Wbounce_Meta {
 		$select_name = $this::$select_name;
 			$selected = isset( $values[$select_name] ) ? esc_attr( $values[$select_name][0] ) : '';
 
-		wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+		wp_nonce_field( 'wbounce_meta_box_nonce', 'meta_box_nonce' );
 
 		?>
 
@@ -64,7 +64,7 @@ class Wbounce_Meta {
 		</p> -->
 
 		<h4>Status</h4>
-		<p><label for="<?= $select_name; ?>">Use wBounce on this page? Default is <i>on</i>.</label></p>
+		<p><label for="<?= $select_name; ?>">Use wBounce on this <?= get_current_screen()->post_type; ?>?</label></p>
 		<p>
 			<select class="select" type="select" name="<?= $select_name; ?>" id="<?= $select_name; ?>">
 			<?php $meta_element_class = get_post_meta($post->ID, $select_name, true);	?>
@@ -82,7 +82,7 @@ class Wbounce_Meta {
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 		
 		// If our nonce isn't there, or we can't verify it, bail
-		if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+		if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'wbounce_meta_box_nonce' ) ) return;
 		
 		// Now we can actually save the data
 		$allowed = array( 
