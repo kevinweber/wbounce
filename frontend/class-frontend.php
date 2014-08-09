@@ -228,6 +228,7 @@ class Wbounce_Frontend {
 			return true;
 		}
 		else if (
+			( !get_option(WBOUNCE_OPTION_KEY.'_status_default') ) ||	// Fire when no option is defined yet
 			( get_post_meta( $post->ID, 'wbounce_status', true ) === 'on' ) ||
 			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on' ) ||
 			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts' && is_single() ) ||
