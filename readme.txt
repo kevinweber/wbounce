@@ -25,13 +25,14 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 = Features: =
 * Set custom content via backend
 * Add custom CSS
-* Activate/deactivate wBounce for pages and posts individually
+* Set default status: Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.
 
 = Future features: =
 * Determine sensitivity, cookie expiration, and more! 
 * Event tracking to measure wBounce with Google Analytics (a tutorial is going to be created, too)
 * A/B testing with Google Analytics
 * Define custom content for pages and posts individually
+* Bulk edit
 * ... feel free to contact me and suggest new features
 
 
@@ -46,6 +47,7 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 
 = 1.1 =
 * New feature: Deactivate wBounce for pages and posts individually (“wBounce status”)
+* New feature: Define if wBounce should be fired on posts and/or pages by default
 * New feature: The wBounce status can be seen in an additional column on the overview for posts and pages
 
 = 1.0 =
