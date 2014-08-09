@@ -206,8 +206,16 @@ class Wbounce_Admin_Options {
 			        <td>
 						<p><b>It's easy:</b> You increase sales thanks to my plugin. In exchange, you donate at least <a href="http://kevinw.de/donate/wBounce/" title="Donate me" target="_blank">9,37€</a> so I can further develop it. And please, give this plugin a 5 star rating <a href="http://wordpress.org/support/view/plugin-reviews/wbounce?filter=5" title="Vote for wBounce" target="_blank">on WordPress.org</a>.</p>
 			        </td>       
-		        <td>
-					<p><b>Speed up your site</b> by replacing embedded Youtube and Vimeo videos with a clickable preview image: <a href="http://kevinw.de/wb-ll" title="Lazy Load for Videos" target="_blank">Lazy Load for Videos</a>.</p>
+		        <td style="width:300px;">
+					<p>
+						<b>Personal tip: Must use plugins</b>
+						<ol>
+							<li><a href="http://kevinw.de/wb-ic" title="Inline Comments" target="_blank">Inline Comments</a> (on my part)</li>
+							<li><a href="https://yoast.com/wordpress/plugins/seo/" title="WordPress SEO by Yoast" target="_blank">WordPress SEO</a> (by Yoast)</li>
+							<li><a href="http://kevinw.de/wb-ll" title="Lazy Load for Videos" target="_blank">Lazy Load for Videos</a> (on my part)</li>
+							<li><a href="https://wordpress.org/plugins/broken-link-checker/" title="Broken Link Checker" target="_blank">Broken Link Checker</a> (by Janis Elsts)</li>
+						</ol>
+					</p>
 		        </td>
 		        </tr>
 			</table>
