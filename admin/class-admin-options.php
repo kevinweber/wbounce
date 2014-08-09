@@ -33,6 +33,7 @@ class Wbounce_Admin_Options {
 		$arr = array(	// Use these options like this: WBOUNCE_OPTION_KEY.'_content'
 			// Tab 'Content'
 			'_test_mode',
+			'_status_default',
 			'_content',
 			// Tab 'Options'
 			'_aggressive_mode',
@@ -40,7 +41,7 @@ class Wbounce_Admin_Options {
 			// Tab 'Styling'
 			'_custom_css',
 			// Tab 'Analytics'
-			//...
+			//... more to come
 		);
 		foreach ( $arr as $i ) {
 			register_setting( WBOUNCE_OPTION_KEY.'-settings-group', WBOUNCE_OPTION_KEY.$i );
@@ -54,7 +55,7 @@ class Wbounce_Admin_Options {
 			<h2><?= WBOUNCE_PLUGIN_NAME ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#tab-content">Content</a></li>
+		        <li><a href="#tab-content">Content <span class="newred_dot"></a></li>
 		        <li><a href="#tab-options">Options</a></li>
 		        <li><a href="#tab-styling">Styling</a></li>
 		        <li><a href="#tab-analytics">Analytics</a></li>
@@ -75,6 +76,17 @@ class Wbounce_Admin_Options {
 						        <th scope="row">Test Mode</th>
 						        <td>
 									<input name="<?= WBOUNCE_OPTION_KEY ?>_test_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_test_mode' ) ); ?> /> <label>Check this option to enable "Aggressive Mode" <b>for admins</b>, regardless of the actual setting in the tab "Options".</label>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+					        	<th scope="row">Default Status <span class="newred">New!</span></th>
+						        <td>
+									<select class="select" typle="select" name="<?= WBOUNCE_OPTION_KEY ?>_status_default">
+								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>>Fire on every post and page</option>
+								    	<option value="on_posts"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts') { echo ' selected="selected"'; } ?>>Fire on posts</option>
+		     							<option value="on_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages') { echo ' selected="selected"'; } ?>>Fire on pages</option>
+		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>>Don't fire by default</option>									</select>
+									<p>Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.</p>
 						        </td>
 					        </tr>
 					        <tr valign="top">

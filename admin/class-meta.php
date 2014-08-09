@@ -101,7 +101,7 @@ class Wbounce_Meta {
 		// $chk = ( isset( $_POST['wbounce_check_custom'] ) && $_POST['wbounce_check_custom'] ) ? 'on' : 'off';
 		// update_post_meta( $post_id, 'wbounce_check_custom', $chk );
 
-		// SELECTION
+		// SELECT
 		$select_name = $this::$select_name;
 		if( isset( $_POST[$select_name] ) )
 			update_post_meta( $post_id, $select_name, esc_attr( $_POST[$select_name] ) );

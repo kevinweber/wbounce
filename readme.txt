@@ -1,8 +1,8 @@
-=== Plugin Name ===
+=== wBounce ===
 Contributors: kevinweber
 Donate link: http://kevinw.de/donate/InlineComments/
 License: MIT
-Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimization, free, plugin, wordpress, marketing, landing page
+Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.0
 Tested up to: 4.0
 Stable tag: 1.1
@@ -39,13 +39,14 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 
 1. Upload wBounce into you plugin directory (/wp-content/plugins/) and activate the plugin through the 'Plugins' menu in WordPress.
 2. Configure the plugin via the admin backend.
-3. Optionally: Sign up to the wBounce newsletter to get notified about updates.
+3. Optionally: Sign up to the wBounce newsletter to get notified about major updates.
 
 
 == Changelog ==
 
 = 1.1 =
-* New feature: Deactivate wBounce for pages and posts individually
+* New feature: Deactivate wBounce for pages and posts individually (“wBounce status”)
+* New feature: The wBounce status can be seen in an additional column on the overview for posts and pages
 
 = 1.0 =
 * Plugin goes public.
