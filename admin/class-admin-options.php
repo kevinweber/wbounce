@@ -55,7 +55,7 @@ class Wbounce_Admin_Options {
 			<h2><?= WBOUNCE_PLUGIN_NAME ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#tab-content">Content <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#tab-content">Content <span class="newred_dot"></a></li>
 		        <li><a href="#tab-options">Options</a></li>
 		        <li><a href="#tab-styling">Styling</a></li>
 		        <li><a href="#tab-analytics">Analytics</a></li>
@@ -82,7 +82,7 @@ class Wbounce_Admin_Options {
 					        	<th scope="row">Default Status <span class="newred">New!</span></th>
 						        <td>
 									<select class="select" typle="select" name="<?= WBOUNCE_OPTION_KEY ?>_status_default">
-								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>>Fire on posts and pages</option>
+								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>>Always fire</option>
 								    	<option value="on_posts"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts') { echo ' selected="selected"'; } ?>>Fire on posts</option>
 		     							<option value="on_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages') { echo ' selected="selected"'; } ?>>Fire on pages</option>
 		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>>Don't fire</option>									</select>

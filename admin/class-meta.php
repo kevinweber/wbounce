@@ -46,7 +46,7 @@ class Wbounce_Meta {
 		$select_name = $this::$select_name;
 			$selected = isset( $values[$select_name] ) ? esc_attr( $values[$select_name][0] ) : '';
 
-		wp_nonce_field( 'wbounce_meta_box_nonce', 'meta_box_nonce' );
+		wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
 
 		?>
 
@@ -82,7 +82,7 @@ class Wbounce_Meta {
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 		
 		// If our nonce isn't there, or we can't verify it, bail
-		if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'wbounce_meta_box_nonce' ) ) return;
+		if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
 		
 		// Now we can actually save the data
 		$allowed = array( 
