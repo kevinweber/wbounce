@@ -185,6 +185,11 @@ class Wbounce_Admin_Options {
 					        		</span>
 					        	</td>
 					        </tr>
+					        <tr valign="top">
+						        <th scope="row" style="color: red">MORE TO COME<br><span class="description thin">with the next updates</span></th>
+						        <td>
+						        </td>
+					        </tr>
 					    </tbody>
 				    </table>
 
