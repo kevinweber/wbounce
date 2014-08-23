@@ -45,10 +45,12 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 
 == Changelog ==
 
-= 1.1 =
-* New feature: Deactivate wBounce for pages and posts individually (“wBounce status”)
-* New feature: Define if wBounce should be fired on posts and/or pages by default
-* New feature: The wBounce status can be seen in an additional column on the overview for posts and pages
+= 1.1.1 =
+* New feature: Deactivate wBounce for pages and posts individually (“wBounce status”).
+* New feature: Define if wBounce should be fired on posts and/or pages by default.
+* New feature: The wBounce status can be seen in an additional column on the overview for posts and pages.
+* New feature: Sensitivity.
+* New feature: Cookie expiration. wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user. 
 
 = 1.0 =
 * Plugin goes public.

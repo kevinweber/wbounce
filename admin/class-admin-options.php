@@ -37,7 +37,9 @@ class Wbounce_Admin_Options {
 			'_content',
 			// Tab 'Options'
 			'_aggressive_mode',
+			'_cookieexpire',
 			'_timer',
+			'_sensitivity',
 			// Tab 'Styling'
 			'_custom_css',
 			// Tab 'Analytics'
@@ -55,8 +57,8 @@ class Wbounce_Admin_Options {
 			<h2><?= WBOUNCE_PLUGIN_NAME ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#tab-content">Content <span class="newred_dot"></a></li>
-		        <li><a href="#tab-options">Options</a></li>
+		        <li><a href="#tab-content">Content <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#tab-options">Options <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#tab-styling">Styling</a></li>
 		        <li><a href="#tab-analytics">Analytics</a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
@@ -73,13 +75,13 @@ class Wbounce_Admin_Options {
 				    <table class="form-table">
 					    <tbody>
 					        <tr valign="top">
-						        <th scope="row">Test Mode</th>
+						        <th scope="row">Test mode</th>
 						        <td>
 									<input name="<?= WBOUNCE_OPTION_KEY ?>_test_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_test_mode' ) ); ?> /> <label>Check this option to enable "Aggressive Mode" <b>for admins</b>, regardless of the actual setting in the tab "Options".</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row">Default Status <span class="newred">New!</span></th>
+					        	<th scope="row">Default status <span class="newred">New!</span></th>
 						        <td>
 									<select class="select" typle="select" name="<?= WBOUNCE_OPTION_KEY ?>_status_default">
 								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>>Always fire</option>
@@ -90,7 +92,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row">wBounce Content <span class="description thin"><br>Add code that should be displayed within the wBounce window.</span></th>
+					        	<th scope="row">wBounce content <span class="description thin"><br>Add code that should be displayed within the wBounce window.</span></th>
 					        	<td>
 					        		<textarea rows="14" cols="70" type="text" name="<?= WBOUNCE_OPTION_KEY ?>_content" placeholder="Exemplary template below."><?php echo get_option(WBOUNCE_OPTION_KEY.'_content'); ?></textarea>
 					        		<span>
@@ -131,15 +133,27 @@ class Wbounce_Admin_Options {
 				    <table class="form-table">
 					    <tbody>
 					        <tr valign="top">
-						        <th scope="row">Aggressive Mode</th>
+						        <th scope="row">Aggressive mode</th>
 						        <td>
 									<input name="<?= WBOUNCE_OPTION_KEY ?>_aggressive_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_aggressive_mode' ) ); ?> /> <label>By default, wBounce will only fire once for each visitor. When wBbounce fires, a cookie is created to ensure a non obtrusive experience.<br><br>There are cases, however, when you may want to be more aggressive (as in, you want the modal to be elegible to fire anytime the page is loaded/ reloaded). An example use-case might be on your paid landing pages. If you enable aggressive, the modal will fire any time the page is reloaded, for the same user.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row">Timer</th>
+						        <th scope="row">Cookie expiration <span class="newred">New!</span></th>
+						        <td>
+						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_cookieexpire" placeholder="days" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookieexpire'); ?>" /><br><label>wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user. By default, the cookie will expire at the end of the session, which for most browsers is when the browser is closed entirely.</label>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row">Set a min time<br><span class="description thin">&hellip; before wBounce fires.</span></th>
 						        <td>
 						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_timer" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_timer'); ?>" /><br><label>By default, wBounce won't fire in the first second to prevent false positives, as it's unlikely the user will be able to exit the page within less than a second. If you want to change the amount of time that firing is surpressed for, you can pass in a number of milliseconds to timer.<br><b>Insert 0 to fire immediately.</b></label>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row">Sensitivity <span class="newred">New!</span></th>
+						        <td>
+						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_sensitivity" placeholder="20" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_sensitivity'); ?>" /><br><label>wBounce fires when the mouse cursor moves close to (or passes) the top of the viewport. You can define how far the mouse has to be before wBounce fires. The higher value, the more sensitive, and the more quickly the event will fire. Defaults to 20.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">

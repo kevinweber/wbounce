@@ -92,10 +92,32 @@ class Wbounce_Frontend {
 	      		) {
 	      			echo 'aggressive:true,';
 		      	}
-	      		// Timer
+		      	// Cookie expiration
+	      		if ( get_option(WBOUNCE_OPTION_KEY.'_cookieexpire') != "" ) {
+	      			echo 'cookieExpire:'.get_option(WBOUNCE_OPTION_KEY.'_cookieexpire').',';
+	      		}
+
+	      		// Cookie domain
+	      		// ...
+
+	      		// Sitewide cookie
+	      		// ...
+
+	      		// Timer (Set a min time before Ouibounce fires)
 	      		if ( get_option(WBOUNCE_OPTION_KEY.'_timer') != "" ) {
 	      			echo 'timer:'.get_option(WBOUNCE_OPTION_KEY.'_timer').',';
 	      		}
+	      		// Delay
+	      		// ...
+
+	      		// Sensitivity
+	      		if ( get_option(WBOUNCE_OPTION_KEY.'_sensitivity') != "" ) {
+	      			echo 'sensitivity:'.get_option(WBOUNCE_OPTION_KEY.'_sensitivity').',';
+	      		}
+
+	      		// Callback
+	      		// ...
+	      		
 		      	?>
 		      });
 
