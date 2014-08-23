@@ -87,8 +87,10 @@ class Wbounce_Admin_Options {
 								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>>Always fire</option>
 								    	<option value="on_posts"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts') { echo ' selected="selected"'; } ?>>Fire on posts</option>
 		     							<option value="on_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages') { echo ' selected="selected"'; } ?>>Fire on pages</option>
-		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>>Don't fire</option>									</select>
+		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>>Don't fire</option>
+		     						</select>
 									<p>Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.</p>
+						        	<p><i>Thanks to <a href="http://www.logoworks.com" target="_blank" title="Logoworks">Logoworks</a> for their amazing donation to make me develop this feature with priority! You can also push developement: <a href="http://kevinw.de/kontakt" title="Contact Kevin Weber" target="_blank">contact me</a>.</i></p>
 						        </td>
 					        </tr>
 					        <tr valign="top">

@@ -5,7 +5,7 @@ License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
 
@@ -54,7 +54,8 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 * New feature: Define if wBounce should be fired on posts and/or pages by default.
 * New feature: The wBounce status can be seen in an additional column on the overview for posts and pages.
 * New feature: Sensitivity.
-* New feature: Cookie expiration. wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user. 
+* New feature: Cookie expiration. wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user.
+* wBounce is ready for WordPress 4.0.
 
 = 1.0 =
 * Plugin goes public.
