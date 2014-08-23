@@ -149,7 +149,7 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row">Set a min time<br><span class="description thin">&hellip; before wBounce fires.</span></th>
 						        <td>
-						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_timer" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_timer'); ?>" /><br><label>By default, wBounce won't fire in the first second to prevent false positives, as it's unlikely the user will be able to exit the page within less than a second. If you want to change the amount of time that firing is surpressed for, you can pass in a number of milliseconds to timer.<br><b>Insert 0 to fire immediately.</b></label>
+						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_timer" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_timer'); ?>" /><br><label>By default, wBounce won't fire in the first second to prevent false positives, as it's unlikely the user will be able to exit the page within less than a second. If you want to change the amount of time that firing is surpressed for, you can pass in a number of milliseconds to timer.<br>Insert 0 to fire immediately.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">

@@ -32,7 +32,7 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 * Determine cookie domain, delay, and more!
 * Display popup on enter
 * Templates
-* Styling options (e.g., display "x" icon to close the popup, set background transparency, ...)
+* Styling options (display "x" icon to close the popup, set background transparency, ...)
 * Define custom content for pages and posts individually
 * Intelligent timer (e.g., display popup when the user is inactive for a certain time period)
 * Event tracking to measure wBounce with Google Analytics (a tutorial is going to be created, too)
@@ -75,4 +75,4 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 2. Admin panel tab "content".
 3. Admin panel tab "options".
 4. Meta box besides post editor (v1.1).
-5. Post column displays status.
+5. Post column displays status (v1.1).
