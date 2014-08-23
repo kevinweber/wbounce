@@ -24,14 +24,18 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 
 = Features: =
 * Set custom content via backend
+* Determine sensitivity, cookie expiration, ... 
 * Add custom CSS
 * Set default status: Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.
 
 = Future features: =
-* Determine sensitivity, cookie expiration, and more! 
+* Determine cookie domain, delay, and more!
+* Display popup on enter
+* Templates
+* Define custom content for pages and posts individually
+* Intelligent timer (e.g., display popup when the user is inactive for a certain time period)
 * Event tracking to measure wBounce with Google Analytics (a tutorial is going to be created, too)
 * A/B testing with Google Analytics
-* Define custom content for pages and posts individually
 * Bulk edit
 * ... feel free to contact me and suggest new features
 
@@ -68,3 +72,5 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 1. Screenshot of a site that uses wBounce.
 2. Admin panel tab "content".
 3. Admin panel tab "options".
+4. Meta box besides post editor (v1.1).
+5. Post column displays status.
