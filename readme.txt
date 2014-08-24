@@ -48,6 +48,14 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 3. Optionally: Sign up to the wBounce newsletter to get notified about major updates.
 
 
+== Frequently Asked Questions ==
+
+= Does wBounce work with MailChimp, aWeber, GetResponse? =
+Yes! You can use any form from every newsletter service since you can insert HTML code into the "wBounce content" text field. Simply copy the form code that's provided by MailChimp (or any other newsletter service) into the "wBounce content" text field.
+
+Additionally, you can add CSS using the "Custom CSS" text field.
+
+
 == Changelog ==
 
 = 1.1.1 =

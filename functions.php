@@ -9,7 +9,6 @@
  * License: MIT
  * Text Domain: wbounce
 */
-
 if ( !defined( 'WBOUNCE_OPTION_KEY' ) ) {
 	define( 'WBOUNCE_OPTION_KEY', 'wbounce' );
 }
