@@ -141,6 +141,8 @@ class Wbounce_Frontend {
 	 * Add scripts (like JS)
 	 */
 	function enqueue_scripts() {
+		if ($this->test_if_status_is_off()) return;
+		
 		wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/min/'.WBOUNCE_OPTION_KEY.'-ck.js' , plugin_dir_path( __FILE__ ) ) );	
 	}
 
@@ -148,6 +150,8 @@ class Wbounce_Frontend {
 	 * Add stylesheet
 	 */
 	function enqueue_style() {
+		if ($this->test_if_status_is_off()) return;
+
 		wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'.css', plugin_dir_path( __FILE__ ) ) );
 		wp_register_style( WBOUNCE_OPTION_KEY.'-extended-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'_extended.css', plugin_dir_path( __FILE__ ) ) );
 		wp_enqueue_style( array( WBOUNCE_OPTION_KEY.'-style', WBOUNCE_OPTION_KEY.'-extended-style' ) );
@@ -170,6 +174,8 @@ class Wbounce_Frontend {
  	 * Enable jQuery (comes with WordPress)
  	 */
  	function enqueue_jquery() {
+ 		if ($this->test_if_status_is_off()) return;
+
      	wp_enqueue_script( 'jquery' );
  	}
 
