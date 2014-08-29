@@ -25,7 +25,7 @@ class Wbounce_Frontend {
 			<div id="wbounce-modal-sub" class="modal">
 				<?php 
 					if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
-						echo stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content'));
+						echo do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) );
 					}
 					else {
 						$this->create_modal_content_default();
@@ -44,7 +44,7 @@ class Wbounce_Frontend {
 	        <div class="modal-body" style="text-align:center">
 
 	        	<p><a href="http://kevinw.de/" target="_blank"><img src="http://www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></p>
-				<p><a href="http://kevinw.de/" target="_blank" style="color:#009000;font-size:20px"><h4>wBounce by Kevin Weber</h4></a></p>
+				<p><a href="http://kevinw.de/wbounce" target="_blank" style="color:#009000;font-size:20px"><h4>wBounce by Kevin Weber</h4></a></p>
 				<p style="font-size:15px">I\'m the developer of this plugin. Feel free to contact and follow me <a href="https://twitter.com/kevinweber" title="Kevin Weber on Twitter" target="_blank" style="color:#4099FF">on Twitter</a>. And subscribe to my list for WordPress enthusiasts:</p>
 
 				<div id="mc_embed_signup">

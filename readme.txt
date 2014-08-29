@@ -5,7 +5,7 @@ License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
 
@@ -58,8 +58,12 @@ Additionally, you can add CSS using the "Custom CSS" text field.
 
 == Changelog ==
 
+= 1.1.2 =
+* Improvement: Only load scripts and CSS when they are actually needed.
+* Improvement: Added support for shortcodes that are inserted into the "wBounce content" text area.
+
 = 1.1.1 =
-* New feature: Deactivate wBounce for pages and posts individually (“wBounce status”).
+* New feature: Deactivate wBounce for pages and posts individually ("wBounce status").
 * New feature: Define if wBounce should be fired on posts and/or pages by default.
 * New feature: The wBounce status can be seen in an additional column on the overview for posts and pages.
 * New feature: Sensitivity.
