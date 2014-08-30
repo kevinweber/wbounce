@@ -103,12 +103,15 @@ class Wbounce_Frontend {
 	      		// Sitewide cookie
 	      		// ...
 
-	      		// Timer (Set a min time before Ouibounce fires)
+	      		// Timer (Set a min time before wBounce fires)
 	      		if ( get_option(WBOUNCE_OPTION_KEY.'_timer') != "" ) {
 	      			echo 'timer:'.get_option(WBOUNCE_OPTION_KEY.'_timer').',';
 	      		}
-	      		// Delay
-	      		// ...
+
+	      		// Hesitation
+	      		if ( get_option(WBOUNCE_OPTION_KEY.'_hesitation') != "" ) {
+	      			echo 'delay:'.get_option(WBOUNCE_OPTION_KEY.'_hesitation').',';
+	      		}
 
 	      		// Sensitivity
 	      		if ( get_option(WBOUNCE_OPTION_KEY.'_sensitivity') != "" ) {
@@ -117,6 +120,9 @@ class Wbounce_Frontend {
 
 	      		// Callback
 	      		// ...
+	      		// Delay
+	      		// ...
+
 	      		
 		      	?>
 		      });
