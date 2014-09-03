@@ -20,8 +20,7 @@ class Wbounce_Frontend {
 	 */
 	function create_modal_content() { ?>
 	
-		<div id="wbounce-modal" class="wbounce-modal" style="display:none">
-			<div class="underlay"></div>
+		<div id="wbounce-modal" class="wbounce-modal underlay" style="display:none">
 			<div id="wbounce-modal-sub" class="modal">
 				<?php 
 					if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
