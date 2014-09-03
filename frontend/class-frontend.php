@@ -158,8 +158,7 @@ class Wbounce_Frontend {
 		if ($this->test_if_status_is_off()) return;
 
 		wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'.css', plugin_dir_path( __FILE__ ) ) );
-		wp_register_style( WBOUNCE_OPTION_KEY.'-extended-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'_extended.css', plugin_dir_path( __FILE__ ) ) );
-		wp_enqueue_style( array( WBOUNCE_OPTION_KEY.'-style', WBOUNCE_OPTION_KEY.'-extended-style' ) );
+		wp_enqueue_style( WBOUNCE_OPTION_KEY.'-style' );
 	}
 
 	/**
