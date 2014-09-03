@@ -68,7 +68,7 @@ class Wbounce_Init {
 	}
 	function admin_init() {
 		require_once( WBOUNCE_PATH . 'admin/class-admin-options.php' );
-		require_once( INCOM_PATH . 'admin/class-meta-boxes.php' );
+		require_once( WBOUNCE_PATH . 'admin/class-meta-boxes.php' );
 	}
 
 	function frontend_init() {

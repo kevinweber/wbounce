@@ -120,7 +120,7 @@ class Wbounce_Frontend {
 
 	      		// Callback
 	      		// ...
-	      		// Delay
+	      		// Delay/Intelligent timer
 	      		// ...
 
 	      		
