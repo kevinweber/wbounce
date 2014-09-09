@@ -5,7 +5,7 @@
 
 class Wbounce_Meta {
 
-	static $select_name = 'wbounce_status';
+	private $select_name = 'wbounce_status';
 
 	function __construct() {
 		$this->init_meta_boxes();
@@ -43,7 +43,7 @@ class Wbounce_Meta {
 		// $text = isset( $values['oembed_link'] ) ? esc_attr( $values['oembed_link'][0] ) : '';
 		// $check = isset( $values['wbounce_check_custom'] ) ? esc_attr( $values['wbounce_check_custom'][0] ) : '';
 		
-		$select_name = $this::$select_name;
+		$select_name = $this->select_name;
 			$selected = isset( $values[$select_name] ) ? esc_attr( $values[$select_name][0] ) : '';
 
 		wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
@@ -102,7 +102,7 @@ class Wbounce_Meta {
 		// update_post_meta( $post_id, 'wbounce_check_custom', $chk );
 
 		// SELECT
-		$select_name = $this::$select_name;
+		$select_name = $this->select_name;
 		if( isset( $_POST[$select_name] ) )
 			update_post_meta( $post_id, $select_name, esc_attr( $_POST[$select_name] ) );
 		

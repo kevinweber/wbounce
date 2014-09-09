@@ -59,9 +59,11 @@ Additionally, you can add CSS using the "Custom CSS" text field.
 == Changelog ==
 
 = 1.2 =
-* Improvement: Only load scripts and CSS when they are actually needed.
 * Improvement: Added support for shortcodes that are inserted into the "wBounce content" text area.
 * New feature: Hesitation. wBounce waits x milliseconds before showing the model when the user's cursor leaves the window.
+* Improvement: Only load scripts and CSS when they are actually needed.
+* Improvement: Merged CSS from two files into one.
+* Fixed "unexpected T_PAAMAYIM_NEKUDOTAYIM".
 
 = 1.1.1 =
 * New feature: Deactivate wBounce for pages and posts individually ("wBounce status").
