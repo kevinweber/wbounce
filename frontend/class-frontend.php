@@ -2,9 +2,6 @@
 /**
  * @package Frontend
  */
-
-new Wbounce_Frontend();
-
 class Wbounce_Frontend {
 
 	function __construct() {
@@ -213,3 +210,5 @@ class Wbounce_Frontend {
 			return true;
  	}
 }
+
+new Wbounce_Frontend();

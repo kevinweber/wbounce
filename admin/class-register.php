@@ -3,7 +3,6 @@
  * register_activation_hook() and register_deactivation_hook() MUST NOT be called with action 'plugins_loaded' or any 'admin_init'
  * @package Admin
  */
-
 class Wbounce_Register {
 
 	function __construct() {

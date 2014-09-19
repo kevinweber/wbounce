@@ -2,7 +2,6 @@
 /**
  * @package Admin
  */
-
 class Wbounce_Admin_Options {
 
 	function __construct() {

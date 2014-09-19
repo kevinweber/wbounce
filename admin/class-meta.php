@@ -2,7 +2,6 @@
 /**
  * @package Admin
  */
-
 class Wbounce_Meta {
 
 	private $select_name = 'wbounce_status';
