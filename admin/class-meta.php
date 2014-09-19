@@ -132,7 +132,7 @@ class Wbounce_Meta {
 	}
 
 	function render_post_columns($column_name, $id) {
-		$select_name = $this::$select_name;
+		$select_name = $this->select_name;
 		$wbounce_status = 'default';
 		$wbounce_title = 'Default';
 
