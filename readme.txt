@@ -24,7 +24,7 @@ Demo and more information on the developer's website: [kevinw.de/wbounce](http:/
 
 = Features: =
 * Set custom content via backend
-* Determine sensitivity, cookie expiration, ... 
+* Determine sensitivity, cookie expiration, hesitation, ... 
 * Add custom CSS
 * Set default status: Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.
 
