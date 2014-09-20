@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: wBounce
- * Plugin URI: http://kevinw.de/wbounce
+ * Plugin URI: http://kevinw.de/wbounce/
  * Description: wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
  * Author: Kevin Weber
  * Version: 1.2.1

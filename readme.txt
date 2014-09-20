@@ -1,6 +1,6 @@
 === wBounce ===
 Contributors: kevinweber
-Donate link: http://kevinw.de/donate/InlineComments/
+Donate link: http://kevinw.de/donate/wBounce/
 License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.0
