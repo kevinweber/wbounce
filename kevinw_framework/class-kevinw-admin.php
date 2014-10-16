@@ -12,6 +12,7 @@ class Kevinw_Admin {
 		$option_optionPageUrlName = 'option_page_url_name';
 		$option_optionKey = 'option_key';
 
+		require_once( 'admin/class-admin-options.php' );
 		$kevinw_admin_options = new Kevinw_Admin_Options();
 
 		// $option_optionPageUrlName
