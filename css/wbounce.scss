@@ -148,7 +148,7 @@ $white: #fff;
       text-transform: uppercase;
       font-weight: bold;
       padding: 12px;
-      font-size: 1.1em;
+      font-size: 14px;
       border-radius: 4px;
       color: $white;
       background-image: none;
@@ -157,6 +157,10 @@ $white: #fff;
       cursor: pointer;
       -webkit-font-smoothing: antialiased;
     }
+  }
+
+  .byline, .updated {
+    display: block;
   }
 
   .modal-footer {
