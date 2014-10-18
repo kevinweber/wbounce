@@ -58,6 +58,9 @@ Additionally, you can add CSS using the "Custom CSS" text field.
 
 == Changelog ==
 
+= 1.2.2 =
+* Renamed functions.php to wbounce.php.
+
 = 1.2.1 =
 * Fixed broken post view
 
@@ -82,6 +85,9 @@ Additionally, you can add CSS using the "Custom CSS" text field.
 
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+* Renamed functions.php to wbounce.php. This will cause your WordPress site to automatically deactivate wBounce. So you simply have to activate it again, that’s it.
 
 = 1.0 =
 * Plugin goes public.
