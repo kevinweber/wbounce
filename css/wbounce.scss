@@ -47,6 +47,10 @@ $white: #fff;
   height: 100%;
   z-index: 9999;
   overflow: scroll;
+  @include vendor-prefix( box-sizing, border-box );
+  * {
+    @include vendor-prefix( box-sizing, border-box );
+  }
 
   &.underlay {
     width: 100%;
