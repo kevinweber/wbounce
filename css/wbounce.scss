@@ -63,6 +63,10 @@ $white: #fff;
     @include vendor-prefix (animation, fadein 0.5s);
   }
 
+  .wbounce-modal-sub {
+    display: block;
+  }
+  
   .modal {
     max-width: 95%;
     max-height: 95%;
