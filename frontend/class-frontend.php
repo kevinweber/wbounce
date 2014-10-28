@@ -16,9 +16,8 @@ class Wbounce_Frontend {
 	 * Create modal
 	 */
 	function create_modal_content() { ?>
-	
 		<div id="wbounce-modal" class="wbounce-modal underlay" style="display:none">
-			<div id="wbounce-modal-sub" class="modal">
+			<div id="wbounce-modal-sub" class="wbounce-modal-sub modal">
 				<?php 
 					if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
 						echo do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) );
@@ -131,7 +130,7 @@ class Wbounce_Frontend {
 		        $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal').hide();
 		      });
 
-		      $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal .modal').on('click', function(e) {
+		      $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal-sub').on('click', function(e) {
 		        e.stopPropagation();
 		      });
 

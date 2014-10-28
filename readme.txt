@@ -18,7 +18,7 @@ wBounce is the free alternative to charged services like Bounce Exchange or Opti
 
 One concern in everyone's interest: Make sure to provide VALUE when you use wBounce and don't spam your visitors.
 
-This plugin makes it extremely easy to implement exit popups. You don't have to manually "hack" your WordPress theme. Just activate and modify it via your admin backend.
+This plugin makes it extremely easy to implement exit popups. You don't have to manually "hack" your WordPress theme. Just activate and modify it via your admin backend. It works with WordPress Multisite so that you can define a wBounce template for each site in your network.
 
 Demo and more information on the developer's website: [kevinw.de/wbounce](http://kevinw.de/wbounce)
 
@@ -59,10 +59,12 @@ Additionally, you can add CSS using the "Custom CSS" text field.
 == Changelog ==
 
 = 1.2.2 =
-* Renamed functions.php to wbounce.php.
+* Renamed functions.php to wbounce.php. (This will cause your WordPress site to automatically deactivate wBounce. So you simply have to activate it again, that’s it.)
+* Fix: Added CSS "box-sizing: border-box".
+* Fix: Added CSS to make wBounce work with themes that use Bootstrap 3.
 
 = 1.2.1 =
-* Fixed broken post view
+* Fixed broken post view.
 
 = 1.2 =
 * Improvement: Added support for shortcodes that are inserted into the "wBounce content" text area.
