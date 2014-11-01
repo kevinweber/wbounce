@@ -26,6 +26,10 @@ if ( !defined( 'WBOUNCE_PLUGIN_NAME' ) ) {
 	define( 'WBOUNCE_PLUGIN_NAME', 'wBounce' );
 }
 
+if ( !defined( 'WBOUNCE_TD' ) ) {
+	define( 'WBOUNCE_TD', 'wbounce' ); // = text domain (used for translations)
+}
+
 if ( !defined( 'WBOUNCE_FILE' ) ) {
 	define( 'WBOUNCE_FILE', __FILE__ );
 }
