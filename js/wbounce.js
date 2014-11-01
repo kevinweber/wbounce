@@ -17,6 +17,7 @@ return function ouibounce(el, config) {
     callback     = config.callback || function() {},
     cookieExpire = setDefaultCookieExpire(config.cookieExpire) || '',
     cookieDomain = config.cookieDomain ? ';domain=' + config.cookieDomain : '',
+    cookieName   = config.cookieName ? config.cookieName : 'viewedOuibounceModal',
     sitewide     = config.sitewide === true ? ';path=/' : '',
     _delayTimer  = null,
     _html        = document.documentElement;
@@ -43,7 +44,7 @@ return function ouibounce(el, config) {
   }
 
   function handleMouseleave(e) {
-    if (e.clientY > sensitivity || (checkCookieValue('viewedOuibounceModal', 'true') && !aggressive)) return;
+    if (e.clientY > sensitivity || (checkCookieValue(cookieName, 'true') && !aggressive)) return;
 
     _delayTimer = setTimeout(_fireAndCallback, delay);
   }
@@ -57,7 +58,7 @@ return function ouibounce(el, config) {
 
   var disableKeydown = false;
   function handleKeydown(e) {
-    if (disableKeydown || checkCookieValue('viewedOuibounceModal', 'true') && !aggressive) return;
+    if (disableKeydown || checkCookieValue(cookieName, 'true') && !aggressive) return;
     else if(!e.metaKey || e.keyCode !== 76) return;
 
     disableKeydown = true;
@@ -71,7 +72,7 @@ return function ouibounce(el, config) {
   function parseCookies() {
     // cookies are separated by '; '
     var cookies = document.cookie.split('; ');
-    
+
     var ret = {};
     for (var i = cookies.length - 1; i >= 0; i--) {
       var el = cookies[i].split('=');
@@ -113,7 +114,11 @@ return function ouibounce(el, config) {
       cookieDomain = ';domain=' + options.cookieDomain;
     }
 
-    document.cookie = 'viewedOuibounceModal=true' + cookieExpire + cookieDomain + sitewide;
+    if (typeof options.cookieName !== 'undefined') {
+      cookieName = options.cookieName;
+    }
+
+    document.cookie = cookieName + '=true' + cookieExpire + cookieDomain + sitewide;
 
     // remove listeners
     _html.removeEventListener('mouseleave', handleMouseleave);
