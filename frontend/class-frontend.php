@@ -100,8 +100,10 @@ class Wbounce_Frontend {
 	      			echo 'cookieDomain:'.get_option(WBOUNCE_OPTION_KEY.'_cookiedomain').',';
 	      		}
 
-	      		// Sitewide cookie
-	      		// ...
+	      		// Cookie per page (sitewide cookie)
+	      		if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
+		      		echo 'sitewide:true,';
+		      	}
 
 	      		// Timer (Set a min time before wBounce fires)
 	      		if ( get_option(WBOUNCE_OPTION_KEY.'_timer') != "" ) {

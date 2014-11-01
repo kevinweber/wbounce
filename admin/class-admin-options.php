@@ -39,6 +39,7 @@ class Wbounce_Admin_Options {
 			'_cookieexpire',
 			'_timer',
 			'_hesitation',
+			'_sitewide',
 			'_cookiedomain',
 			'_sensitivity',
 			// Tab 'Styling'
@@ -157,6 +158,12 @@ class Wbounce_Admin_Options {
 						        <th scope="row">Hesitation</th>
 						        <td>
 						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_hesitation" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_hesitation'); ?>" /><br><label>By default, wBounce will show the modal immediately when the user's cursor leaves the window. You could instead configure it to wait <i>x</i> milliseconds before showing the modal. If the cursor re-enters the body before delay ms have passed, the modal will not appear. This can be used to provide a "grace period" for visitors instead of immediately presenting the modal window.</label>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row">Cookie per page <span class="newred">New!</span></th>
+						        <td>
+									<input name="<?= WBOUNCE_OPTION_KEY ?>_sitewide" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_sitewide' ) ); ?> /> <label>By default, the cookie is stored for the whole site. With the "cookie per page" option enabled, every page/post gets its own cookie.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
