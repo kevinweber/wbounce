@@ -137,7 +137,7 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row">Aggressive mode</th>
 						        <td>
-									<input name="<?= WBOUNCE_OPTION_KEY ?>_aggressive_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_aggressive_mode' ) ); ?> /> <label>By default, wBounce will only fire once for each visitor. When wBbounce fires, a cookie is created to ensure a non obtrusive experience.<br><br>There are cases, however, when you may want to be more aggressive. An example use-case might be on your paid landing pages. If you enable aggressive, the modal will fire any time the page is reloaded.</label>
+									<input name="<?= WBOUNCE_OPTION_KEY ?>_aggressive_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_aggressive_mode' ) ); ?> /> <label>By default, wBounce will only fire once for each visitor. When wBbounce fires, a cookie is created to ensure a non obtrusive experience.<br><br>There are cases, however, when you may want to be more aggressive. An example use-case might be on your paid landing pages. If you enable aggressive, the modal can be fired any time the page is reloaded.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">

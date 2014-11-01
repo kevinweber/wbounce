@@ -80,6 +80,9 @@ class Wbounce_Frontend {
 
 		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 		      	<?php
+		      	// Custom cookie name
+		      	echo "cookieName:'wBounce',";
+
 	      		// Aggressive Mode
 	      		if (
 	      			( get_option(WBOUNCE_OPTION_KEY.'_aggressive_mode') == '1' ) ||
