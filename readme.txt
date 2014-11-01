@@ -65,6 +65,7 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 = 1.2.2 =
 * Renamed functions.php to wbounce.php. (This will cause your WordPress site to automatically deactivate wBounce. So you simply have to activate it again, that’s it.)
+* New feature: Cookie domain.
 * Fix: Added CSS "box-sizing: border-box".
 * Fix: Added CSS to make wBounce work with themes that use Bootstrap 3.
 

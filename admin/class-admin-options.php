@@ -39,6 +39,7 @@ class Wbounce_Admin_Options {
 			'_cookieexpire',
 			'_timer',
 			'_hesitation',
+			'_cookiedomain',
 			'_sensitivity',
 			// Tab 'Styling'
 			'_custom_css',
@@ -153,10 +154,16 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row">Hesitation <span class="newred">New!</span></th>
+						        <th scope="row">Hesitation</th>
 						        <td>
 						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_hesitation" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_hesitation'); ?>" /><br><label>By default, wBounce will show the modal immediately when the user's cursor leaves the window. You could instead configure it to wait <i>x</i> milliseconds before showing the modal. If the cursor re-enters the body before delay ms have passed, the modal will not appear. This can be used to provide a "grace period" for visitors instead of immediately presenting the modal window.</label>
 						        </td>
+					        </tr>
+					        <tr valign="top">
+					        	<th scope="row">Cookie domain <span class="newred">New!</span></th>
+					        	<td>
+					        		<input type="text" name="<?= WBOUNCE_OPTION_KEY ?>_cookiedomain" placeholder="" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookiedomain'); ?>" /><br><span><?php esc_html_e( 'wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie domain to specify the domain under which the cookie should work. By default, no extra domain information will be added. If you need a cookie to work also in your subdomain (like blog.example.com and example.com), then set a cookie domain such as .example.com (notice the dot in front).', WBOUNCE_TD ); ?></span>
+					        	</td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row">Sensitivity</th>

@@ -96,7 +96,9 @@ class Wbounce_Frontend {
 	      		}
 
 	      		// Cookie domain
-	      		// ...
+	      		if ( get_option(WBOUNCE_OPTION_KEY.'_cookiedomain') != "" ) {
+	      			echo 'cookieDomain:'.get_option(WBOUNCE_OPTION_KEY.'_cookiedomain').',';
+	      		}
 
 	      		// Sitewide cookie
 	      		// ...
