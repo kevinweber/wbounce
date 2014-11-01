@@ -66,7 +66,7 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 = 1.3 =
 * Renamed functions.php to wbounce.php. (This will cause your WordPress site to automatically deactivate wBounce. So you simply have to activate it again, that’s it.)
 * New feature: Cookie domain.
-* New: By default, the cookie is stored for the whole site.
+* New: The cookie is stored for the whole site (and not only for specific pages/posts).
 * New feature: Cookie per page. With this option enabled, every page/post gets its own cookie.
 * Fix: Added CSS "box-sizing: border-box".
 * Fix: Added CSS to make wBounce work with themes that use Bootstrap 3.

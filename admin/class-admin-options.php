@@ -36,9 +36,9 @@ class Wbounce_Admin_Options {
 			'_content',
 			// Tab 'Options'
 			'_aggressive_mode',
-			'_cookieexpire',
 			'_timer',
 			'_hesitation',
+			'_cookieexpire',
 			'_sitewide',
 			'_cookiedomain',
 			'_sensitivity',
@@ -59,10 +59,10 @@ class Wbounce_Admin_Options {
 			<h2><?= WBOUNCE_PLUGIN_NAME ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#tab-content">Content</a></li>
-		        <li><a href="#tab-options">Options <span class="newred_dot">&bull;</span></a></li>
-		        <li><a href="#tab-styling">Styling</a></li>
-		        <li><a href="#tab-analytics">Analytics</a></li>
+		        <li><a href="#content">Content</a></li>
+		        <li><a href="#options">Options <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#styling">Styling</a></li>
+		        <li><a href="#analytics">Analytics</a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -70,7 +70,7 @@ class Wbounce_Admin_Options {
 			    <?php settings_fields( WBOUNCE_OPTION_KEY.'-settings-group' ); ?>
 			    <?php do_settings_sections( WBOUNCE_OPTION_KEY.'-settings-group' ); ?>
 
-			    <div id="tab-content">
+			    <div id="content">
 
 					<h3>Content</h3>
 
@@ -130,7 +130,7 @@ class Wbounce_Admin_Options {
 
 			    </div>
 
-			    <div id="tab-options">
+			    <div id="options">
 
 					<h3>Options</h3>
 
@@ -143,12 +143,6 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row">Cookie expiration</th>
-						        <td>
-						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_cookieexpire" placeholder="days" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookieexpire'); ?>" /><br><label>wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user. By default, the cookie will expire at the end of the session, which for most browsers is when the browser is closed entirely.</label>
-						        </td>
-					        </tr>
-					        <tr valign="top">
 						        <th scope="row">Set a min time<br><span class="description thin">&hellip; before wBounce fires.</span></th>
 						        <td>
 						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_timer" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_timer'); ?>" /><br><label>By default, wBounce won't fire in the first second to prevent false positives, as it's unlikely the user will be able to exit the page within less than a second. If you want to change the amount of time that firing is surpressed for, you can pass in a number of milliseconds to timer.<br>Insert 0 to fire immediately.</label>
@@ -158,6 +152,12 @@ class Wbounce_Admin_Options {
 						        <th scope="row">Hesitation</th>
 						        <td>
 						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_hesitation" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_hesitation'); ?>" /><br><label>By default, wBounce will show the modal immediately when the user's cursor leaves the window. You could instead configure it to wait <i>x</i> milliseconds before showing the modal. If the cursor re-enters the body before delay ms have passed, the modal will not appear. This can be used to provide a "grace period" for visitors instead of immediately presenting the modal window.</label>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row">Cookie expiration</th>
+						        <td>
+						        	<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_cookieexpire" placeholder="days" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookieexpire'); ?>" /><br><label>wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user. By default, the cookie will expire at the end of the session, which for most browsers is when the browser is closed entirely.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
@@ -188,7 +188,7 @@ class Wbounce_Admin_Options {
 
 			    </div>
 
-			    <div id="tab-styling">
+			    <div id="styling">
 
 					<h3>Styling</h3>
 
@@ -215,7 +215,7 @@ class Wbounce_Admin_Options {
 
 			    </div>
 
-			    <div id="tab-analytics">
+			    <div id="analytics">
 
 					<h3>Analytics</h3>
 
