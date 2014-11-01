@@ -55,6 +55,11 @@ Yes! You can use any form from every newsletter service since you can insert HTM
 
 Additionally, you can add CSS using the "Custom CSS" text field.
 
+= How to use [Jetpack's Subscriptions module](http://jetpack.me/support/subscriptions/) with wBounce? =
+Use Jetpack's shortcode within the wBounce content field:
+`[jetpack_subscription_form]`
+You can even extend the shortcode using modifiers as [explained by Jetpack](http://jetpack.me/support/subscriptions/).
+
 
 == Changelog ==
 

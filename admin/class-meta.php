@@ -63,9 +63,9 @@ class Wbounce_Meta {
 		</p> -->
 
 		<h4>Status</h4>
-		<p><label for="<?= $select_name; ?>">Use wBounce on this <?= get_current_screen()->post_type; ?>?</label></p>
+		<p><label for="<?php echo $select_name; ?>">Use wBounce on this <?php echo get_current_screen()->post_type; ?>?</label></p>
 		<p>
-			<select class="select" type="select" name="<?= $select_name; ?>" id="<?= $select_name; ?>">
+			<select class="select" type="select" name="<?php echo $select_name; ?>" id="<?php echo $select_name; ?>">
 			<?php $meta_element_class = get_post_meta($post->ID, $select_name, true);	?>
 		      <option value="default" <?php selected( $meta_element_class, 'default' ); ?>>Default</option>
 		      <option value="on" <?php selected( $meta_element_class, 'on' ); ?>>On</option>
