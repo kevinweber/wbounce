@@ -20,7 +20,7 @@ One concern in everyone's interest: Make sure to provide VALUE when you use wBou
 
 This plugin makes it extremely easy to implement exit popups. You don't have to manually "hack" your WordPress theme. Just activate and modify it via your admin backend. It works with WordPress Multisite so that you can define a wBounce template for each site in your network.
 
-Demo and more information on the developer's website: [kevinw.de/wbounce](http://kevinw.de/wbounce)
+Demo and more information on the developer's website: [kevinw.de/wbounce/](http://kevinw.de/wbounce/)
 
 = Features: =
 * Display inline popup before the user leaves the site
