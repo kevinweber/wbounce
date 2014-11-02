@@ -27,7 +27,7 @@ Demo and more information on the developer's website: [kevinw.de/wbounce/](http:
 * Alternatively display popup on enter or after a certain time period
 * Set custom content via backend
 * Shortcodes are supported
-* Determine sensitivity, cookie expiration, hesitation, and more.
+* Determine sensitivity, cookie expiration, hesitation, and more
 * Add custom CSS
 * Set default status: Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.
 
@@ -56,7 +56,7 @@ Yes! You can use any form from every newsletter service since you can insert HTM
 
 Additionally, you can add CSS using the "Custom CSS" text field.
 
-= How to use [Jetpack's Subscriptions module](http://jetpack.me/support/subscriptions/) with wBounce? =
+= How to use Jetpack's Subscriptions module with wBounce? =
 Use Jetpack's shortcode within the wBounce content field:
 `[jetpack_subscription_form]`
 You can even extend the shortcode using modifiers as [explained by Jetpack](http://jetpack.me/support/subscriptions/).
