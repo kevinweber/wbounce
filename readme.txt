@@ -23,17 +23,18 @@ This plugin makes it extremely easy to implement exit popups. You don't have to 
 Demo and more information on the developer's website: [kevinw.de/wbounce](http://kevinw.de/wbounce)
 
 = Features: =
+* Display inline popup before the user leaves the site
+* Alternatively display popup on enter or after a certain time period
 * Set custom content via backend
-* Determine sensitivity, cookie expiration, hesitation, ... 
+* Shortcodes are supported
+* Determine sensitivity, cookie expiration, hesitation, and more.
 * Add custom CSS
 * Set default status: Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.
 
 = Future features: =
-* Determine cookie domain, delay, and more!
-* Display popup on enter
-* Templates
-* Styling options (display "x" icon to close the popup, set background transparency, ...)
 * Define custom content for pages and posts individually
+* Templates with intelligent template variables/shortcodes
+* Styling options (display "x" icon to close the popup, set background transparency, ...)
 * Intelligent timer (e.g., display popup when the user is inactive for a certain time period)
 * Event tracking to measure wBounce with Google Analytics (a tutorial is going to be created, too)
 * A/B testing with Google Analytics
@@ -65,6 +66,7 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 = 1.3 =
 * Renamed functions.php to wbounce.php. (This will cause your WordPress site to automatically deactivate wBounce. So you simply have to activate it again, that’s it.)
+* New feature: Self-acting fire (timer). Automatically trigger the popup after a certain time period.
 * New feature: Cookie domain.
 * New: The cookie is stored for the whole site (and not only for specific pages/posts).
 * New feature: Cookie per page. With this option enabled, every page/post gets its own cookie.

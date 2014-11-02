@@ -80,9 +80,6 @@ class Wbounce_Frontend {
 
 		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 		      	<?php
-		      	// Custom cookie name
-		      	echo "cookieName:'wBounce',";
-
 	      		// Aggressive Mode
 	      		if (
 	      			( get_option(WBOUNCE_OPTION_KEY.'_aggressive_mode') == '1' ) ||
@@ -90,6 +87,12 @@ class Wbounce_Frontend {
 	      		) {
 	      			echo 'aggressive:true,';
 		      	}
+
+	      		// Auto fire (automatically trigger the popup after a certain time)
+	      		if ( get_option(WBOUNCE_OPTION_KEY.'_autofire') != "" ) {
+	      			echo 'autoFire:'.get_option(WBOUNCE_OPTION_KEY.'_autofire').',';
+	      		}
+
 		      	// Cookie expiration
 	      		if ( get_option(WBOUNCE_OPTION_KEY.'_cookieexpire') != "" ) {
 	      			echo 'cookieExpire:'.get_option(WBOUNCE_OPTION_KEY.'_cookieexpire').',';
@@ -120,12 +123,13 @@ class Wbounce_Frontend {
 	      			echo 'sensitivity:'.get_option(WBOUNCE_OPTION_KEY.'_sensitivity').',';
 	      		}
 
+		      	// Custom cookie name
+		      	echo "cookieName:'wBounce',";
+
 	      		// Callback
-	      		// ...
+	      		// ... TODO: trigger Google Analytics event
 	      		// Delay/Intelligent timer
 	      		// ...
-
-	      		
 		      	?>
 		      });
 

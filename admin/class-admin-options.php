@@ -36,6 +36,7 @@ class Wbounce_Admin_Options {
 			'_content',
 			// Tab 'Options'
 			'_aggressive_mode',
+			'_autofire',
 			'_timer',
 			'_hesitation',
 			'_cookieexpire',
@@ -140,6 +141,12 @@ class Wbounce_Admin_Options {
 						        <th scope="row">Aggressive mode</th>
 						        <td>
 									<input name="<?= WBOUNCE_OPTION_KEY ?>_aggressive_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_aggressive_mode' ) ); ?> /> <label>By default, wBounce will only fire once for each visitor. When wBbounce fires, a cookie is created to ensure a non obtrusive experience.<br><br>There are cases, however, when you may want to be more aggressive. An example use-case might be on your paid landing pages. If you enable aggressive, the modal can be fired any time the page is reloaded.</label>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row">Self-acting fire (timer)<span class="newred">New!</span></th>
+						        <td>
+									<input type="number" name="<?= WBOUNCE_OPTION_KEY ?>_autofire" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_autofire'); ?>" /><br><label>Automatically trigger the popup after a certain time. Insert 0 to fire immediately when the page is loaded. Leave blank to not use this option.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
