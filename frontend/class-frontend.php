@@ -74,9 +74,11 @@ class Wbounce_Frontend {
 
 	function load_footer_script() { ?>
 		<script>
-			var $<?= WBOUNCE_OPTION_KEY ?> = jQuery.noConflict();
+			var $<?php echo WBOUNCE_OPTION_KEY; ?> = jQuery.noConflict();
 
-			$<?= WBOUNCE_OPTION_KEY ?>(document).ready(function() {
+		var fired = false;
+
+			$<?php echo WBOUNCE_OPTION_KEY; ?>(document).ready(function() {
 
 		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 		      	<?php
@@ -127,23 +129,48 @@ class Wbounce_Frontend {
 		      	echo "cookieName:'wBounce',";
 
 	      		// Callback
+	      		//echo "callback:function(){fired = true;}"
 	      		// ... TODO: trigger Google Analytics event
+
 	      		// Delay/Intelligent timer
 	      		// ...
 		      	?>
 		      });
 
-		      $<?= WBOUNCE_OPTION_KEY ?>('body').on('click', function() {
-		        $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal').hide();
+		      $<?php echo WBOUNCE_OPTION_KEY; ?>('body').on('click', function() {
+		        $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal').hide();
 		      });
 
-		      $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal .modal-footer').on('click', function() {
-		        $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal').hide();
+		      $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal .modal-footer').on('click', function() {
+		        $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal').hide();
 		      });
 
-		      $<?= WBOUNCE_OPTION_KEY ?>('#wbounce-modal-sub').on('click', function(e) {
+		      $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal-sub').on('click', function(e) {
 		        e.stopPropagation();
 		      });
+
+
+  /* TEMPORARY CUSTOM CODE */
+	// var cookieName = 'wBounce';
+	// var autoFire = 7000;
+	// var _delayTimer = null;
+	// var delay = 0;
+	// var aggressive = true;
+	// var timer = 1000;
+
+ //  function isInteger(x) {
+ //    return (typeof x === 'number') && (x % 1 === 0);
+ //  }
+ //  function handleAutoFire(e) {
+ //  if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive) || fired === true ) return;
+	//     _delayTimer = setTimeout(_ouibounce._fireAndCallback, delay);
+ //  }
+
+ //  if ( isInteger(autoFire) && autoFire !== null ) {
+	//   setTimeout( handleAutoFire, autoFire );
+ //  }
+  /* /TEMPORARY CUSTOM CODE */
+
 
 			});
 		</script>

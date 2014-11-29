@@ -47,8 +47,7 @@
    * Add colour picker
    */
   var addColourPicker = function() {
-    $('#kevinw_picker_bgcolor').farbtastic('#kevinw_picker_input_bgcolor');
-// Picker No 2:    $('#incom_picker_bgcolor').farbtastic('#incom_picker_input_bgcolor');
+    $('.kevinw_picker_bgcolor').wpColorPicker();
   };
 
   /*

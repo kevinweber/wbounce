@@ -45,7 +45,7 @@ Demo and more information on the developer's website: [kevinw.de/wbounce/](http:
 == Installation ==
 
 1. Upload wBounce into you plugin directory (/wp-content/plugins/) and activate the plugin through the 'Plugins' menu in WordPress.
-2. Configure the plugin via the admin backend.
+2. Configure the plugin via the admin backend and define your template. You can even insert shortcodes that are provided by your other plugins.
 3. Optionally: Sign up to the wBounce newsletter to get notified about major updates.
 
 
@@ -55,6 +55,17 @@ Demo and more information on the developer's website: [kevinw.de/wbounce/](http:
 Yes! You can use any form from every newsletter service since you can insert HTML code into the "wBounce content" text field. Simply copy the form code that's provided by MailChimp (or any other newsletter service) into the "wBounce content" text field.
 
 Additionally, you can add CSS using the "Custom CSS" text field.
+
+= How to use MailPoet, SendPress Newsletters and other plugins with wBounce? =
+You can actually insert any shortcode that is provided by other plugins. For example, to use MailPoet with wBounce, simply insert the provided shortcode that contains the form's ID, as follows:  
+`[wysija_form id="1"]`
+
+By the way, [MailPoet](https://wordpress.org/plugins/wysija-newsletters/) allows to set up autoresponders, so give it a try.
+
+Another well-known newsletter plugin, [SendPress](https://wordpress.org/plugins/sendpress/), offers shortcodes that look like this:
+`[sp-form formid=18547]`
+
+Notice: If a plugin or service doesn't offer such a shortcode, you can still insert any HTML code. I’m pretty sure that every useful newsletter service offers at least a piece of HTML code that works with wBounce :-)
 
 = How to use Jetpack's Subscriptions module with wBounce? =
 Use Jetpack's shortcode within the wBounce content field:
