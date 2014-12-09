@@ -43,6 +43,7 @@ class Wbounce_Admin_Options {
 			'_sitewide',
 			'_cookiedomain',
 			'_sensitivity',
+			'_load_in_footer',
 			// Tab 'Styling'
 			'_custom_css',
 			// Tab 'Analytics'
@@ -183,6 +184,12 @@ class Wbounce_Admin_Options {
 						        <th scope="row">Sensitivity</th>
 						        <td>
 						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_sensitivity" placeholder="20" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_sensitivity'); ?>" /><br><label>wBounce fires when the mouse cursor moves close to (or passes) the top of the viewport. You can define how far the mouse has to be before wBounce fires. The higher value, the more sensitive, and the more quickly the event will fire. Defaults to 20.</label>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row">Load script in footer <span class="newred">New!</span></th>
+						        <td>
+									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_load_in_footer" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_load_in_footer' ) ); ?> /> <label>Normally, scripts are placed in &lt;head&gt; of the HTML document. If this parameter is true, the script is placed before the &lt;/body&gt; end tag. This requires the theme to have the wp_footer() template tag in the appropriate place.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">

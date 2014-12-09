@@ -6,9 +6,8 @@ class Wbounce_Frontend {
 
 	function __construct() {
 		add_action( 'wp_head', array( $this, 'custom_css') );
-		add_action( 'wp_footer', array( $this, 'wp_footer'), 0, WBOUNCE_OPTION_KEY.'-functions' );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_jquery' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_footer', array( $this, 'wp_footer'), 0, WBOUNCE_OPTION_KEY.'-functions' );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style') );
 	}
 
@@ -182,7 +181,16 @@ class Wbounce_Frontend {
 	function enqueue_scripts() {
 		if ($this->test_if_status_is_off()) return;
 		
-		wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/min/'.WBOUNCE_OPTION_KEY.'-ck.js' , plugin_dir_path( __FILE__ ) ) );	
+		wp_enqueue_script( 'jquery' );	// Enable jQuery (comes with WordPress)
+		wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/min/'.WBOUNCE_OPTION_KEY.'-ck.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );	
+	}
+
+	function test_if_script_should_be_loaded_in_footer() {
+		if ( get_option(WBOUNCE_OPTION_KEY.'_load_in_footer') ) {
+			return true;
+		}
+		else 
+			return false;
 	}
 
 	/**
@@ -207,15 +215,6 @@ class Wbounce_Frontend {
 		}
 		echo '</style>';
 	}
-
-	/**
- 	 * Enable jQuery (comes with WordPress)
- 	 */
- 	function enqueue_jquery() {
- 		if ($this->test_if_status_is_off()) return;
-
-     	wp_enqueue_script( 'jquery' );
- 	}
 
  	/**
  	 * Test if status is "off" for specific post/page

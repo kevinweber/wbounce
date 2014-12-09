@@ -75,6 +75,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 == Changelog ==
 
+= 1.3.1 =
+* New feature: Load script before footer. Normally, scripts are placed in <head> of the HTML document. If this parameter is true, the script is placed before the </body> end tag. This requires the theme to have the wp_footer() template tag in the appropriate place.
+
 = 1.3 =
 * Renamed functions.php to wbounce.php. (This will cause your WordPress site to automatically deactivate wBounce. So you simply have to activate it again, that’s it.)
 * New feature: Self-acting fire (timer). Automatically trigger the popup after a certain time period.
