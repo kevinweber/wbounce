@@ -41,6 +41,7 @@ $white: #fff;
   font-family: $font-family;
   display: none;
   position: fixed;
+  text-align: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -48,6 +49,8 @@ $white: #fff;
   z-index: 9999;
   overflow: scroll;
   @include vendor-prefix( box-sizing, border-box );
+  @include vendor-prefix ( transform-style, preserve-3d );  // prevent elements from being "blurry" when a child uses "transform" (http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/)
+
   * {
     @include vendor-prefix( box-sizing, border-box );
   }
@@ -60,29 +63,24 @@ $white: #fff;
     left: 0;
     background-color: rgba($black,0.5);
     cursor: pointer;
-    @include vendor-prefix (animation, fadein 0.5s);
+    @include vendor-prefix ( animation, fadein 0.5s );
   }
 
   .wbounce-modal-sub {
-    display: block;
+    display: inline-block;
+    position: relative;
+    top: 50%;
     opacity: 1;
-  }
-  
-  .modal {
+    overflow: scroll;
     max-width: 95%;
     max-height: 95%;
     width: 600px;
-    height: 400px;
     background-color: #f0f1f2;
-    z-index: 1;
-    position: absolute;
+    z-index: 21;
     margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     border-radius: 4px;
-    @include vendor-prefix (animation, popin 0.3s);
+    @include vendor-prefix ( animation, popin 0.3s );
+    @include vendor-prefix ( transform, translateY(-50%) );
   }
 
   .modal-title {
@@ -173,10 +171,10 @@ $white: #fff;
   }
 
   .modal-footer {
-    position: absolute;
-    bottom: 20px;
+    position: relative;
     text-align: center;
     width: 100%;
+    padding: 10px 0 20px;
 
     p {
       text-transform: capitalize;
@@ -187,6 +185,18 @@ $white: #fff;
   }
 }
 
+/*
+ * Fixes for users with visible admin bar
+ */
+.admin-bar {
+  .wbounce-modal {
+    padding-top: 32px;
+  }
+}
+
+/*
+ * General includes
+ */
 @include keyframes( fadein ) {
   0% { opacity: 0; }
   100% { opacity: 1; }
