@@ -3,7 +3,7 @@ Contributors: kevinweber
 Donate link: http://kevinw.de/donate/wBounce/
 License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
-Requires at least: 3.0
+Requires at least: 3.5
 Tested up to: 4.0
 Stable tag: 1.3
 
