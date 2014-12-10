@@ -46,7 +46,8 @@ require_once( WBOUNCE_PATH . 'admin/class-register.php' );
  */
 $kevinw_framework_setup_arr = array(
 		'option_page_url_name' => WBOUNCE_OPTION_KEY,
-		'option_key' => WBOUNCE_OPTION_KEY
+		'option_key' => WBOUNCE_OPTION_KEY,
+		'version_current' => WBOUNCE_VERSION_NUM
 	);
 // Don't edit the following code //
 if ( !defined( 'KEVINW_FRAMEWORK' ) )
