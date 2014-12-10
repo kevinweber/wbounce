@@ -76,8 +76,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 == Changelog ==
 
 = 1.3.1 =
-* Major CSS update: Removed fix height so that the content determines the modal's height. Default width is still 600px. When the modal's content requires more space than the screen is high, the modal is scrollable. Raised z-index from 1 to 21. Use CSS property "transform" to centre the modal vertically.
+* Major CSS update: Removed fix height so that the content determines the modal's height. Default width is still 600px. When the modal's content requires more space than the screen is high, the modal is scrollable. Raised z-index from 1 to 21. Use CSS property "transform" to centre the modal vertically. Added margin to prevent the modal from being overlapped by the admin bar.
 * New feature: Load script before footer. Normally, scripts are placed in <head> of the HTML document. If this parameter is true, the script is placed before the </body> end tag. This requires the theme to have the wp_footer() template tag in the appropriate place.
+* Improvement: Use not minified JavaScript files when SCRIPT_DEBUG is true (defined in wp-config.php).
 
 = 1.3 =
 * Renamed functions.php to wbounce.php. (This will cause your WordPress site to automatically deactivate wBounce. So you simply have to activate it again, that’s it.)

@@ -49,7 +49,11 @@ class Kevinw_Admin_Options {
 	 * Admin JS
 	 */
 	function kevinw_admin_js() {
-	    wp_enqueue_script( 'kevinw_admin_js', plugins_url( '../js/min/admin-ck.js' , __FILE__ ), array( 'jquery', 'jquery-ui-tabs', 'wp-color-picker' ) );
+		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
+			wp_enqueue_script( 'kevinw_admin_js', plugins_url( '../js/admin.js' , __FILE__ ), array( 'jquery', 'jquery-ui-tabs', 'wp-color-picker' ) );
+		} else {
+			wp_enqueue_script( 'kevinw_admin_js', plugins_url( '../js/min/admin-ck.js' , __FILE__ ), array( 'jquery', 'jquery-ui-tabs', 'wp-color-picker' ) );
+		}
 	}
 
 	/**
