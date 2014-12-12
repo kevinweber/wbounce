@@ -71,16 +71,28 @@ class Wbounce_Frontend {
 		$this->load_footer_script();
 	}
 
+
 	function load_footer_script() { ?>
 		<script>
 			var $<?php echo WBOUNCE_OPTION_KEY; ?> = jQuery.noConflict();
-
-		var fired = false;
+			var fired = false;	// Set "fired" to true as soon as the popup is fired
+			var cookieName = 'wBounce';
 
 			$<?php echo WBOUNCE_OPTION_KEY; ?>(document).ready(function() {
-
 		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 		      	<?php
+		      	// Echo options that require a string input
+		      	$option_str = array(
+		      		'autofire',	// Auto fire (automatically trigger the popup after a certain time)
+		      		'cookieexpire',	// Cookie expiration
+		      		'cookiedomain', // Cookie domain
+		      		'timer', // Timer (Set a min time before wBounce fires)
+		      		'sensitivity',	// Sensitivity
+		      	);	
+	      		foreach ($option_str as $str) {
+	      			$this->echo_option_str( $str );
+	      		}
+
 	      		// Aggressive Mode
 	      		if (
 	      			( get_option(WBOUNCE_OPTION_KEY.'_aggressive_mode') == '1' ) ||
@@ -89,46 +101,21 @@ class Wbounce_Frontend {
 	      			echo 'aggressive:true,';
 		      	}
 
-	      		// Auto fire (automatically trigger the popup after a certain time)
-	      		if ( get_option(WBOUNCE_OPTION_KEY.'_autofire') != "" ) {
-	      			echo 'autoFire:'.get_option(WBOUNCE_OPTION_KEY.'_autofire').',';
-	      		}
-
-		      	// Cookie expiration
-	      		if ( get_option(WBOUNCE_OPTION_KEY.'_cookieexpire') != "" ) {
-	      			echo 'cookieExpire:'.get_option(WBOUNCE_OPTION_KEY.'_cookieexpire').',';
-	      		}
-
-	      		// Cookie domain
-	      		if ( get_option(WBOUNCE_OPTION_KEY.'_cookiedomain') != "" ) {
-	      			echo 'cookieDomain:'.get_option(WBOUNCE_OPTION_KEY.'_cookiedomain').',';
-	      		}
-
 	      		// Cookie per page (sitewide cookie)
 	      		if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
 		      		echo 'sitewide:true,';
 		      	}
 
-	      		// Timer (Set a min time before wBounce fires)
-	      		if ( get_option(WBOUNCE_OPTION_KEY.'_timer') != "" ) {
-	      			echo 'timer:'.get_option(WBOUNCE_OPTION_KEY.'_timer').',';
-	      		}
-
 	      		// Hesitation
-	      		if ( get_option(WBOUNCE_OPTION_KEY.'_hesitation') != "" ) {
-	      			echo 'delay:'.get_option(WBOUNCE_OPTION_KEY.'_hesitation').',';
-	      		}
-
-	      		// Sensitivity
-	      		if ( get_option(WBOUNCE_OPTION_KEY.'_sensitivity') != "" ) {
-	      			echo 'sensitivity:'.get_option(WBOUNCE_OPTION_KEY.'_sensitivity').',';
+	      		if ( $this->test_if_given_str('hesitation') ) {
+	      			echo 'delay:'.$this->get_option('hesitation').',';
 	      		}
 
 		      	// Custom cookie name
-		      	echo "cookieName:'wBounce',";
+		      	echo "cookieName:cookieName,";
 
 	      		// Callback
-	      		//echo "callback:function(){fired = true;}"
+	      		echo "callback:function(){fired = true;}"	// Set fired to "true" when popup is fired
 	      		// ... TODO: trigger Google Analytics event
 
 	      		// Delay/Intelligent timer
@@ -148,32 +135,46 @@ class Wbounce_Frontend {
 		        e.stopPropagation();
 		      });
 
+/*
+ * AUTOFIRE JS
+ * Setup variables for autoFire
+ */
+var _delayTimer = null;
+var delay = 0;	// The default 0 is needed for the autoFire option
+var aggressive = true;	// The default 'true' is needed for the autoFire option
+var autoFire = null;
+<?php if ( $this->test_if_given_str('autoFire') ) {
+	echo 'autoFire = '.$this->get_option('autoFire').';';
+} ?>
 
-  /* TEMPORARY CUSTOM CODE */
-	// var cookieName = 'wBounce';
-	// var autoFire = 7000;
-	// var _delayTimer = null;
-	// var delay = 0;
-	// var aggressive = true;
-	// var timer = 1000;
-
- //  function isInteger(x) {
- //    return (typeof x === 'number') && (x % 1 === 0);
- //  }
- //  function handleAutoFire(e) {
- //  if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive) || fired === true ) return;
-	//     _delayTimer = setTimeout(_ouibounce._fireAndCallback, delay);
- //  }
-
- //  if ( isInteger(autoFire) && autoFire !== null ) {
-	//   setTimeout( handleAutoFire, autoFire );
- //  }
-  /* /TEMPORARY CUSTOM CODE */
-
+function isInteger(x) {
+	return (typeof x === 'number') && (x % 1 === 0);
+}
+function handleAutoFire(e) {
+	if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive) || fired === true ) return;
+	_delayTimer = setTimeout(_ouibounce._fireAndCallback, delay);
+	fired = true;
+}
+if ( isInteger(autoFire) && autoFire !== null ) {
+  setTimeout( handleAutoFire, autoFire );
+}
+/*** /AUTOFIRE JS ***/
 
 			});
 		</script>
 	<?php }
+
+	function get_option( $optionname ) {
+		return get_option(WBOUNCE_OPTION_KEY.'_'.$optionname);
+	}
+	function test_if_given_str( $optionname ) {
+		return ( get_option(WBOUNCE_OPTION_KEY.'_'.$optionname) != "" ) ? true : false;
+	}
+	function echo_option_str( $optionname ) {
+  		if ( $this->test_if_given_str($optionname) ) {
+  			echo $optionname.':'.$this->get_option($optionname).',';
+  		}
+	}
 
 	/**
 	 * Add scripts (like JS)

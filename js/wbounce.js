@@ -13,7 +13,6 @@ return function ouibounce(el, config) {
     aggressive   = config.aggressive || false,
     sensitivity  = setDefault(config.sensitivity, 20),
     timer        = setDefault(config.timer, 1000),
-    // autoFire  = setDefault(config.autoFire, null),
     delay        = setDefault(config.delay, 0),
     callback     = config.callback || function() {},
     cookieExpire = setDefaultCookieExpire(config.cookieExpire) || '',
@@ -82,21 +81,6 @@ return function ouibounce(el, config) {
     return ret;
   }
 
-  // /* TEMPORARY CUSTOM CODE */
-  // function isInteger(x) {
-  //   return (typeof x === 'number') && (x % 1 === 0);
-  // }
-
-  // function handleAutoFire(e) {
-  // if ( (checkCookieValue( cookieName, 'true') && !aggressive) ) return;
-  //   _delayTimer = setTimeout(_fireAndCallback, delay);
-  // }
-
-  // if ( isInteger(autoFire) && autoFire !== null ) {
-   //  setTimeout( handleAutoFire, autoFire );
-  // }
-  // /* /TEMPORARY CUSTOM CODE */
-
   function _fireAndCallback() {
     fire();
     callback();
@@ -145,8 +129,8 @@ return function ouibounce(el, config) {
   return {
     fire: fire,
     disable: disable,
-    checkCookieValue: checkCookieValue,
-    _fireAndCallback: _fireAndCallback,
+    checkCookieValue: checkCookieValue, // Custom Code
+    _fireAndCallback: _fireAndCallback, // Custom Code
   };
 }
 ;

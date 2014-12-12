@@ -145,7 +145,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row">Self-acting fire (timer)<span class="newred">New!</span></th>
+						        <th scope="row">Self-acting fire (timer)<span class="newred">Improved!</span></th>
 						        <td>
 									<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_autofire" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_autofire'); ?>" /><br><label>Automatically trigger the popup after a certain time period. Insert 0 to fire immediately when the page is loaded. Leave blank to not use this option.</label>
 						        </td>
