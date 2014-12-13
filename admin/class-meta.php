@@ -52,13 +52,13 @@ class Wbounce_Meta {
 <!-- 		<h4>Custom Text</h4>
 		<p>
 			<p>Description &hellip;</p>
-			<input type="text" name="oembed_link" id="oembed_link" value="<?php echo $text; ?>" style="width:100%;" />
+			<input type="text" name="oembed_link" id="oembed_link" value="<?php //echo $text; ?>" style="width:100%;" />
 			<label for="oembed_link">E.g. <i>example</i></label>	
 		</p> -->
 
 <!-- 		<h4>Checkbox</h4>
 		<p>
-			<input type="checkbox" name="wbounce_check_custom" id="wbounce_check_custom" <?php checked( $check, 'on' ); ?> />
+			<input type="checkbox" name="wbounce_check_custom" id="wbounce_check_custom" <?php // checked( $check, 'on' ); ?> />
 			<label for="wbounce_check_custom">If checked: Display ...</label>
 		</p> -->
 
