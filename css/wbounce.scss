@@ -17,19 +17,19 @@ $white: #fff;
 }
 
 @mixin keyframes($name){
-  @-webkit-keyframes $name {
+  @-webkit-keyframes #{$name} {
     @content;
   }
-  @-moz-keyframes $name {
+  @-moz-keyframes #{$name} {
     @content;
   }
-  @-ms-keyframes $name {
+  @-ms-keyframes #{$name} {
     @content;
   }
-  @-o-keyframes $name {
+  @-o-keyframes #{$name} {
     @content;
   }
-  @keyframes $name {
+  @keyframes #{$name} {
     @content;
   }
 }
@@ -49,7 +49,7 @@ $white: #fff;
   z-index: 9999;
   overflow: scroll;
   @include vendor-prefix( box-sizing, border-box );
-  @include vendor-prefix ( transform-style, preserve-3d );  // prevent elements from being "blurry" when a child uses "transform" (http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/)
+  @include vendor-prefix( transform-style, preserve-3d );  // prevent elements from being "blurry" when a child uses "transform" (http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/)
 
   * {
     @include vendor-prefix( box-sizing, border-box );
@@ -63,8 +63,23 @@ $white: #fff;
     left: 0;
     background-color: rgba($black,0.5);
     cursor: pointer;
-    @include vendor-prefix ( animation, fadein 0.5s );
   }
+
+  // @TODO
+  // &.animate {
+  //   &.linear {
+  //     &.underlay, .wbounce-modal-sub {
+  //       @include vendor-prefix( animation, fadein 0.3s );
+  //     }
+  //   }
+  //   &.bottom-middle {
+  //     .wbounce-modal-sub {
+  //       top: 50%;
+  //       @include vendor-prefix( animation, popin 0.3s );
+  //       @include vendor-prefix( transform, translateY(-50%) );
+  //     }
+  //   }
+  // }
 
   .wbounce-modal-sub {
     display: inline-block;
@@ -79,8 +94,7 @@ $white: #fff;
     z-index: 21;
     margin: auto;
     border-radius: 4px;
-    @include vendor-prefix ( animation, popin 0.3s );
-    @include vendor-prefix ( transform, translateY(-50%) );
+    @include vendor-prefix( transform, translateY(-50%) );
   }
 
   .modal-title {
@@ -202,20 +216,20 @@ $white: #fff;
   100% { opacity: 1; }
 };
 
-@include keyframes( popin ) {
-  0% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    opacity: 0;
-  }
-  85% {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-};
+// @include keyframes( popin ) {
+//   0% {
+//     -webkit-transform: scale(0);
+//     transform: scale(0);
+//     opacity: 0;
+//   }
+//   85% {
+//     -webkit-transform: scale(1.05);
+//     transform: scale(1.05);
+//     opacity: 1;
+//   }
+//   100% {
+//     -webkit-transform: scale(1);
+//     transform: scale(1);
+//     opacity: 1;
+//   }
+// };
