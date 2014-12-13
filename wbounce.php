@@ -8,7 +8,6 @@ Author: Kevin Weber
 Author URI: http://kevinw.de/
 License: MIT
 Text Domain: wbounce
-Domain Path: /languages/
 */
 if ( !defined( 'WBOUNCE_OPTION_KEY' ) ) {
 	define( 'WBOUNCE_OPTION_KEY', 'wbounce' );
