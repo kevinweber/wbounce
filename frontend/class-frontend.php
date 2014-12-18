@@ -82,29 +82,7 @@ class Wbounce_Frontend {
 
 			$<?php echo WBOUNCE_OPTION_KEY; ?>(document).ready(function() {
 
-/*
- * AUTOFIRE JS
- * Setup variables for autoFire
- */
-var _delayTimer = null;
-var autoFire = null;
-<?php
-if ( $this->test_if_given_str('autoFire') ) {
-	echo 'autoFire = '.$this->get_option('autoFire').';';
-}
-?>
 
-function isInteger(x) {
-	return (typeof x === 'number') && (x % 1 === 0);
-}
-function handleAutoFire(e) {
-	if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive ) || fired === true ) return;
-	_delayTimer = setTimeout(_ouibounce._fireAndCallback, 0);
-}
-if ( isInteger(autoFire) && autoFire !== null ) {
-  setTimeout( handleAutoFire, autoFire );
-}
-/*** /AUTOFIRE JS ***/
 
 		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 		      	<?php
@@ -157,6 +135,29 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 		      $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal-sub').on('click', function(e) {
 		        e.stopPropagation();
 		      });
+
+/*
+ * AUTOFIRE JS
+ * Setup variables for autoFire
+ */
+var autoFire = null;
+<?php
+if ( $this->test_if_given_str('autoFire') ) {
+	echo 'autoFire = '.$this->get_option('autoFire').';';
+}
+?>
+
+function isInteger(x) {
+	return (typeof x === 'number') && (x % 1 === 0);
+}
+function handleAutoFire( delay ) {
+	if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive ) || fired === true ) return;
+	setTimeout( _ouibounce._fireAndCallback, delay );
+}
+if ( isInteger(autoFire) && autoFire !== null ) {
+  handleAutoFire( autoFire );
+}
+/*** /AUTOFIRE JS ***/
 
 			});
 		</script>
