@@ -77,7 +77,7 @@ class Wbounce_Frontend {
 			var $<?php echo WBOUNCE_OPTION_KEY; ?> = jQuery.noConflict();
 			var fired = false;	// Set "fired" to true as soon as the popup is fired
 			var cookieName = 'wBounce';
-			var aggressive = "<?php $this->test_if_aggressive(); ?>";
+			var aggressive = <?php echo $this->test_if_aggressive(); ?>;
 
 
 			$<?php echo WBOUNCE_OPTION_KEY; ?>(document).ready(function() {
@@ -151,7 +151,7 @@ function isInteger(x) {
 	return (typeof x === 'number') && (x % 1 === 0);
 }
 function handleAutoFire(e) {
-	if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive) || fired === true ) return;
+	if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive ) || fired === true ) return;//&& !aggressive) || fired === true
 	_delayTimer = setTimeout(_ouibounce._fireAndCallback, delay);
 	fired = true;
 }
@@ -180,7 +180,7 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 		return ( 
 			( $this->get_option('aggressive_mode') == '1' ) ||
 		    ( current_user_can( 'manage_options' ) && ( $this->get_option('test_mode') == '1' ) )
-		 ) ? true : false;
+		 ) ? "true" : "false";
 	}
 
 	/**
