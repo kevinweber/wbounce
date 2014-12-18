@@ -81,11 +81,35 @@ class Wbounce_Frontend {
 
 
 			$<?php echo WBOUNCE_OPTION_KEY; ?>(document).ready(function() {
+
+/*
+ * AUTOFIRE JS
+ * Setup variables for autoFire
+ */
+var _delayTimer = null;
+var autoFire = null;
+<?php
+if ( $this->test_if_given_str('autoFire') ) {
+	echo 'autoFire = '.$this->get_option('autoFire').';';
+}
+?>
+
+function isInteger(x) {
+	return (typeof x === 'number') && (x % 1 === 0);
+}
+function handleAutoFire(e) {
+	if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive ) || fired === true ) return;
+	_delayTimer = setTimeout(_ouibounce._fireAndCallback, 0);
+}
+if ( isInteger(autoFire) && autoFire !== null ) {
+  setTimeout( handleAutoFire, autoFire );
+}
+/*** /AUTOFIRE JS ***/
+
 		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 		      	<?php
 		      	// Echo options that require a string input
 		      	$option_str = array(
-		      		'autofire',	// Auto fire (automatically trigger the popup after a certain time)
 		      		'cookieexpire',	// Cookie expiration
 		      		'cookiedomain', // Cookie domain
 		      		'timer', // Timer (Set a min time before wBounce fires)
@@ -133,32 +157,6 @@ class Wbounce_Frontend {
 		      $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal-sub').on('click', function(e) {
 		        e.stopPropagation();
 		      });
-
-/*
- * AUTOFIRE JS
- * Setup variables for autoFire
- */
-var _delayTimer = null;
-var delay = 0;	// The default 0 is needed for the autoFire option
-var autoFire = null;
-<?php
-if ( $this->test_if_given_str('autoFire') ) {
-	echo 'autoFire = '.$this->get_option('autoFire').';';
-}
-?>
-
-function isInteger(x) {
-	return (typeof x === 'number') && (x % 1 === 0);
-}
-function handleAutoFire(e) {
-	if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive ) || fired === true ) return;//&& !aggressive) || fired === true
-	_delayTimer = setTimeout(_ouibounce._fireAndCallback, delay);
-	fired = true;
-}
-if ( isInteger(autoFire) && autoFire !== null ) {
-  setTimeout( handleAutoFire, autoFire );
-}
-/*** /AUTOFIRE JS ***/
 
 			});
 		</script>
