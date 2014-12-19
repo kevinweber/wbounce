@@ -88,8 +88,8 @@ class Wbounce_Frontend {
 		      	<?php
 		      	// Echo options that require a string input
 		      	$option_str = array(
-		      		'cookieexpire',	// Cookie expiration
-		      		'cookiedomain', // Cookie domain
+		      		'cookieExpire',	// Cookie expiration
+		      		'cookieDomain', // Cookie domain
 		      		'timer', // Timer (Set a min time before wBounce fires)
 		      		'sensitivity',	// Sensitivity
 		      	);	
@@ -170,8 +170,8 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 		return ( get_option(WBOUNCE_OPTION_KEY.'_'.$optionname) != "" ) ? true : false;
 	}
 	function echo_option_str( $optionname ) {
-  		if ( $this->test_if_given_str($optionname) ) {
-  			echo $optionname.':'.$this->get_option($optionname).',';
+  		if ( $this->test_if_given_str(strtolower($optionname)) ) {
+  			echo $optionname.':'.$this->get_option(strtolower($optionname)).',';
   		}
 	}
 
