@@ -171,7 +171,7 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 	}
 	function echo_option_str( $optionname ) {
   		if ( $this->test_if_given_str(strtolower($optionname)) ) {
-  			echo $optionname.':'.$this->get_option(strtolower($optionname)).',';
+  			echo $optionname.':\''.$this->get_option(strtolower($optionname)).'\',';
   		}
 	}
 
