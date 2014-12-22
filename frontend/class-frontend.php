@@ -74,15 +74,12 @@ class Wbounce_Frontend {
 
 	function load_footer_script() { ?>
 		<script>
-			var $<?php echo WBOUNCE_OPTION_KEY; ?> = jQuery.noConflict();
+		(function ( $ ) {
 			var fired = false;	// Set "fired" to true as soon as the popup is fired
 			var cookieName = 'wBounce';
 			var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
 
-
-			$<?php echo WBOUNCE_OPTION_KEY; ?>(document).ready(function() {
-
-
+			$(document).ready(function() {
 
 		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 		      	<?php
@@ -124,15 +121,15 @@ class Wbounce_Frontend {
 		      	?>
 		      });
 
-		      $<?php echo WBOUNCE_OPTION_KEY; ?>('body').on('click', function() {
-		        $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal').hide();
+		      $('body').on('click', function() {
+		        $('#wbounce-modal').hide();
 		      });
 
-		      $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal .modal-footer').on('click', function() {
-		        $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal').hide();
+		      $('#wbounce-modal .modal-footer').on('click', function() {
+		        $('#wbounce-modal').hide();
 		      });
 
-		      $<?php echo WBOUNCE_OPTION_KEY; ?>('#wbounce-modal-sub').on('click', function(e) {
+		      $('#wbounce-modal-sub').on('click', function(e) {
 		        e.stopPropagation();
 		      });
 
@@ -160,6 +157,8 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 /*** /AUTOFIRE JS ***/
 
 			});
+
+		})(jQuery);
 		</script>
 	<?php }
 
