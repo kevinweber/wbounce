@@ -75,6 +75,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 == Changelog ==
 
+= 1.3.4.6 =
+* Fixed not working sensitivity.
+
 = 1.3.4.5 =
 * Fixed not working cookieDomain.
 

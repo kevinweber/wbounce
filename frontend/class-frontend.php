@@ -87,11 +87,18 @@ class Wbounce_Frontend {
 		      	$option_str = array(
 		      		'cookieExpire',	// Cookie expiration
 		      		'cookieDomain', // Cookie domain
-		      		'timer', // Timer (Set a min time before wBounce fires)
-		      		'sensitivity',	// Sensitivity
 		      	);	
 	      		foreach ($option_str as $str) {
 	      			$this->echo_option_str( $str );
+	      		}
+
+		      	// Echo options that require an integer input
+		      	$option_int = array(
+		      		'timer', // Timer (Set a min time before wBounce fires)
+		      		'sensitivity',	// Sensitivity
+		      	);	
+	      		foreach ($option_int as $int) {
+	      			$this->echo_option_int( $int );
 	      		}
 
 	      		// Aggressive Mode
@@ -171,6 +178,11 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 	function echo_option_str( $optionname ) {
   		if ( $this->test_if_given_str(strtolower($optionname)) ) {
   			echo $optionname.':\''.$this->get_option(strtolower($optionname)).'\',';
+  		}
+	}
+	function echo_option_int( $optionname ) {
+  		if ( $this->test_if_given_str(strtolower($optionname)) ) {
+  			echo $optionname.':'.$this->get_option($optionname).',';
   		}
 	}
 
