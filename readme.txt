@@ -22,9 +22,11 @@ This plugin makes it extremely easy to implement exit popups. You don't have to 
 
 Demo and more information on the developer's website: [kevinw.de/wbounce/](http://kevinw.de/wbounce/)
 
+You want to enhance this plugin? Please [contribute on Github](https://github.com/kevinweber/wbounce). I'm looking for an WordPress enthusiast who further develops this plugin; I'll give you guidance and promote you and the plugin.
+
 = Features: =
 * Display inline popup before the user leaves the site
-* Alternatively display popup on enter or after a certain time period
+* Alternatively display popup on enter or after a certain time period (self-acting fire)
 * Set custom content via backend
 * Shortcodes are supported
 * Determine sensitivity, cookie expiration, hesitation, and more
@@ -36,10 +38,9 @@ Demo and more information on the developer's website: [kevinw.de/wbounce/](http:
 * Templates with intelligent template variables/shortcodes
 * Styling options (display "x" icon to close the popup, set background transparency, ...)
 * Intelligent timer (e.g., display popup when the user is inactive for a certain time period)
-* Event tracking to measure wBounce with Google Analytics (a tutorial is going to be created, too)
+* Event tracking to measure wBounce with Google Analytics
 * A/B testing with Google Analytics
-* Bulk edit
-* ... feel free to contact me and suggest new features
+* ... YOU want one of those features RIGHT NOW or need to implement another feature? [Contribute on Github](https://github.com/kevinweber/wbounce) and I'll publish your enhancements to the official WordPress directory.
 
 
 == Installation ==
@@ -74,9 +75,6 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 
 == Changelog ==
-
-= 1.3.4.6 =
-* Fixed not working sensitivity.
 
 = 1.3.4.5 =
 * Fixed not working cookieDomain.

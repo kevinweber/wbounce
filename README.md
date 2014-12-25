@@ -13,4 +13,4 @@ One concern in everyone's interest: Make sure to provide VALUE when you use wBou
 
 This plugin makes it extremely easy to implement exit popups. You don't have to manually "hack" your WordPress theme. Just activate and modify it via your admin backend.
 
-Demo, download link and more information on the developer's website: [kevinw.de/wbounce/](http://kevinw.de/wbounce/)
+**Demo, download link and more information** on the developer's website: [kevinw.de/wbounce/](http://kevinw.de/wbounce/)
