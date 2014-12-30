@@ -65,6 +65,7 @@ class Wbounce_Admin_Options {
 		        <li><a href="#options">Options <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#styling">Styling</a></li>
 		        <li><a href="#analytics">Analytics</a></li>
+		        <li><a href="#more">Give me more!</a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -237,6 +238,31 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row" style="color: red">MORE TO COME<br><span class="description thin">with the next updates</span></th>
 						        <td>
+						        </td>
+					        </tr>
+					    </tbody>
+				    </table>
+
+			    </div>
+
+			    <div id="more">
+
+					<h3>Give me more! Should you get a premium plugin?</h3>
+
+				    <table class="form-table">
+					    <tbody>
+					        <tr valign="top">
+						        <td>
+									<p>wBounce is definitely the most lightweight exit popup plugin for WordPress, and it's available for free! But I'm aware of those many people who want more than that; many people desire fancy ready-made popup themes, popups on mobiles, A/B testing and more. So here's the deal:</p>
+									<p>Either stick with the feather-light free wBounce and get surprised by new features in future (but don't expect superpowers) or go premium and get everything you desire.</p>
+									<p>I'm the developer of wBounce, but I'm your friendly advisor and smart creative, too. That's why I've chosen two affordable premium plugins that are very famous and are often used by people who started with wBounce (like you):</p>
+									<ol>
+									<li><a href="http://codecanyon.net/item/ninja-popups-for-wordpress/3476479?ref=kevinweber" target="_blank" title="Ninja Popups">Ninja Popups</a> is available on CodeCanyon for just $20.</li>
+									<li>OptinMonster requires the Pro license to support exit popups and costs $199.</li>
+									</ol>
+									<p>I assume that you're going to do the ideal decision, so proceed! No matter whether you stick with wBounce, feel free to follow me on <a href="https://twitter.com/kevinweber" target="_blank" title="Follow Kevin Weber on Twitter">Twitter</a>.</p>
+									<p>Then <a href="http://kevinw.de/kontakt/" target="_blank" title="Contact Kevin Weber">tell me</a> if you want me to stop by in your company.<br><i>(Just because I'm seeking for more travel destinations.)</i></p>
+									<p>– Kevin</p>
 						        </td>
 					        </tr>
 					    </tbody>
