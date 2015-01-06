@@ -85,8 +85,23 @@ p.notice {
 div#content {
 	min-width:910px;
 }
+
 table {
 	border-top:2px solid #ccc;
+}
+
+.inline-table {
+	border-top: none;
+	.first-column{
+		min-width: 90px;
+	}
+	th {
+		background: #e1e1e1;
+	}
+	td, th{
+		padding:10px 5px;
+		border: 1px solid #ddd;
+	}
 }
 
 tr {
@@ -203,6 +218,9 @@ div#informations div#text li.center {
 
 .italic {
 	font-style: italic;
+}
+.bold {
+	font-style: bold;
 }
 
 .picker-style{
