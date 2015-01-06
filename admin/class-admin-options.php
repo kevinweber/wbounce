@@ -63,7 +63,7 @@ class Wbounce_Admin_Options {
 
 			<ul class="ui-tabs-nav">
 		        <li><a href="#content">Content <span class="newred_dot">&bull;</span></a></li>
-		        <li><a href="#options">Options <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#options">Options</a></li>
 		        <li><a href="#styling">Styling</a></li>
 		        <li><a href="#analytics">Analytics <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#more">Premium Advice <span class="newred_dot">&bull;</span></a></li>
@@ -87,7 +87,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row">Default status <span class="newred">Extended!</span></th>
+					        	<th scope="row">Default status <span class="newred">Extended</span></th>
 						        <td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default">
 								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>>Always fire</option>
@@ -183,13 +183,13 @@ class Wbounce_Admin_Options {
 					        	</td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row">Sensitivity</th>
+						        <th scope="row">Sensitivity <span class="newred">Deprecated</span><br><span class="description thin">Feature will be removed with one of the next updates.</span></th>
 						        <td>
 						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_sensitivity" placeholder="20" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_sensitivity'); ?>" /><br><label>wBounce fires when the mouse cursor moves close to (or passes) the top of the viewport. You can define how far the mouse has to be before wBounce fires. The higher value, the more sensitive, and the more quickly the event will fire. Defaults to 20.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row">Load script in footer <span class="newred">New!</span></th>
+						        <th scope="row">Load script in footer</th>
 						        <td>
 									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_load_in_footer" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_load_in_footer' ) ); ?> /> <label>Normally, scripts are placed in &lt;head&gt; of the HTML document. If this parameter is true, the script is placed before the &lt;/body&gt; end tag. This requires the theme to have the wp_footer() template tag in the appropriate place.</label>
 						        </td>
