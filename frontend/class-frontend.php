@@ -289,7 +289,8 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 			( get_post_meta( $id, 'wbounce_status', true ) === 'on' ) ||
 			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on' ) ||
 			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts' && is_single() ) ||
-			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages' && is_page() )
+			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages' && is_page() ) ||
+			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts_pages' && (is_single()||is_page()) )
 		) {
 			return false;
 		}

@@ -78,6 +78,8 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 = 1.4 =
 * New feature: Event tracking with Google Analytics.
+* Extended "Default status" drop-down list with "Fire on posts and pages".
+* Added premium advice.
 
 = 1.3.4.5 =
 * Fixed not working cookieDomain.

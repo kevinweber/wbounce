@@ -62,7 +62,7 @@ class Wbounce_Admin_Options {
 			<h2><?php echo WBOUNCE_PLUGIN_NAME; ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#content">Content</a></li>
+		        <li><a href="#content">Content <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#options">Options <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#styling">Styling</a></li>
 		        <li><a href="#analytics">Analytics <span class="newred_dot">&bull;</span></a></li>
@@ -87,12 +87,13 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row">Default status</th>
+					        	<th scope="row">Default status <span class="newred">Extended!</span></th>
 						        <td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default">
 								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>>Always fire</option>
 								    	<option value="on_posts"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts') { echo ' selected="selected"'; } ?>>Fire on posts</option>
 		     							<option value="on_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages') { echo ' selected="selected"'; } ?>>Fire on pages</option>
+		     							<option value="on_posts_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts_pages') { echo ' selected="selected"'; } ?>>Fire on posts and pages</option>
 		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>>Don't fire</option>
 		     						</select>
 									<p>Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.</p>
