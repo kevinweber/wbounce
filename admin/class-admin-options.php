@@ -239,7 +239,7 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row">Enable <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span> <span class="newred">New!</span></th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_analytics' ) ); ?> /> <label>Check this option to track events with Google Analytics (GA).
+									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_analytics' ) ); ?> /> <label>Check this option to track events with Google Analytics.
 									<br><b>Notice:</b> Event tracking might not work on your local (localhost) test environment when you haven't <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.</label>	        	
 						        </td>
 					        </tr>
@@ -288,7 +288,7 @@ class Wbounce_Admin_Options {
 
 			    <div id="more">
 
-					<h3>Should you actually try a premium plugin?</h3>
+					<h3>Should you actually switch to a premium plugin?</h3>
 
 				    <table class="form-table">
 					    <tbody>
@@ -296,14 +296,14 @@ class Wbounce_Admin_Options {
 						        <td>
 						        	<h4>Here is my advice:</h4>
 									<p>wBounce is definitely the most lightweight exit popup plugin for WordPress, and it's available for free!</p>
-									<p>But I'm aware of those many people who want (and need) more than that; many people desire fancy ready-made popup themes, popups on mobiles, A/B testing and more. So here's the deal:</p>
+									<p>But I'm aware of those many people who want (and need) more than that; many people desire fancy ready-made popup themes, popups on mobiles, A/B testing and more. You can choose from two possible ways:</p>
 									<ol>
 										<li>Either stick with the <b>feather-light free wBounce</b> and get surprised by new features in future – but don't expect superpowers. wBounce does what it does.</li>
 										<li>Or go premium and <b>get everything you desire</b>. I'm pretty sure that you're aware of the fact that popups can boost conversions vastly. So consider if a superpower like A/B testing is worthwhile. (Not for everyone, but in many cases: <b>Yes, it's worth it.</b>)</li>
 									</ol>
 								
-									<h4>What's the best popup solution?</h4>
-									<p>I've tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite popup plugin is OptinMonster. Let me explain you why:</p>
+									<h4>What's the best premium popup solution?</h4>
+									<p>I've tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite popup plugin is OptinMonster. Let me explain why:</p>
 									<ol>
 										<li>Its user experience (!) and service outranges other plugins.</li>
 										<li>User experience is very important to me. (You preach excellence? Breathe it.)</li>
