@@ -148,7 +148,6 @@ class Wbounce_Frontend {
 
 /*
  * AUTOFIRE JS
- * Setup variables for autoFire
  */
 var autoFire = null;
 <?php
