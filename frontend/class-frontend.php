@@ -120,20 +120,26 @@ class Wbounce_Frontend {
 		      	echo "cookieName:cookieName,";
 
 	      		// Callback
-	      		echo "callback:function(){fired = true;}"	// Set fired to "true" when popup is fired
-	      		// ... TODO: trigger Google Analytics event
+	      		echo
+	      		"callback:function(){".
+	      			"fired = true;".	// Set fired to "true" when popup is fired
+	      			$this->analytics_action('fired').
+	      		"}"	
 
 	      		// Delay/Intelligent timer
 	      		// ...
 		      	?>
 		      });
 
+
 		      $('body').on('click', function() {
 		        $('#wbounce-modal').hide();
+		        <?php echo $this->analytics_action('hidden_outside'); ?>
 		      });
 
 		      $('#wbounce-modal .modal-footer').on('click', function() {
 		        $('#wbounce-modal').hide();
+		        <?php echo $this->analytics_action('hidden_footer'); ?>
 		      });
 
 		      $('#wbounce-modal-sub').on('click', function(e) {
@@ -192,6 +198,30 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 		    ( current_user_can( 'manage_options' ) && ( $this->get_option('test_mode') == '1' ) )
 		 ) ? true : false;
 	}
+
+
+	/**
+	 * Test if analytics is enabled
+	 */
+	function is_analytics_enabled() {
+		return ( get_option(WBOUNCE_OPTION_KEY.'_analytics') == '1' ) ? true : false;
+	}
+	/**
+	 * Set analytics event
+	 * @param String
+	 */
+	function analytics_action( $action ) {
+		return (!$this->is_analytics_enabled()) ? '' :
+		"ga('send', 'event', ".$this->analytics_category().", '$action', ".$this->analytics_label().");";
+	}
+	private function analytics_category() {
+		return '\'wBounce\'';
+	}
+	private function analytics_label() {
+		return 'document.URL';
+	}
+
+
 
 	/**
 	 * Add scripts (like JS)

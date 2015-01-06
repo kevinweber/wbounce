@@ -47,6 +47,7 @@ class Wbounce_Admin_Options {
 			// Tab 'Styling'
 			'_custom_css',
 			// Tab 'Analytics'
+			'_analytics',
 			//... more to come
 		);
 		foreach ( $arr as $i ) {
@@ -55,7 +56,7 @@ class Wbounce_Admin_Options {
 		do_action( WBOUNCE_OPTION_KEY.'_register_settings_after' );
 	}
 
-	function settings_page()	{ ?>
+	function settings_page() { ?>
 
 		<div id="tabs" class="ui-tabs">
 			<h2><?php echo WBOUNCE_PLUGIN_NAME; ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
@@ -64,8 +65,8 @@ class Wbounce_Admin_Options {
 		        <li><a href="#content">Content</a></li>
 		        <li><a href="#options">Options <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#styling">Styling</a></li>
-		        <li><a href="#analytics">Analytics</a></li>
-		        <li><a href="#more">Give me more!</a></li>
+		        <li><a href="#analytics">Analytics <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#more">Give me more! <span class="newred_dot">&bull;</span></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -145,7 +146,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row">Self-acting fire (timer)<span class="newred">Improved!</span></th>
+						        <th scope="row">Self-acting fire (timer)</th>
 						        <td>
 									<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_autofire" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_autofire'); ?>" /><br><label>Automatically trigger the popup after a certain time period. Insert 0 to fire immediately when the page is loaded. Leave blank to not use this option.</label>
 						        </td>
@@ -169,13 +170,13 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row">Cookie per page <span class="newred">New!</span></th>
+						        <th scope="row">Cookie per page</th>
 						        <td>
 									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_sitewide" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_sitewide' ) ); ?> /> <label>By default, the cookie is stored for the whole site. With the "cookie per page" option enabled, every page/post gets its own cookie.</label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row">Cookie domain <span class="newred">New!</span></th>
+					        	<th scope="row">Cookie domain</th>
 					        	<td>
 					        		<input type="text" name="<?php echo WBOUNCE_OPTION_KEY; ?>_cookiedomain" placeholder="" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookiedomain'); ?>" /><br><span><?php esc_html_e( 'wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie domain to specify the domain under which the cookie should work. By default, no extra domain information will be added. If you need a cookie to work also in your subdomain (like blog.example.com and example.com), then set a cookie domain such as .example.com (notice the dot in front).', WBOUNCE_TD ); ?></span>
 					        	</td>
@@ -235,6 +236,46 @@ class Wbounce_Admin_Options {
 
 				    <table class="form-table">
 					    <tbody>
+					        <tr valign="top">
+						        <th scope="row">Enable <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span> <span class="newred">New!</span></th>
+						        <td>
+									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_analytics' ) ); ?> /> <label>Check this option to track events with Google Analytics (GA).
+									<br><b>Notice:</b> Event tracking might not work on your local (localhost) test environment when you haven't <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.</label>	        	
+						        </td>
+					        </tr>
+							<tr valign="top">
+								<th scope="row">Available events <span class="newred">New!</span> <span class="description thin"><br>You can monitor tracked events with your Google Analytics accout. For example, go to "Real-Time > Events" or "Behaviour > Events" and look for Event Category "wBounce".</th>
+								<td>
+									<!-- Generated with http://www.tablesgenerator.com/html_tables -->
+									<table class="inline-table">
+										<tr>
+										    <th class="first-column">Trigger</th>
+										    <th>Event Category</th>
+										    <th>Event Action</th>
+										    <th>Event Label*</th>
+										  </tr>
+										  <tr>
+										    <td class="first-column italic">Popup appears.</td>
+										    <td>wBounce</td>
+										    <td>fired</td>
+										    <td>document.url</td>
+										  </tr>
+										  <tr>
+										    <td class="first-column italic">Click on area outside of the popup.</td>
+										    <td>wBounce</td>
+										    <td>hidden_outside</td>
+										    <td>document.url</td>
+										  </tr>
+										  <tr>
+										    <td class="first-column italic">Click on '.modal-footer'.</td>
+										    <td>wBounce</td>
+										    <td>hidden_footer</td>
+										    <td>document.url</td>
+										  </tr>
+									</table>
+									<p>*<i>document.url</i> = URL of the page where the event is triggered.</p>
+								</td>
+							</tr>
 					        <tr valign="top">
 						        <th scope="row" style="color: red">MORE TO COME<br><span class="description thin">with the next updates</span></th>
 						        <td>
