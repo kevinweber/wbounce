@@ -80,57 +80,57 @@ class Wbounce_Frontend {
 			var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
 
 			$(document).ready(function() {
+				if (typeof ouibounce !== 'undefined' && $.isFunction(ouibounce)) {
+			      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
+			      	<?php
+			      	// Echo options that require a string input
+			      	$option_str = array(
+			      		'cookieExpire',	// Cookie expiration
+			      		'cookieDomain', // Cookie domain
+			      	);	
+		      		foreach ($option_str as $str) {
+		      			$this->echo_option_str( $str );
+		      		}
 
-		      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
-		      	<?php
-		      	// Echo options that require a string input
-		      	$option_str = array(
-		      		'cookieExpire',	// Cookie expiration
-		      		'cookieDomain', // Cookie domain
-		      	);	
-	      		foreach ($option_str as $str) {
-	      			$this->echo_option_str( $str );
-	      		}
+			      	// Echo options that require an integer input
+			      	$option_int = array(
+			      		'timer', // Timer (Set a min time before wBounce fires)
+			      		'sensitivity',	// Sensitivity
+			      	);	
+		      		foreach ($option_int as $int) {
+		      			$this->echo_option_int( $int );
+		      		}
 
-		      	// Echo options that require an integer input
-		      	$option_int = array(
-		      		'timer', // Timer (Set a min time before wBounce fires)
-		      		'sensitivity',	// Sensitivity
-		      	);	
-	      		foreach ($option_int as $int) {
-	      			$this->echo_option_int( $int );
-	      		}
+		      		// Aggressive Mode
+		      		if ( $this->test_if_aggressive() ) {
+		      			echo 'aggressive:true,';
+			      	}
 
-	      		// Aggressive Mode
-	      		if ( $this->test_if_aggressive() ) {
-	      			echo 'aggressive:true,';
-		      	}
+		      		// Cookie per page (sitewide cookie)
+		      		if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
+			      		echo 'sitewide:true,';
+			      	}
 
-	      		// Cookie per page (sitewide cookie)
-	      		if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
-		      		echo 'sitewide:true,';
-		      	}
+		      		// Hesitation
+		      		if ( $this->test_if_given_str('hesitation') ) {
+		      			echo 'delay:'.$this->get_option('hesitation').',';
+		      		}
 
-	      		// Hesitation
-	      		if ( $this->test_if_given_str('hesitation') ) {
-	      			echo 'delay:'.$this->get_option('hesitation').',';
-	      		}
+			      	// Custom cookie name
+			      	echo "cookieName:cookieName,";
 
-		      	// Custom cookie name
-		      	echo "cookieName:cookieName,";
+		      		// Callback
+		      		echo
+		      		"callback:function(){".
+		      			"fired = true;".	// Set fired to "true" when popup is fired
+		      			$this->analytics_action('fired').
+		      		"}"	
 
-	      		// Callback
-	      		echo
-	      		"callback:function(){".
-	      			"fired = true;".	// Set fired to "true" when popup is fired
-	      			$this->analytics_action('fired').
-	      		"}"	
-
-	      		// Delay/Intelligent timer
-	      		// ...
-		      	?>
-		      });
-
+		      		// Delay/Intelligent timer
+		      		// ...
+			      	?>
+			      });
+				};
 
 		      $('body').on('click', function() {
 		        $('#wbounce-modal').hide();
