@@ -66,7 +66,7 @@ class Wbounce_Admin_Options {
 		        <li><a href="#options">Options <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#styling">Styling</a></li>
 		        <li><a href="#analytics">Analytics <span class="newred_dot">&bull;</span></a></li>
-		        <li><a href="#more">Give me more! <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#more">Premium Advice <span class="newred_dot">&bull;</span></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -288,19 +288,34 @@ class Wbounce_Admin_Options {
 
 			    <div id="more">
 
-					<h3>Give me more! Should you get a premium plugin?</h3>
+					<h3>Should you actually try a premium plugin?</h3>
 
 				    <table class="form-table">
 					    <tbody>
 					        <tr valign="top">
 						        <td>
-									<p>wBounce is definitely the most lightweight exit popup plugin for WordPress, and it's available for free! But I'm aware of those many people who want more than that; many people desire fancy ready-made popup themes, popups on mobiles, A/B testing and more. So here's the deal:</p>
-									<p>Either stick with the feather-light free wBounce and get surprised by new features in future (but don't expect superpowers) or go premium and get everything you desire.</p>
-									<p>I'm the developer of wBounce, but I'm your friendly advisor and smart creative, too. That's why I've chosen two affordable premium plugins that are very famous and are often used by people who started with wBounce (like you):</p>
+						        	<h4>Here is my advice:</h4>
+									<p>wBounce is definitely the most lightweight exit popup plugin for WordPress, and it's available for free!</p>
+									<p>But I'm aware of those many people who want (and need) more than that; many people desire fancy ready-made popup themes, popups on mobiles, A/B testing and more. So here's the deal:</p>
 									<ol>
-									<li><a href="http://codecanyon.net/item/ninja-popups-for-wordpress/3476479?ref=kevinweber" target="_blank" title="Ninja Popups">Ninja Popups</a> is available on CodeCanyon for just $20.</li>
-									<li>OptinMonster requires the Pro license to support exit popups and costs $199.</li>
+										<li>Either stick with the <b>feather-light free wBounce</b> and get surprised by new features in future – but don't expect superpowers. wBounce does what it does.</li>
+										<li>Or go premium and <b>get everything you desire</b>. I'm pretty sure that you're aware of the fact that popups can boost conversions vastly. So consider if a superpower like A/B testing is worthwhile. (Not for everyone, but in many cases: <b>Yes, it's worth it.</b>)</li>
 									</ol>
+								
+									<h4>What's the best popup solution?</h4>
+									<p>I've tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite popup plugin is OptinMonster. Let me explain you why:</p>
+									<ol>
+										<li>Its user experience (!) and service outranges other plugins.</li>
+										<li>User experience is very important to me. (You preach excellence? Breathe it.)</li>
+										<li>Lots of useful features, e.g. page level targeting, analytics, various types of optin forms, &hellip;</li>
+										<li>100% no-risk money back guarantee: If you don't like OptinMonster over the next 14 days, then they'll refund 100% of your money. No questions asked. [This statement is from their website.]</li>
+										<li>I captured an <b>exclusive 15% discount for users of wBounce!</b></li>
+									</ol>									
+
+<p style="color:red">TODO from here</p>
+
+									<p>OptinMonster requires the Pro license to support exit popups and costs $199.</p>
+
 									<p>I assume that you're going to do the ideal decision, so proceed! No matter whether you stick with wBounce, feel free to follow me on <a href="https://twitter.com/kevinweber" target="_blank" title="Follow Kevin Weber on Twitter">Twitter</a>.</p>
 									<p>Then <a href="http://kevinw.de/kontakt/" target="_blank" title="Contact Kevin Weber">tell me</a> if you want me to stop by in your company.<br><i>(Just because I'm seeking for more travel destinations.)</i></p>
 									<p>– Kevin</p>
