@@ -54,8 +54,7 @@ if ( !defined( 'KEVINW_FRAMEWORK' ) )
 if ( defined( 'KEVINW_FRAMEWORK' ) ) {
 	if ( is_admin() ) {
 		require_once( 'kevinw_framework/class-kevinw-admin.php' );
-		$kevinw_admin_init = new Kevinw_Admin();
-		$kevinw_admin_init->setup_admin_options( $kevinw_framework_setup_arr );
+		$kevinw_admin_init = new Kevinw_Admin( $kevinw_framework_setup_arr );
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////
