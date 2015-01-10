@@ -66,7 +66,7 @@ class Wbounce_Admin_Options {
 		        <li><a href="#options">Options</a></li>
 		        <li><a href="#styling">Styling</a></li>
 		        <li><a href="#analytics">Analytics <span class="newred_dot">&bull;</span></a></li>
-		        <li><a href="#more">Premium Advice <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#more" class="tab-orange tab-premium">Premium <span class="newred_dot">&bull;</span></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -289,37 +289,41 @@ class Wbounce_Admin_Options {
 
 			    <div id="more">
 
-					<h3>Should you actually switch to a premium plugin?</h3>
+					<h3>Should you switch to a premium plugin?</h3>
 
 				    <table class="form-table">
 					    <tbody>
 					        <tr valign="top">
 						        <td>
-						        	<h4>Here is my advice:</h4>
+						        	<h4>Here is my advice (plus an exclusive coupon):</h4>
 									<p>wBounce is definitely the most lightweight exit popup plugin for WordPress, and it's available for free!</p>
-									<p>But I'm aware of those many people who want (and need) more than that; many people desire fancy ready-made popup themes, popups on mobiles, A/B testing and more. You can choose from two possible ways:</p>
+									<p>But I'm aware of those people who want (and need) more than that; many people desire fancy ready-made popup themes, automatic popups on mobiles, A/B testing and more. You can choose:</p>
 									<ol>
 										<li>Either stick with the <b>feather-light free wBounce</b> and get surprised by new features in future – but don't expect superpowers. wBounce does what it does.</li>
-										<li>Or go premium and <b>get everything you desire</b>. I'm pretty sure that you're aware of the fact that popups can boost conversions vastly. So consider if a superpower like A/B testing is worthwhile. (Not for everyone, but in many cases: <b>Yes, it's worth it.</b>)</li>
+										<li>Or go premium and <b>get superpowers like split testing</b> and a conversion rate for each popup. I'm pretty sure that you're aware of the fact that popups can boost newsletter signups vastly. So consider if a premium solution is worthwhile. (Not for everyone, but in many cases: <b>Yes, it's worth it.</b>)</li>
 									</ol>
 								
 									<h4>What's the best premium popup solution?</h4>
 									<p>I've tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite popup plugin is OptinMonster. Let me explain why:</p>
 									<ol>
-										<li>Its user experience (!) and service outranges other plugins.</li>
-										<li>User experience is very important to me. (You preach excellence? Breathe it.)</li>
-										<li>Lots of useful features, e.g. page level targeting, analytics, various types of optin forms, &hellip;</li>
+										<li>Its user experience and service outranges other plugins, especially the popup builder which allows you to design popups easily and fast.</li>
+										<li>Lots of useful features, e.g. more granular targeting, built-in stats, various types of optin forms, &hellip;</li>
+										<li>A/B or split testing, of course.</li>
 										<li>100% no-risk money back guarantee: If you don't like OptinMonster over the next 14 days, then they'll refund 100% of your money. No questions asked. [This statement is from their website.]</li>
 										<li>I captured an <b>exclusive 15% discount for users of wBounce!</b></li>
 									</ol>									
 
-<p style="color:red">TODO from here</p>
+									<p>But before you start to test OptinMonster, here is one more hint: OptinMonster comes with several add-ons, and to use the exit popup add-on, you must acquire at least the Pro license. Fortunately, I've worked out a 15% discount for every user of wBounce (thus, YOU!).</p>
+									
+									<h4>This video preview gives you an impression of the popup builder:</h4>
+									<iframe width="560" height="315" src="//www.youtube.com/embed/T_gTIXGlU1Y" frameborder="0" allowfullscreen></iframe>
 
-									<p>OptinMonster requires the Pro license to support exit popups and costs $199.</p>
-
-									<p>I assume that you're going to do the ideal decision, so proceed! No matter whether you stick with wBounce, feel free to follow me on <a href="https://twitter.com/kevinweber" target="_blank" title="Follow Kevin Weber on Twitter">Twitter</a>.</p>
-									<p>Then <a href="http://kevinw.de/kontakt/" target="_blank" title="Contact Kevin Weber">tell me</a> if you want me to stop by in your company.<br><i>(Just because I'm seeking for more travel destinations.)</i></p>
-									<p>– Kevin</p>
+									<p>I assume that you're going to do the ideal decision, so proceed!</p>
+									<p>No matter whether you stick with wBounce, feel free to follow me on <a href="https://twitter.com/kevinweber" target="_blank" title="Follow Kevin Weber on Twitter">Twitter</a>.</p>
+									
+									<p><br>– Kevin</p>
+									
+									<p><br>PS: You want me to stop by in your company or attend your event? <a href="http://kevinw.de/kontakt/" target="_blank" title="Contact Kevin Weber">Tell me</a>!<br><i>(I'm seeking for more travel destinations.)</i></p>
 						        </td>
 					        </tr>
 					    </tbody>
