@@ -137,6 +137,11 @@ class Wbounce_Frontend {
 		        <?php echo $this->analytics_action('hidden_outside'); ?>
 		      });
 
+		      $('#wbounce-modal .modal-close').on('click', function() {
+		        $('#wbounce-modal').hide();
+		        <?php echo $this->analytics_action('hidden_close'); ?>
+		      });
+
 		      $('#wbounce-modal .modal-footer').on('click', function() {
 		        $('#wbounce-modal').hide();
 		        <?php echo $this->analytics_action('hidden_footer'); ?>

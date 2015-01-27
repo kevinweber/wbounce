@@ -323,7 +323,7 @@ class Wbounce_Admin_Options {
 									
 									<p><br>– Kevin</p>
 									
-									<p><br>PS: You want me to stop by in your company or attend your event? <a href="http://kevinw.de/kontakt/" target="_blank" title="Contact Kevin Weber">Tell me</a>!<br><i>(I'm seeking for more travel destinations.)</i></p>
+									<p><br>PS: You want me to stop by in your company or attend your event? <a href="http://kevinw.de/kontakt/" target="_blank" title="Contact Kevin Weber">Tell me</a>!<br><i>(I'm seeking for appealing travel destinations.)</i></p>
 						        </td>
 					        </tr>
 					    </tbody>
