@@ -273,6 +273,12 @@ class Wbounce_Admin_Options {
 										    <td>hidden_footer</td>
 										    <td>document.url</td>
 										  </tr>
+										  <tr>
+										    <td class="first-column italic">Click on '.modal-close'.</td>
+										    <td>wBounce</td>
+										    <td>hidden_close</td>
+										    <td>document.url</td>
+										  </tr>
 									</table>
 									<p>*<i>document.url</i> = URL of the page where the event is triggered.</p>
 								</td>
