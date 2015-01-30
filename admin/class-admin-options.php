@@ -58,6 +58,11 @@ class Wbounce_Admin_Options {
 
 	function settings_page() { ?>
 
+		<style>
+			.button.button-monster {background:#78ac06;border-color:#78ac06;height:auto;text-align:center;font-size:1.2em;padding:9px;box-shadow:none;}
+			.button.button-monster:hover, .button.button-monster:active, .button.button-monster:focus {box-shadow:none;background-color:#6E9D06;border-color:#6E9D06;}
+		</style>
+
 		<div id="tabs" class="ui-tabs">
 			<h2><?php echo WBOUNCE_PLUGIN_NAME; ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
 
@@ -66,7 +71,7 @@ class Wbounce_Admin_Options {
 		        <li><a href="#options">Options</a></li>
 		        <li><a href="#styling">Styling</a></li>
 		        <li><a href="#analytics">Analytics <span class="newred_dot">&bull;</span></a></li>
-		        <li><a href="#more" class="tab-orange tab-premium">Premium <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#more" class="tab-orange tab-premium">15% coupon for OptinMonster <span class="newred_dot">&bull;</span></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -301,35 +306,37 @@ class Wbounce_Admin_Options {
 					    <tbody>
 					        <tr valign="top">
 						        <td>
-						        	<h4>Here is my advice (plus an exclusive coupon):</h4>
-									<p>wBounce is definitely the most lightweight exit popup plugin for WordPress, and it's available for free!</p>
+									<p>wBounce is the most lightweight exit popup plugin for WordPress, and it's available for free!</p>
 									<p>But I'm aware of those people who want (and need) more than that; many people desire fancy ready-made popup themes, automatic popups on mobiles, A/B testing and more. You can choose:</p>
 									<ol>
 										<li>Either stick with the <b>feather-light free wBounce</b> and get surprised by new features in future – but don't expect superpowers. wBounce does what it does.</li>
 										<li>Or go premium and <b>get superpowers like split testing</b> and a conversion rate for each popup. I'm pretty sure that you're aware of the fact that popups can boost newsletter signups vastly. So consider if a premium solution is worthwhile. (Not for everyone, but in many cases: <b>Yes, it's worth it.</b>)</li>
 									</ol>
-								
+
+									<p>
+										<a class="button button-primary button-monster" href="http://optinmonster.com/" title="OptinMonster Website" target="_blank">Premium Popup Plugin: OptinMonster<br><span style="font-size:0.6em;">(exclusive 15% coupon: kevinweber)</span></a>
+									</p>
+
 									<h4>What's the best premium popup solution?</h4>
-									<p>I've tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite popup plugin is OptinMonster. Let me explain why:</p>
+									<p>I've tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite premium popup plugin is OptinMonster. Let me explain why:</p>
 									<ol>
-										<li>Its user experience and service outranges other plugins, especially the popup builder which allows you to design popups easily and fast.</li>
+										<li>OptinMonster's user experience and service outranges other plugins, especially the popup builder which allows you to design popups easily and fast – without coding know-how.</li>
 										<li>Lots of useful features, e.g. more granular targeting, built-in stats, various types of optin forms, &hellip;</li>
 										<li>A/B or split testing, of course.</li>
 										<li>100% no-risk money back guarantee: If you don't like OptinMonster over the next 14 days, then they'll refund 100% of your money. No questions asked. [This statement is from their website.]</li>
-										<li>I captured an <b>exclusive 15% discount for users of wBounce!</b></li>
-									</ol>									
+										<li>I captured an <b>exclusive 15% coupon for users of wBounce!</b></li>
+									</ol>
 
-									<p>But before you start to test OptinMonster, here is one more hint: OptinMonster comes with several add-ons, and to use the exit popup add-on, you must acquire at least the Pro license. Fortunately, I've worked out a 15% discount for every user of wBounce (thus, YOU!).</p>
+									<p style="border:1px solid #000;padding:10px;margin-bottom:12px;">To get the 15% coupon, enter my name (<i>kevinweber</i>) as coupon on the checkout page of <a href="http://optinmonster.com/" title="OptinMonster Website" target="_blank">OptinMonster</a>.</p>							
+
+									<p>But before you start to test OptinMonster, here is one more hint: OptinMonster comes with several add-ons, and to use the exit popup add-on, you must acquire at least the Pro license. Fortunately, you can use my coupon with any license.</p>
 									
 									<h4>This video preview gives you an impression of the popup builder:</h4>
 									<iframe width="560" height="315" src="//www.youtube.com/embed/T_gTIXGlU1Y" frameborder="0" allowfullscreen></iframe>
-
-									<p>I assume that you're going to do the ideal decision, so proceed!</p>
-									<p>No matter whether you stick with wBounce, feel free to follow me on <a href="https://twitter.com/kevinweber" target="_blank" title="Follow Kevin Weber on Twitter">Twitter</a>.</p>
-									
-									<p><br>– Kevin</p>
-									
-									<p><br>PS: You want me to stop by in your company or attend your event? <a href="http://kevinw.de/kontakt/" target="_blank" title="Contact Kevin Weber">Tell me</a>!<br><i>(I'm seeking for appealing travel destinations.)</i></p>
+									<p>
+										<br>
+										<a class="button button-primary button-monster" href="http://optinmonster.com/" title="OptinMonster Website" target="_blank">Discover OptinMonster now<br><span style="font-size:0.6em;">(exclusive 15% coupon: kevinweber)</span></a>
+									</p>
 						        </td>
 					        </tr>
 					    </tbody>
