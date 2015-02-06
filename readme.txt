@@ -4,13 +4,13 @@ Donate link: http://kevinw.de/donate/wBounce/
 License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.1.0.1
 Stable tag: 1.4
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
 
 == Description ==
-wBounce is the free exit popup software for WordPress, evolved by digital marketer [Kevin Weber](http://kevinw.de). This plugin bases on [Ouibounce]( http://carlsednaoui.github.io/ouibounce/) by Carl Sednaoui.
+wBounce is the free exit popup software for WordPress, evolved by marketing technologist [Kevin Weber](http://kevinw.de). This plugin bases on [Ouibounce]( http://carlsednaoui.github.io/ouibounce/) by Carl Sednaoui.
 
 Exit popups are not only "in vogue", they are provably increasing conversions and therefore boost marketing, signups and sales. wBounce displays an inline popup before the user leaves your site. ("Inline popup" means that this is NOT one of those out-dated, annoying popups windows.) Inline popups catch the visitor's attention even if they are in the process of leaving your site.
 
@@ -68,6 +68,9 @@ Another well-known newsletter plugin, [SendPress](https://wordpress.org/plugins/
 
 Notice: If a plugin or service doesn't offer such a shortcode, you can still insert any HTML code. I’m pretty sure that every useful newsletter service offers at least a piece of HTML code that works with wBounce :-)
 
+= wBounce does not fire, scripts are not loaded or jQuery is loaded too late. What's wrong? =
+Probably your theme does not implement the wp_footer() function in the appropriate position, if at all. Always have it just before the closing </body> tag of your theme. [#support](https://wordpress.org/support/topic/plugin-does-not-fire-the-popup?replies=3#post-6530865)
+
 = How to use Jetpack's Subscriptions module with wBounce? =
 Use Jetpack's shortcode within the wBounce content field:
 `[jetpack_subscription_form]`
@@ -75,6 +78,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 
 == Changelog ==
+
+= 1.4.0.1 =
+* Improved CSS to hide scrollbars in some browsers. Note: To hide scrollbars in all browsers completely, use the following custom CSS: .wbounce-modal .wbounce-modal-sub { overflow: hidden; }
 
 = 1.4 =
 * New feature: Event tracking with Google Analytics.
