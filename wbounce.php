@@ -14,7 +14,7 @@ if ( !defined( 'WBOUNCE_OPTION_KEY' ) ) {
 }
 
 if (!defined('WBOUNCE_VERSION_NUM'))
-    define('WBOUNCE_VERSION_NUM', '1.4');
+    define('WBOUNCE_VERSION_NUM', '1.4.0.1');
 if (!defined('WBOUNCE_VERSION_KEY'))
     define('WBOUNCE_VERSION_KEY', WBOUNCE_OPTION_KEY.'_version');
 // Store the plugin version for upgrades
