@@ -18,7 +18,10 @@ class Wbounce_Frontend {
 		<div id="wbounce-modal" class="wbounce-modal underlay" style="display:none">
 			<div id="wbounce-modal-sub" class="wbounce-modal-sub modal">
 				<?php 
-					if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
+					if (get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true) == ('magic' || 'all') ) {
+						echo get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
+					}
+					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
 						echo do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) );
 					}
 					else {

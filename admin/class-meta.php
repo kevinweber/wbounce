@@ -84,12 +84,12 @@ class Wbounce_Meta {
 		// If our nonce isn't there, or we can't verify it, bail
 		if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
 		
-		// Now we can actually save the data
-		$allowed = array( 
-			'a' => array( // on allow a tags
-				'href' => array() // and those anchords can only have href attribute
-			)
-		);
+		// // Now we can actually save the data
+		// $allowed = array( 
+		// 	'a' => array( // on allow a tags
+		// 		'href' => array() // and those anchords can only have href attribute
+		// 	)
+		// );
 		
 		// Probably a good idea to make sure your data is set
 
