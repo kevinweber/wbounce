@@ -130,6 +130,7 @@ class Wbounce_Frontend {
 		      		// ...
 			      	?>
 			      });
+
 				};
 
 		      $('body').on('click', function() {
@@ -172,7 +173,6 @@ if ( isInteger(autoFire) && autoFire !== null ) {
   handleAutoFire( autoFire );
 }
 /*** /AUTOFIRE JS ***/
-
 			});
 
 		})(jQuery);

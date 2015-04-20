@@ -73,7 +73,8 @@ class Wbounce_Meta {
 			</select>
 		</p>
 
-	<?php }
+	<?php do_action( WBOUNCE_OPTION_KEY.'_meta_box_after', $post->ID );
+	}
 
 	function save( $post_id ) {
 
@@ -105,6 +106,8 @@ class Wbounce_Meta {
 		if( isset( $_POST[$select_name] ) )
 			update_post_meta( $post_id, $select_name, esc_attr( $_POST[$select_name] ) );
 		
+		do_action( WBOUNCE_OPTION_KEY.'_save_post', $post_id );
+
 	}
 
 
