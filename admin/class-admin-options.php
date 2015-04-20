@@ -250,7 +250,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 							<tr valign="top">
-								<th scope="row">Available events <span class="newred">New!</span> <span class="description thin"><br>You can monitor tracked events with your Google Analytics accout. For example, go to "Real-Time > Events" or "Behaviour > Events" and look for Event Category "wBounce".</th>
+								<th scope="row">Available events <span class="newred">Beta</span> <span class="description thin"><br>You can monitor tracked events with your Google Analytics accout. For example, go to "Real-Time > Events" or "Behaviour > Events" and look for Event Category "wBounce".</th>
 								<td>
 									<!-- Generated with http://www.tablesgenerator.com/html_tables -->
 									<table class="inline-table">
