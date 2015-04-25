@@ -4,7 +4,7 @@ Donate link: http://kevinw.de/donate/wBounce/
 License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.5
-Tested up to: 4.2-beta4-32113
+Tested up to: 4.2
 Stable tag: 1.4.0.1
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
@@ -48,6 +48,8 @@ You want to enhance this plugin? Please [contribute on Github](https://github.co
 1. Upload wBounce into you plugin directory (/wp-content/plugins/) and activate the plugin through the 'Plugins' menu in WordPress.
 2. Configure the plugin via the admin backend and define your template. You can even insert shortcodes that are provided by your other plugins.
 3. Optionally: Sign up to the wBounce newsletter to get notified about major updates.
+
+Important: wBounce does not collect and store e-mail addresses itself. Therefore, you can insert any HTML. For example, you can copy the form code that's provided by MailChimp (or any other newsletter service) and the signups will be stored using your newsletter service.
 
 
 == Frequently Asked Questions ==
