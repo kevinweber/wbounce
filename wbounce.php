@@ -37,7 +37,7 @@ if ( !defined( 'WBOUNCE_PATH' ) )
 	define( 'WBOUNCE_PATH', plugin_dir_path( __FILE__ ) );
 
 require_once( WBOUNCE_PATH . 'admin/class-register.php' );
-
+require_once( WBOUNCE_PATH . 'admin/inc/class-setup.php' );
 
 ////////////////////////////////////////////////////////////////////////////////
 /**

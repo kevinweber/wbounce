@@ -9,6 +9,7 @@ class Wbounce_Frontend {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'wp_footer', array( $this, 'wp_footer'), 0, WBOUNCE_OPTION_KEY.'-functions' );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style') );
+		include_once( WBOUNCE_PATH . 'frontend/class-shortcodes.php' );
 	}
 
 	/**
@@ -18,12 +19,14 @@ class Wbounce_Frontend {
 		<div id="wbounce-modal" class="wbounce-modal underlay" style="display:none">
 			<div id="wbounce-modal-sub" class="wbounce-modal-sub modal">
 				<?php 
+					$general_template = get_option(WBOUNCE_OPTION_KEY.'_template_engine');
 					$template = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true);
 					$override = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
-					if ( $template == 'all' && $override != '' ) {
+
+					if ($template == 'all' && $override != '' && $general_template != 'original') {
 						echo $override;
 					}
-					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
+					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '' && $general_template != 'original') {
 						echo do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) );
 					}
 					else {
@@ -242,7 +245,7 @@ if ( isInteger(autoFire) && autoFire !== null ) {
 		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
 			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/'.WBOUNCE_OPTION_KEY.'.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
 		} else {
-			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/min/'.WBOUNCE_OPTION_KEY.'-ck.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
+			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/min/'.WBOUNCE_OPTION_KEY.'.min.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
 		}
 	}
 

@@ -13,6 +13,15 @@ class Wbounce_Admin_Options {
 		$plugin = plugin_basename( WBOUNCE_FILE ); 
 		add_filter("plugin_action_links_$plugin", array( $this, 'settings_link' ) );
 		$this->register_settings();
+		$this->admin_js();
+	}
+
+	function admin_js() {
+		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
+			wp_enqueue_script( 'wbounce_backend_admin_js', plugins_url( '../js/wbounce-backend.js' , __FILE__ ), array( 'jquery' ) );
+		} else {
+			wp_enqueue_script( 'wbounce_backend_admin_js', plugins_url( '../js/min/wbounce-backend.min.js' , __FILE__ ), array( 'jquery' ) );
+		}
 	}
 
 	/**
@@ -33,6 +42,7 @@ class Wbounce_Admin_Options {
 			// Tab 'Content'
 			'_test_mode',
 			'_status_default',
+			'_template_engine',
 			'_content',
 			// Tab 'Options'
 			'_aggressive_mode',
@@ -102,6 +112,15 @@ class Wbounce_Admin_Options {
 		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>>Don't fire</option>
 		     						</select>
 									<p>Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.</p>
+						        </td>
+					        </tr>
+					        <tr valign="top">
+					        	<th scope="row">Template Engine <span class="newred">New!</span></th>
+						        <td>
+									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_template_engine">
+								    	<option value="magic"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'magic') { echo ' selected="selected"'; } ?>>Magic Override</option>
+								    	<option value="original"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'original') { echo ' selected="selected"'; } ?>>Disabled (No Override)</option>
+		     						</select>
 						        </td>
 					        </tr>
 					        <tr valign="top">

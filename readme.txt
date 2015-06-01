@@ -81,6 +81,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 == Changelog ==
 
+= 1.5 =
+* Work in progress: Template engine to override templates.
+
 = 1.4.0.1 =
 * Improved CSS to hide scrollbars in some browsers. Note: To hide scrollbars in all browsers completely, use the following custom CSS: .wbounce-modal .wbounce-modal-sub { overflow: hidden; }
 
