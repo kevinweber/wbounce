@@ -118,8 +118,8 @@ class Wbounce_Admin_Options {
 					        	<th scope="row">Template Engine <span class="newred">New!</span></th>
 						        <td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_template_engine">
-								    	<option value="magic"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'magic') { echo ' selected="selected"'; } ?>>Magic Override</option>
-								    	<option value="original"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'original') { echo ' selected="selected"'; } ?>>Disabled (No Override)</option>
+								    	<option value="enabled"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'enabled') { echo ' selected="selected"'; } ?>>Enabled</option>
+								    	<option value="disabled"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'disabled') { echo ' selected="selected"'; } ?>>Disabled (No Override)</option>
 		     						</select>
 						        </td>
 					        </tr>

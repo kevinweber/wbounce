@@ -86,8 +86,8 @@ class Wbounce_Meta {
 			</select>
 		</p>
 
-		<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') != 'original') { ?>
-			<h4 id="wbounce-template-group">Template</h4>
+		<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') != 'disabled') { ?>
+			<h4 id="wbounce-template-group">Template Engine</h4>
 			<p><label for="<?php echo $select_template; ?>">Which template should be used?</label></p>
 			<p>
 				<select class="select" type="select" name="<?php echo $select_template; ?>" id="<?php echo $select_template; ?>">

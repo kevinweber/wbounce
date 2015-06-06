@@ -45,7 +45,7 @@ You want to enhance this plugin? Please [contribute on Github](https://github.co
 
 == Installation ==
 
-1. Upload wBounce into you plugin directory (/wp-content/plugins/) and activate the plugin through the 'Plugins' menu in WordPress.
+1. Upload wBounce into your plugin directory (/wp-content/plugins/) and activate it through the 'Plugins' menu in WordPress.
 2. Configure the plugin via the admin backend and define your template. You can even insert shortcodes that are provided by your other plugins.
 3. Optionally: Sign up to the wBounce newsletter to get notified about major updates.
 

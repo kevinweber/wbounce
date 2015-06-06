@@ -23,10 +23,10 @@ class Wbounce_Frontend {
 					$template = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true);
 					$override = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
 
-					if ($template == 'all' && $override != '' && $general_template != 'original') {
+					if ($template == 'all' && $override != '' && $general_template != 'disabled') {
 						echo $override;
 					}
-					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '' && $general_template != 'original') {
+					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '' && $general_template != 'disabled') {
 						echo do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) );
 					}
 					else {
