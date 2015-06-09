@@ -33,6 +33,8 @@ class WBOUNCE_Shortcodes {
 	 * The $tag must have a format like this: 'wbounce-title' ('wbounce' and the dash at the beginning are important)
 	 */
 	function magic_shortcode( $atts, $content = null, $tag ) {
+		$templateEngine = get_option(WBOUNCE_OPTION_KEY.'_template_engine');
+		
 	    $a = shortcode_atts( array(
 	        'default' => ''
 	    ), $atts );
@@ -40,7 +42,7 @@ class WBOUNCE_Shortcodes {
 	    // Find the first occurrence of "-" in the given tag and connect it with the WBOUNCE_OPTION_KEY
 	    $type = WBOUNCE_OPTION_KEY.'_'.substr(strstr($tag, '-'), 1);
 
-	    if ( $this->is_magic_override_available( $type ) ) {
+	    if ( $this->is_magic_override_available( $type ) && $templateEngine == 'enabled' ) {
 	    	return $this->get_override_text( $type );
 	    }
 	    else if ( $a['default'] != '' ) {

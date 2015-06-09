@@ -19,14 +19,14 @@ class Wbounce_Frontend {
 		<div id="wbounce-modal" class="wbounce-modal underlay" style="display:none">
 			<div id="wbounce-modal-sub" class="wbounce-modal-sub modal">
 				<?php 
-					$general_template = get_option(WBOUNCE_OPTION_KEY.'_template_engine');
-					$template = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true);
-					$override = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
+					$templateEngine = get_option(WBOUNCE_OPTION_KEY.'_template_engine');
+					$templateEngineTemplate = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true);
+					$totalOverrideText = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
 
-					if ($template == 'all' && $override != '' && $general_template != 'disabled') {
-						echo $override;
+					if ($templateEngineTemplate == 'all' && $totalOverrideText != '' && $templateEngine == 'enabled') {
+						echo $totalOverrideText;
 					}
-					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '' && $general_template != 'disabled') {
+					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
 						echo do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) );
 					}
 					else {
