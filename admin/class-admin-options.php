@@ -102,7 +102,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row">Default status <span class="newred">Extended</span></th>
+					        	<th scope="row">Default status</th>
 						        <td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default">
 								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>>Always fire</option>
@@ -383,9 +383,9 @@ class Wbounce_Admin_Options {
 					<p>
 						<b>Personal tip: Must use plugins</b>
 						<ol>
-							<li><a href="http://kevinw.de/wb-ic" title="Inline Comments" target="_blank">Inline Comments</a> (on my part)</li>
-							<li><a href="https://yoast.com/wordpress/plugins/seo/" title="WordPress SEO by Yoast" target="_blank">WordPress SEO</a> (by Yoast)</li>
 							<li><a href="http://kevinw.de/wb-ll" title="Lazy Load for Videos" target="_blank">Lazy Load for Videos</a> (on my part)</li>
+							<li><a href="https://yoast.com/wordpress/plugins/seo/" title="WordPress SEO by Yoast" target="_blank">WordPress SEO</a> (by Yoast)</li>
+							<li><a href="http://kevinw.de/wb-ic" title="Inline Comments" target="_blank">Inline Comments</a> (on my part)</li>
 							<li><a href="https://wordpress.org/plugins/broken-link-checker/" title="Broken Link Checker" target="_blank">Broken Link Checker</a> (by Janis Elsts)</li>
 						</ol>
 					</p>
