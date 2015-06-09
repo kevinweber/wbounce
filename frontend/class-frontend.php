@@ -83,11 +83,11 @@ class Wbounce_Frontend {
 	function load_footer_script() { ?>
 		<script>
 		(function ( $ ) {
-			var fired = false;	// Set "fired" to true as soon as the popup is fired
-			var cookieName = 'wBounce';
-			var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
+			$(function() {
+				var fired = false;	// Set "fired" to true as soon as the popup is fired
+				var cookieName = 'wBounce';
+				var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
 
-			$(document).ready(function() {
 				if (typeof ouibounce !== 'undefined' && $.isFunction(ouibounce)) {
 			      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
 			      	<?php
@@ -141,48 +141,47 @@ class Wbounce_Frontend {
 
 				};
 
-		      $('body').on('click', function() {
-		        $('#wbounce-modal').hide();
-		        <?php echo $this->analytics_action('hidden_outside'); ?>
-		      });
+				$('body').on('click', function() {
+					$('#wbounce-modal').hide();
+					<?php echo $this->analytics_action('hidden_outside'); ?>
+				});
 
-		      $('#wbounce-modal .modal-close').on('click', function() {
-		        $('#wbounce-modal').hide();
-		        <?php echo $this->analytics_action('hidden_close'); ?>
-		      });
+				$('#wbounce-modal .modal-close').on('click', function() {
+					$('#wbounce-modal').hide();
+					<?php echo $this->analytics_action('hidden_close'); ?>
+				});
 
-		      $('#wbounce-modal .modal-footer').on('click', function() {
-		        $('#wbounce-modal').hide();
-		        <?php echo $this->analytics_action('hidden_footer'); ?>
-		      });
+				$('#wbounce-modal .modal-footer').on('click', function() {
+					$('#wbounce-modal').hide();
+					<?php echo $this->analytics_action('hidden_footer'); ?>
+				});
 
-		      $('#wbounce-modal-sub').on('click', function(e) {
-		        e.stopPropagation();
-		      });
+				$('#wbounce-modal-sub').on('click', function(e) {
+					e.stopPropagation();
+				});
 
-/*
- * AUTOFIRE JS
- */
-var autoFire = null;
-<?php
-if ( $this->test_if_given_str('autoFire') ) {
-	echo 'autoFire = '.$this->get_option('autoFire').';';
-}
-?>
+				/*
+				 * AUTOFIRE JS
+				 */
+				var autoFire = null;
+				<?php
+				if ( $this->test_if_given_str('autoFire') ) {
+					echo 'autoFire = '.$this->get_option('autoFire').';';
+				}
+				?>
 
-function isInteger(x) {
-	return (typeof x === 'number') && (x % 1 === 0);
-}
-function handleAutoFire( delay ) {
-	if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive ) || fired === true ) return;
-	setTimeout( _ouibounce._fireAndCallback, delay );
-}
-if ( isInteger(autoFire) && autoFire !== null ) {
-  handleAutoFire( autoFire );
-}
-/*** /AUTOFIRE JS ***/
+				function isInteger(x) {
+					return (typeof x === 'number') && (x % 1 === 0);
+				}
+				function handleAutoFire( delay ) {
+					if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive ) || fired === true ) return;
+					setTimeout( _ouibounce._fireAndCallback, delay );
+				}
+				if ( isInteger(autoFire) && autoFire !== null ) {
+				  handleAutoFire( autoFire );
+				}
+				/*** /AUTOFIRE JS ***/
 			});
-
 		})(jQuery);
 		</script>
 	<?php }
