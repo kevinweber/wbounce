@@ -29,7 +29,7 @@ class Wbounce_Meta {
 		foreach ( $screens as $screen ) {
 			add_meta_box(
 				'meta-box-wbounce',
-				'wBounce by Kevin Weber',
+				__( 'wBounce by Kevin Weber', 'wbounce' ),
 				array( $this, 'meta_box' ),
 				$screen,
 				'side',	// position
@@ -62,65 +62,66 @@ class Wbounce_Meta {
 
 		?>
 
-<!-- 		<h4>Custom Text</h4>
+		<h4 id="wbounce-status-group"><?php esc_html_e( 'Status', 'wbounce' ); ?></h4>
 		<p>
-			<p>Description &hellip;</p>
-			<input type="text" name="oembed_link" id="oembed_link" value="<?php //echo $text; ?>" style="width:100%;" />
-			<label for="oembed_link">E.g. <i>example</i></label>	
-		</p> -->
-
-<!-- 		<h4>Checkbox</h4>
-		<p>
-			<input type="checkbox" name="wbounce_check_custom" id="wbounce_check_custom" <?php // checked( $check, 'on' ); ?> />
-			<label for="wbounce_check_custom">If checked: Display ...</label>
-		</p> -->
-
-		<h4 id="wbounce-status-group">Status</h4>
-		<p><label for="<?php echo $select_name; ?>">Use wBounce on this <?php echo get_current_screen()->post_type; ?>?</label></p>
+			<label for="<?php echo $select_name; ?>">
+				<?php
+					printf( __( 'Use wBounce on this %s?', 'wbounce' ),
+						get_current_screen()->post_type
+					);
+				?>				
+			</label>
+		</p>
 		<p>
 			<select class="select" type="select" name="<?php echo $select_name; ?>" id="<?php echo $select_name; ?>">
 			<?php $meta_element_class = get_post_meta($id, $select_name, true);	?>
-		      <option value="default" <?php selected( $meta_element_class, 'default' ); ?>>Default</option>
-		      <option value="on" <?php selected( $meta_element_class, 'on' ); ?>>On</option>
-		      <option value="off" <?php selected( $meta_element_class, 'off' ); ?>>Off</option>
+		      <option value="default" <?php selected( $meta_element_class, 'default' ); ?>><?php esc_html_e( 'Default', 'wbounce' ); ?></option>
+		      <option value="on" <?php selected( $meta_element_class, 'on' ); ?>><?php esc_html_e( 'On', 'wbounce' ); ?></option>
+		      <option value="off" <?php selected( $meta_element_class, 'off' ); ?>><?php esc_html_e( 'Off', 'wbounce' ); ?></option>
 			</select>
 		</p>
 
 		<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') != 'disabled') { ?>
-			<h4 id="wbounce-template-group">Template Engine</h4>
-			<p><label for="<?php echo $select_template; ?>">Which template should be used?</label></p>
+			<h4 id="wbounce-template-group"><?php esc_html_e( 'Template Engine', 'wbounce' ); ?></h4>
+			<p><label for="<?php echo $select_template; ?>"><?php esc_html_e( 'Which template should be used?', 'wbounce' ); ?></label></p>
 			<p>
 				<select class="select" type="select" name="<?php echo $select_template; ?>" id="<?php echo $select_template; ?>">
 				<?php $meta_element_class = get_post_meta($id, $select_template, true);	?>
-			      <option value="default" <?php selected( $meta_element_class, 'default' ); ?>>Global Default</option>
-			      <option value="magic" <?php selected( $meta_element_class, 'magic' ); ?>>Magic Override</option>
-			      <option value="all" <?php selected( $meta_element_class, 'all' ); ?>>Total Override</option>
+			      <option value="default" <?php selected( $meta_element_class, 'default' ); ?>><?php esc_html_e( 'Global Default', 'wbounce' ); ?></option>
+			      <option value="magic" <?php selected( $meta_element_class, 'magic' ); ?>><?php esc_html_e( 'Magic Override', 'wbounce' ); ?></option>
+			      <option value="all" <?php selected( $meta_element_class, 'all' ); ?>><?php esc_html_e( 'Total Override', 'wbounce' ); ?></option>
 				</select>
 			</p>
 
 
 			<div id="wbounce-magic" class="hidden-by-default" style="display:none;">
-				<p>This template allows you to override the [wbounce-magic] shortcodes that can be placed in your default template. See <a href="">documentation [tbd]</a>.</p>
+				<p>
+					<?php
+						printf( __( 'This template allows you to override the [wbounce-magic] shortcodes that can be placed in your default template. See <a href="%s">documentation [tbd]</a>.', 'wbounce' ),
+							'#' // change link when documentation comes available
+						);
+					?>
+				</p>
 
-				<label for="<?php echo $text_content_magic_arr['title']; ?>">Title</label>
+				<label for="<?php echo $text_content_magic_arr['title']; ?>"><?php esc_html_e( 'Title', 'wbounce' ); ?></label>
 				<input placeholder="[wbounce-title]" type="text" name="<?php echo $text_content_magic_arr['title']; ?>" id="<?php echo $text_content_magic_arr['title']; ?>" value="<?php echo $text_content_magic_arr_input['title']; ?>" style="width:100%;" />
 
-				<label for="<?php echo $text_content_magic_arr['text']; ?>">Text</label>
+				<label for="<?php echo $text_content_magic_arr['text']; ?>"><?php esc_html_e( 'Text', 'wbounce' ); ?></label>
 				<textarea rows="5" type="text" name="<?php echo $text_content_magic_arr['text']; ?>" placeholder="[wbounce-text]" style="width:100%;"><?php echo $text_content_magic_arr_input['text']; ?></textarea>
 
-				<label for="<?php echo $text_content_magic_arr['cta']; ?>">Call to action</label>
+				<label for="<?php echo $text_content_magic_arr['cta']; ?>"><?php esc_html_e( 'Call to action', 'wbounce' ); ?></label>
 				<input placeholder="[wbounce-cta]" type="text" name="<?php echo $text_content_magic_arr['cta']; ?>" id="<?php echo $text_content_magic_arr['cta']; ?>" value="<?php echo $text_content_magic_arr_input['cta']; ?>" style="width:100%;" />
 
-				<label for="<?php echo $text_content_magic_arr['url']; ?>">URL (http://&hellip;)</label>
+				<label for="<?php echo $text_content_magic_arr['url']; ?>"><?php _e( 'URL (http://&hellip;)', 'wbounce' ); ?></label>
 				<input placeholder="[wbounce-url]" type="text" name="<?php echo $text_content_magic_arr['url']; ?>" id="<?php echo $text_content_magic_arr['url']; ?>" value="<?php echo $text_content_magic_arr_input['url']; ?>" style="width:100%;" />
 			</div>
 
 
 			<p id="wbounce-all" class="hidden-by-default" style="display:none;">
-				<textarea rows="10" type="text" name="<?php echo $text_content; ?>" placeholder="Insert some content to override the default" style="width:100%;"><?php echo $text; ?></textarea>
+				<textarea rows="10" type="text" name="<?php echo $text_content; ?>" placeholder="<?php _e( 'Insert some content to override the default', 'wbounce' ); ?>" style="width:100%;"><?php echo $text; ?></textarea>
 			</p>
 		<?php } else {
-			echo '<p><i>Template engine disabled (<a href="options-general.php?page='.WBOUNCE_OPTION_KEY.'.php">settings</a>).</i></p>';
+			echo __( '<p><i>Template engine disabled (<a href="options-general.php?page=' . WBOUNCE_OPTION_KEY . '.php">settings</a>).</i></p>', 'wbounce' );
 		} ?>
 
 	<?php do_action( WBOUNCE_OPTION_KEY.'_meta_box_after', $id );
@@ -193,7 +194,7 @@ class Wbounce_Meta {
 	function render_post_columns($column_name, $id) {
 		$select_name = $this->select_name;
 		$wbounce_status = 'default';
-		$wbounce_title = 'Default';
+		$wbounce_title = __( 'Default', 'wbounce' );
 
 	    switch ($column_name) {
 	    case 'wbounce':
@@ -204,11 +205,11 @@ class Wbounce_Meta {
 		        switch ($get_post_custom) {
 		        	case 'on' :
 		        		$wbounce_status = 'on';
-		        		$wbounce_title = 'On';
+		        		$wbounce_title = __( 'On', 'wbounce' );
 		        		break;
 		        	case 'off' :
 		        		$wbounce_status = 'off';
-		        		$wbounce_title = 'Off';
+		        		$wbounce_title = __( 'Off', 'wbounce' );
 		        		break;
 		        }
 	        }
