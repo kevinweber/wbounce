@@ -103,7 +103,7 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Test mode', 'wbounce' ); ?></th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_test_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_test_mode' ) ); ?> /> <label><?php esc_html_e( 'Check this option to enable "Aggressive Mode" <b>for admins</b>, regardless of the actual setting in the tab "Options".', 'wbounce' ); ?></label>
+									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_test_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_test_mode' ) ); ?> /> <label><?php _e( 'Check this option to enable "Aggressive Mode" <b>for admins</b>, regardless of the actual setting in the tab "Options".', 'wbounce' ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
@@ -114,7 +114,7 @@ class Wbounce_Admin_Options {
 								    	<option value="on_posts"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on posts', 'wbounce' ); ?></option>
 		     							<option value="on_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on pages', 'wbounce' ); ?></option>
 		     							<option value="on_posts_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts_pages') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on posts and pages', 'wbounce' ); ?></option>
-		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Don\'t fire', 'wbounce' ); ?></option>
+		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Don&#39;t fire', 'wbounce' ); ?></option>
 		     						</select>
 									<p><?php esc_html_e( 'Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.', 'wbounce' ); ?></p>
 						        </td>
@@ -129,7 +129,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row"><?php esc_html_e( 'wBounce content <span class="description thin"><br>Add code that should be displayed within the wBounce window.</span>', 'wbounce' ); ?></th>
+					        	<th scope="row"><?php _e( 'wBounce content <span class="description thin"><br>Add code that should be displayed within the wBounce window.</span>', 'wbounce' ); ?></th>
 					        	<td>
 					        		<textarea rows="14" cols="70" type="text" name="<?php echo WBOUNCE_OPTION_KEY; ?>_content" placeholder="<?php esc_html_e( 'Exemplary template below.', 'wbounce' ); ?>"><?php echo get_option(WBOUNCE_OPTION_KEY.'_content'); ?></textarea>
 					        		<span>
@@ -172,7 +172,7 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Aggressive mode', 'wbounce' ); ?></th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_aggressive_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_aggressive_mode' ) ); ?> /> <label><?php esc_html_e( 'By default, wBounce will only fire once for each visitor. When wBounce fires, a cookie is created to ensure a non obtrusive experience.<br><br>There are cases, however, when you may want to be more aggressive. An example use-case might be on your paid landing pages. If you enable aggressive, the modal can be fired any time the page is reloaded.', 'wbounce' ); ?></label>
+									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_aggressive_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_aggressive_mode' ) ); ?> /> <label><?php _e( 'By default, wBounce will only fire once for each visitor. When wBounce fires, a cookie is created to ensure a non obtrusive experience.<br><br>There are cases, however, when you may want to be more aggressive. An example use-case might be on your paid landing pages. If you enable aggressive, the modal can be fired any time the page is reloaded.', 'wbounce' ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
@@ -182,15 +182,15 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row"><?php esc_html_e( 'Set a min time<br><span class="description thin">&hellip; before wBounce fires.</span>', 'wbounce' ); ?></th>
+						        <th scope="row"><?php _e( 'Set a min time<br><span class="description thin">&hellip; before wBounce fires.</span>', 'wbounce' ); ?></th>
 						        <td>
-						        	<input type="number" name="<?echo WBOUNCE_OPTION_KEY; ?>_timer" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_timer'); ?>" /><br><label><?php esc_html_e( 'By default, wBounce won\'t fire in the first second to prevent false positives, as it\'s unlikely the user will be able to exit the page within less than a second. If you want to change the amount of time that firing is surpressed for, you can pass in a number of milliseconds to timer.<br>Insert 0 to fire immediately.', 'wbounce' ); ?></label>
+						        	<input type="number" name="<?echo WBOUNCE_OPTION_KEY; ?>_timer" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_timer'); ?>" /><br><label><?php _e( 'By default, wBounce won&#39;t fire in the first second to prevent false positives, as it&#39;s unlikely the user will be able to exit the page within less than a second. If you want to change the amount of time that firing is surpressed for, you can pass in a number of milliseconds to timer.<br>Insert 0 to fire immediately.', 'wbounce' ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Hesitation', 'wbounce' ); ?></th>
 						        <td>
-						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_hesitation" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_hesitation'); ?>" /><br><label><?php esc_html_e( 'By default, wBounce will show the modal immediately when the user\'s cursor leaves the window. You could instead configure it to wait <i>x</i> milliseconds before showing the modal. If the cursor re-enters the body before delay ms have passed, the modal will not appear. This can be used to provide a "grace period" for visitors instead of immediately presenting the modal window.', 'wbounce' ); ?></label>
+						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_hesitation" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_hesitation'); ?>" /><br><label><?php _e( 'By default, wBounce will show the modal immediately when the user&#39;s cursor leaves the window. You could instead configure it to wait <i>x</i> milliseconds before showing the modal. If the cursor re-enters the body before delay ms have passed, the modal will not appear. This can be used to provide a "grace period" for visitors instead of immediately presenting the modal window.', 'wbounce' ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
@@ -212,7 +212,7 @@ class Wbounce_Admin_Options {
 					        	</td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row"><?php esc_html_e( 'Sensitivity <span class="newred">Deprecated</span><br><span class="description thin">Feature will be removed with one of the next updates.</span>', 'wbounce' ); ?></th>
+						        <th scope="row"><?php _e( 'Sensitivity <span class="newred">Deprecated</span><br><span class="description thin">Feature will be removed with one of the next updates.</span>', 'wbounce' ); ?></th>
 						        <td>
 						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_sensitivity" placeholder="20" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_sensitivity'); ?>" /><br><label><?php esc_html_e( 'wBounce fires when the mouse cursor moves close to (or passes) the top of the viewport. You can define how far the mouse has to be before wBounce fires. The higher value, the more sensitive, and the more quickly the event will fire. Defaults to 20.', 'wbounce' ); ?></label>
 						        </td>
@@ -224,7 +224,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row" style="color: red"><?php esc_html_e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', 'wbounce' ); ?></th>
+						        <th scope="row" style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', 'wbounce' ); ?></th>
 						        <td>
 						        </td>
 					        </tr>
@@ -240,14 +240,14 @@ class Wbounce_Admin_Options {
 				    <table class="form-table">
 					    <tbody>
 					        <tr valign="top">
-					        	<th scope="row"><?php esc_html_e( '', 'wbounce' ); ?>Custom CSS <span class="description thin"><br>Add additional CSS. This should override any other stylesheets.</span></th>
+					        	<th scope="row"><?php _e( 'Custom CSS <span class="description thin"><br>Add additional CSS. This should override any other stylesheets.</span>', 'wbounce' ); ?></th>
 					        	<td>
 					        		<textarea rows="14" cols="70" type="text" name="<?php echo WBOUNCE_OPTION_KEY; ?>_custom_css" placeholder="selector { property: value; }"><?php echo get_option(WBOUNCE_OPTION_KEY.'_custom_css'); ?></textarea>
 					        		<span>
-					        			<?php esc_html_e( '', 'wbounce' ); ?>Examplary code:<br>
+					        			<?php esc_html_e( 'Examplary code:', 'wbounce' ); ?><br>
 					        			<i>.wbounce-modal .modal-title { background-color: #4ab471; }</i><br>
 					        			<?php
-						        			printf( __( '(You don\'t know CSS? Try the <a href="%s" target="_blank" title="CSS Tutorial on W3Schools">CSS Tutorial</a> on W3Schools.)', 'wbounce' ),
+						        			printf( __( '(You don&#39;t know CSS? Try the <a href="%s" target="_blank" title="CSS Tutorial on W3Schools">CSS Tutorial</a> on W3Schools.)', 'wbounce' ),
 						        			'http://kevinw.de/css-tutorial'	
 						        			);
 					        			?>
@@ -255,7 +255,7 @@ class Wbounce_Admin_Options {
 					        	</td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row" style="color: red"><?php esc_html_e( '', 'wbounce' ); ?>MORE TO COME<br><span class="description thin">with the next updates</span></th>
+						        <th scope="row" style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', 'wbounce' ); ?></th>
 						        <td>
 						        </td>
 					        </tr>
@@ -266,59 +266,70 @@ class Wbounce_Admin_Options {
 
 			    <div id="analytics">
 
-					<h3><?php esc_html_e( '', 'wbounce' ); ?>Analytics</h3>
+					<h3><?php esc_html_e( 'Analytics', 'wbounce' ); ?></h3>
 
 				    <table class="form-table">
 					    <tbody>
 					        <tr valign="top">
-						        <th scope="row">Enable <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span> <span class="newred">New!</span></th>
+						        <th scope="row">
+				        			<?php
+					        			printf( __( 'Enable <a href="%s" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span> <span class="newred">New!</span>', 'wbounce' ),
+					        			'https://developers.google.com/analytics/devguides/collection/analyticsjs/events'	
+					        			);
+				        			?>
+							        </th>
 						        <td>
 									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_analytics' ) ); ?> />
-									<label>Check this option to track events with Google Analytics.
-									<br><b>Notice:</b> Event tracking might not work on your local (localhost) test environment when you haven't <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.</label>	        	
+									<label>
+					        			<?php
+						        			printf( __( 'Check this option to track events with Google Analytics.<br><b>Notice:</b> Event tracking might not work on your local (localhost) test environment when you haven&#39;t <a href="%s" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.', 'wbounce' ),
+						        			'https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost'	
+						        			);
+					        			?>
+									</label>	        	
 						        </td>
 					        </tr>
 							<tr valign="top">
-								<th scope="row"><?php esc_html_e( '', 'wbounce' ); ?>Available events <span class="newred">Beta</span> <span class="description thin"><br>You can monitor tracked events with your Google Analytics accout. For example, go to "Real-Time > Events" or "Behaviour > Events" and look for Event Category "wBounce".</th>
+								<th scope="row"><?php _e( 'Available events <span class="newred">Beta</span> <span class="description thin"><br>You can monitor tracked events with your Google Analytics accout. For example, go to "Real-Time > Events" or "Behaviour > Events" and look for Event Category "wBounce".', 'wbounce' ); ?></th>
 								<td>
 									<!-- Generated with http://www.tablesgenerator.com/html_tables -->
 									<table class="inline-table">
 										<tr>
-										    <th class="first-column"><?php esc_html_e( '', 'wbounce' ); ?>Trigger</th>
-										    <th><?php esc_html_e( '', 'wbounce' ); ?>Event Category</th>
-										    <th><?php esc_html_e( '', 'wbounce' ); ?>Event Action</th>
-										    <th><?php esc_html_e( '', 'wbounce' ); ?>Event Label*</th>
+										    <th class="first-column"><?php esc_html_e( 'Trigger', 'wbounce' ); ?></th>
+										    <th><?php esc_html_e( 'Event Category', 'wbounce' ); ?></th>
+										    <th><?php esc_html_e( 'Event Action', 'wbounce' ); ?></th>
+										    <th><?php esc_html_e( 'Event Label*', 'wbounce' ); ?></th>
 										  </tr>
 										  <tr>
-										    <td class="first-column italic"><?php esc_html_e( '', 'wbounce' ); ?>Popup appears.</td>
+										    <td class="first-column italic"><?php esc_html_e( 'Popup appears.', 'wbounce' ); ?></td>
 										    <td>wBounce</td>
 										    <td>fired</td>
 										    <td>document.url</td>
 										  </tr>
 										  <tr>
-										    <td class="first-column italic"><?php esc_html_e( '', 'wbounce' ); ?>Click on area outside of the popup.</td>
+										    <td class="first-column italic"><?php esc_html_e( 'Click on area outside of the popup.', 'wbounce' ); ?></td>
 										    <td>wBounce</td>
 										    <td>hidden_outside</td>
 										    <td>document.url</td>
 										  </tr>
 										  <tr>
-										    <td class="first-column italic"><?php esc_html_e( '', 'wbounce' ); ?>Click on '.modal-footer'.</td>
+										    <td class="first-column italic"><?php esc_html_e( 'Click on &#39;.modal-footer&#39;.', 'wbounce' ); ?></td>
 										    <td>wBounce</td>
 										    <td>hidden_footer</td>
 										    <td>document.url</td>
 										  </tr>
 										  <tr>
-										    <td class="first-column italic"><?php esc_html_e( '', 'wbounce' ); ?>Click on '.modal-close'.</td>
+										    <td class="first-column italic"><?php esc_html_e( 'Click on &#39;.modal-close&#39;.', 'wbounce' ); ?></td>
 										    <td>wBounce</td>
 										    <td>hidden_close</td>
 										    <td>document.url</td>
 										  </tr>
 									</table>
-									<p><?php esc_html_e( '', 'wbounce' ); ?>*<i>document.url</i> = URL of the page where the event is triggered.</p>
+									<p><?php _e( '*<i>document.url</i> = URL of the page where the event is triggered.', 'wbounce' ); ?></p>
 								</td>
 							</tr>
 					        <tr valign="top">
-						        <th scope="row" style="color: red"><?php esc_html_e( '', 'wbounce' ); ?>MORE TO COME<br><span class="description thin">with the next updates</span></th>
+						        <th scope="row" style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', 'wbounce' ); ?></th>
 						        <td>
 						        </td>
 					        </tr>
@@ -329,42 +340,42 @@ class Wbounce_Admin_Options {
 
 			    <div id="more">
 
-					<h3><?php esc_html_e( '', 'wbounce' ); ?>Should you switch to a premium plugin?</h3>
+					<h3><?php esc_html_e( 'Should you switch to a premium plugin?', 'wbounce' ); ?></h3>
 
 				    <table class="form-table">
 					    <tbody>
 					        <tr valign="top">
 						        <td>
-									<p><?php esc_html_e( '', 'wbounce' ); ?>wBounce is the most lightweight exit popup plugin for WordPress, and it's available for free!</p>
-									<p><?php esc_html_e( '', 'wbounce' ); ?>But I'm aware of those people who want (and need) more than that; many people desire fancy ready-made popup themes, automatic popups on mobiles, A/B testing and more. You can choose:</p>
+									<p><?php esc_html_e( 'wBounce is the most lightweight exit popup plugin for WordPress, and it&#39;s available for free!', 'wbounce' ); ?></p>
+									<p><?php esc_html_e( 'But I&#39;m aware of those people who want (and need) more than that; many people desire fancy ready-made popup themes, automatic popups on mobiles, A/B testing and more. You can choose:', 'wbounce' ); ?></p>
 									<ol>
-										<li><?php esc_html_e( '', 'wbounce' ); ?>Either stick with the <b>feather-light free wBounce</b> and get surprised by new features in future – but don't expect superpowers. wBounce does what it does.</li>
-										<li><?php esc_html_e( '', 'wbounce' ); ?>Or go premium and <b>get superpowers like split testing</b> and a conversion rate for each popup. I'm pretty sure that you're aware of the fact that popups can boost newsletter signups vastly. So consider if a premium solution is worthwhile. (Not for everyone, but in many cases: <b>Yes, it's worth it.</b>)</li>
+										<li><?php _e( 'Either stick with the <b>feather-light free wBounce</b> and get surprised by new features in future – but don&#39;t expect superpowers. wBounce does what it does.', 'wbounce' ); ?></li>
+										<li><?php _e( 'Or go premium and <b>get superpowers like split testing</b> and a conversion rate for each popup. I&#39;m pretty sure that you&#39;re aware of the fact that popups can boost newsletter signups vastly. So consider if a premium solution is worthwhile. (Not for everyone, but in many cases: <b>Yes, it&#39;s worth it.</b>)', 'wbounce' ); ?></li>
 									</ol>
 
 									<p>
-										<a class="button button-primary button-monster" href="http://optinmonster.com/" title="OptinMonster Website" target="_blank"><?php esc_html_e( '', 'wbounce' ); ?>Premium Popup Plugin: OptinMonster<br><span style="font-size:0.6em;"><?php esc_html_e( '', 'wbounce' ); ?>(exclusive 15% coupon: kevinweber)</span></a>
+										<a class="button button-primary button-monster" href="http://optinmonster.com/" title="<?php esc_html_e( 'OptinMonster Website', 'wbounce' ); ?>" target="_blank"><?php _e( 'Premium Popup Plugin: OptinMonster<br><span style="font-size:0.6em;">(exclusive 15% coupon: kevinweber)</span>', 'wbounce' ); ?></a>
 									</p>
 
-									<h4><?php esc_html_e( '', 'wbounce' ); ?>What's the best premium popup solution?</h4>
-									<p><?php esc_html_e( '', 'wbounce' ); ?>I've tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite premium popup plugin is OptinMonster. Let me explain why:</p>
+									<h4><?php esc_html_e( 'What&#39;s the best premium popup solution?', 'wbounce' ); ?></h4>
+									<p><?php esc_html_e( 'I&#39;ve tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite premium popup plugin is OptinMonster. Let me explain why:', 'wbounce' ); ?></p>
 									<ol>
-										<li><?php esc_html_e( '', 'wbounce' ); ?>OptinMonster's user experience and service outranges other plugins, especially the popup builder which allows you to design popups easily and fast – without coding know-how.</li>
-										<li><?php esc_html_e( '', 'wbounce' ); ?>Lots of useful features, e.g. more granular targeting, built-in stats, various types of optin forms, &hellip;</li>
-										<li><?php esc_html_e( '', 'wbounce' ); ?>A/B or split testing, of course.</li>
-										<li><?php esc_html_e( '', 'wbounce' ); ?>100% no-risk money back guarantee: If you don't like OptinMonster over the next 14 days, then they'll refund 100% of your money. No questions asked. [This statement is from their website.]</li>
-										<li><?php esc_html_e( '', 'wbounce' ); ?>I captured an <b>exclusive 15% coupon for users of wBounce!</b></li>
+										<li><?php esc_html_e( 'OptinMonster&#39;s user experience and service outranges other plugins, especially the popup builder which allows you to design popups easily and fast – without coding know-how.', 'wbounce' ); ?></li>
+										<li><?php esc_html_e( 'Lots of useful features, e.g. more granular targeting, built-in stats, various types of optin forms, &hellip;', 'wbounce' ); ?></li>
+										<li><?php esc_html_e( 'A/B or split testing, of course.', 'wbounce' ); ?></li>
+										<li><?php esc_html_e( '100% no-risk money back guarantee: If you don&#39;t like OptinMonster over the next 14 days, then they&#39;ll refund 100% of your money. No questions asked. [This statement is from their website.]', 'wbounce' ); ?></li>
+										<li><?php _e( 'I captured an <b>exclusive 15% coupon for users of wBounce!', 'wbounce' ); ?></b></li>
 									</ol>
 
 									<p style="border:1px solid #000;padding:10px;margin-bottom:12px;">To get the 15% coupon, enter my name (<i>kevinweber</i>) as coupon on the checkout page of <a href="http://optinmonster.com/" title="OptinMonster Website" target="_blank">OptinMonster</a>.</p>							
 
-									<p><?php esc_html_e( '', 'wbounce' ); ?>But before you start to test OptinMonster, here is one more hint: OptinMonster comes with several add-ons, and to use the exit popup add-on, you must acquire at least the Pro license. Fortunately, you can use my coupon with any license.</p>
+									<p><?php esc_html_e( 'But before you start to test OptinMonster, here is one more hint: OptinMonster comes with several add-ons, and to use the exit popup add-on, you must acquire at least the Pro license. Fortunately, you can use my coupon with any license.', 'wbounce' ); ?></p>
 									
-									<h4><?php esc_html_e( '', 'wbounce' ); ?>This video preview gives you an impression of the popup builder:</h4>
+									<h4><?php esc_html_e( 'This video preview gives you an impression of the popup builder:', 'wbounce' ); ?></h4>
 									<iframe width="560" height="315" src="//www.youtube.com/embed/T_gTIXGlU1Y" frameborder="0" allowfullscreen></iframe>
 									<p>
 										<br>
-										<a class="button button-primary button-monster" href="http://optinmonster.com/" title="<?php esc_html_e( '', 'wbounce' ); ?>OptinMonster Website" target="_blank"><?php esc_html_e( '', 'wbounce' ); ?>Discover OptinMonster now<br><span style="font-size:0.6em;">(exclusive 15% coupon: kevinweber)</span></a>
+										<a class="button button-primary button-monster" href="http://optinmonster.com/" title="<?php esc_html_e( 'OptinMonster Website', 'wbounce' ); ?>" target="_blank"><?php _e( 'Discover OptinMonster now<br><span style="font-size:0.6em;">(exclusive 15% coupon: kevinweber)</span>', 'wbounce' ); ?></a>
 									</p>
 						        </td>
 					        </tr>
@@ -384,19 +395,56 @@ class Wbounce_Admin_Options {
 		        <tr valign="top">
 		        <th scope="row" style="width:100px;"><a href="http://kevinw.de/wb/" target="_blank"><img src="https://www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
 		        <td style="width:200px;">
-		        	<p><a href="http://kevinw.de/wb" target="_blank">Kevin Weber</a> &ndash; that's me.<br>
-		        	I'm the developer of this plugin. Love it!</p></td>
-			        <td>
-						<p><b>It's easy:</b> You increase sales thanks to my plugin. In exchange, you donate at least <a href="http://kevinw.de/donate/wBounce/" title="Donate me" target="_blank">9,37€</a> so I can further develop it. And please, give this plugin a 5 star rating <a href="http://wordpress.org/support/view/plugin-reviews/wbounce?filter=5" title="Vote for wBounce" target="_blank">on WordPress.org</a>.</p>
-			        </td>       
+		        	<p>
+			        	<?php
+				        	printf( __( '<a href="%s" target="_blank">Kevin Weber</a> &ndash; that&#39;s me.<br>I&#39;m the developer of this plugin. Love it!', 'wbounce' ),
+				        		'http://kevinw.de/wb'
+				        	);
+			        	?>
+			        </p>
+			    </td>
+		        <td>
+					<p>
+			        	<?php
+				        	printf( __( '<b>It&#39;s easy:</b> You increase sales thanks to my plugin. In exchange, you donate at least <a href="%1$s" title="Donate me" target="_blank">9,37€</a> so I can further develop it. And please, give this plugin a 5 star rating <a href="%2$s" title="Vote for wBounce" target="_blank">on WordPress.org</a>.', 'wbounce' ),
+				        		'http://kevinw.de/donate/wBounce/',
+				        		'http://wordpress.org/support/view/plugin-reviews/wbounce?filter=5'
+				        	);
+			        	?>
+					</p>
+		        </td>       
 		        <td style="width:300px;">
 					<p>
-						<b><?php esc_html_e( '', 'wbounce' ); ?>Personal tip: Must use plugins</b>
+						<b><?php esc_html_e( 'Personal tip: Must use plugins', 'wbounce' ); ?></b>
 						<ol>
-							<li><a href="http://kevinw.de/wb-ll" title="Lazy Load for Videos" target="_blank">Lazy Load for Videos</a> (on my part)</li>
-							<li><a href="https://yoast.com/wordpress/plugins/seo/" title="WordPress SEO by Yoast" target="_blank">WordPress SEO</a> (by Yoast)</li>
-							<li><a href="http://kevinw.de/wb-ic" title="Inline Comments" target="_blank">Inline Comments</a> (on my part)</li>
-							<li><a href="https://wordpress.org/plugins/broken-link-checker/" title="Broken Link Checker" target="_blank">Broken Link Checker</a> (by Janis Elsts)</li>
+							<li>
+					        	<?php
+						        	printf( __( '<a href="%s" title="Lazy Load for Videos" target="_blank">Lazy Load for Videos</a> (on my part)', 'wbounce' ),
+						        		'http://kevinw.de/wb-ll'
+						        	);
+					        	?>
+							</li>
+							<li>
+					        	<?php
+						        	printf( __( '<a href="%s" title="WordPress SEO by Yoast" target="_blank">WordPress SEO</a> (by Yoast)', 'wbounce' ),
+						        		'https://yoast.com/wordpress/plugins/seo/'
+						        	);
+					        	?>
+							</li>
+							<li>
+					        	<?php
+						        	printf( __( '<a href="%s" title="Inline Comments" target="_blank">Inline Comments</a> (on my part)', 'wbounce' ),
+						        		'http://kevinw.de/wb-ic'
+						        	);
+					        	?>
+							</li>
+							<li>
+					        	<?php
+						        	printf( __( '<a href="%s" title="Broken Link Checker" target="_blank">Broken Link Checker</a> (by Janis Elsts)', 'wbounce' ),
+						        		'https://wordpress.org/plugins/broken-link-checker/'
+						        	);
+					        	?>
+							</li>
 						</ol>
 					</p>
 		        </td>
