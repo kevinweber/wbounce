@@ -28,7 +28,7 @@ class Wbounce_Admin_Options {
 	 * Add settings link on plugin page
 	 */
 	function settings_link($links) { 
-	  $settings_link = '<a href="options-general.php?page='.WBOUNCE_OPTION_KEY.'.php">Settings</a>'; 
+	  $settings_link = '<a href="options-general.php?page='.WBOUNCE_OPTION_KEY.'.php">' . __( 'Settings', 'wbounce' ) . '</a>'; 
 	  array_unshift($links, $settings_link); 
 	  return $links; 
 	}
@@ -74,7 +74,13 @@ class Wbounce_Admin_Options {
 		</style>
 
 		<div id="tabs" class="ui-tabs">
-			<h2><?php echo WBOUNCE_PLUGIN_NAME; ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2>
+<!-- 			<h2><?php echo WBOUNCE_PLUGIN_NAME; ?> <span class="subtitle">by <a href="http://kevinw.de/wb" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version <?php echo WBOUNCE_VERSION_NUM; ?>)</span></h2> -->
+			<?php
+				printf( '<h2>' . WBOUNCE_PLUGIN_NAME . '<span class="subtitle">' . __( 'by <a href="%1$s" target="blank" title="Website by Kevin Weber">Kevin Weber</a> (Version %2$s)', 'wbounce' ) . '</span></h2>',
+					'http://kevinw.de/wb',
+					WBOUNCE_VERSION_NUM
+				);
+			?>
 
 			<ul class="ui-tabs-nav">
 		        <li><a href="#content">Content <span class="newred_dot">&bull;</span></a></li>
