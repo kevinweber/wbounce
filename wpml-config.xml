@@ -1,0 +1,12 @@
+<wpml-config>
+    <admin-texts>
+        <key name="wbounce_content" />
+    </admin-texts>
+    <custom-fields>
+        <custom-field action="translate">wbounce_title</custom-field>
+        <custom-field action="translate">wbounce_text</custom-field>
+        <custom-field action="translate">wbounce_cta</custom-field>
+        <custom-field action="translate">wbounce_url</custom-field>
+        <custom-field action="translate">wbounce_override</custom-field>
+    </custom-fields>
+</wpml-config>
