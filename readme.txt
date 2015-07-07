@@ -73,6 +73,15 @@ Notice: If a plugin or service doesn't offer such a shortcode, you can still ins
 = wBounce does not fire, scripts are not loaded or jQuery is loaded too late. What's wrong? =
 Probably your theme does not implement the wp_footer() function in the appropriate position, if at all. Always have it just before the closing </body> tag of your theme. [#support](https://wordpress.org/support/topic/plugin-does-not-fire-the-popup?replies=3#post-6530865)
 
+= How to translate popups (using WPML)? =
+You must have installed WPML Translation Management. Then you can do the following in the menu:
+
+1) Go to WPML > Translation Management > Multilingual Content Setup > Edit translatable admin strings
+2) Context: admin_texts_plugin_wbounce-master > Translate
+
+As soon as you save, the popup will appear in the appropriate language.
+(Thanks to Jan Sass for providing this answer.)
+
 = How to use Jetpack's Subscriptions module with wBounce? =
 Use Jetpack's shortcode within the wBounce content field:
 `[jetpack_subscription_form]`
