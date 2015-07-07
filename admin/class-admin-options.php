@@ -85,8 +85,8 @@ class Wbounce_Admin_Options {
 		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#options"><?php esc_html_e( 'Options', WBOUNCE_TD ); ?></a></li>
 		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?></a></li>
-		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
-		        <li><a href="#more" class="tab-orange tab-premium"><?php esc_html_e( '15% coupon for OptinMonster', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?></a></li>
+		        <li><a href="#more" class="tab-orange tab-premium"><?php esc_html_e( '15% coupon for OptinMonster', WBOUNCE_TD ); ?></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -230,11 +230,6 @@ class Wbounce_Admin_Options {
 									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_load_in_footer" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_load_in_footer' ) ); ?> /> <label><?php esc_html_e( 'Normally, scripts are placed in &lt;head&gt; of the HTML document. If this parameter is true, the script is placed before the &lt;/body&gt; end tag. This requires the theme to have the wp_footer() template tag in the appropriate place.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
-					        <tr valign="top">
-						        <th scope="row" style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', WBOUNCE_TD ); ?></th>
-						        <td>
-						        </td>
-					        </tr>
 					    </tbody>
 				    </table>
 
@@ -280,7 +275,7 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row">
 				        			<?php
-					        			printf( __( 'Enable <a href="%s" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span> <span class="newred">New!</span>', WBOUNCE_TD ),
+					        			printf( __( 'Enable <a href="%s" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span>', WBOUNCE_TD ),
 					        			'https://developers.google.com/analytics/devguides/collection/analyticsjs/events'	
 					        			);
 				        			?>
@@ -336,7 +331,14 @@ class Wbounce_Admin_Options {
 								</td>
 							</tr>
 					        <tr valign="top">
-						        <th scope="row" style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', WBOUNCE_TD ); ?></th>
+						        <th scope="row">
+						        	<span style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', WBOUNCE_TD ); ?></span><br>
+							        <span class="description thin"><?php
+							        	printf( __( 'Feel free to contribute <a href="%s" target="_blank">on Github</a>', WBOUNCE_TD ),
+							        		'https://github.com/kevinweber/wbounce'
+							        	);
+							        ?></span>
+						        </th>
 						        <td>
 						        </td>
 					        </tr>
