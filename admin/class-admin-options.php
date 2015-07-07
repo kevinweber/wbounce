@@ -120,7 +120,14 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row"><?php esc_html_e( 'Template Engine', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
+					        	<th scope="row"><?php esc_html_e( 'Template Engine', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span><br>
+					        	<span class="description thin">
+					        	<?php 
+						        	printf( __( 'See <a href="%s" target="_blank" title="wBounce Documentation">documentation</a>.', WBOUNCE_TD ),
+						        	'http://kevinw.de/wb-doc-te'	
+						        	); ?>
+						        </th>
+						        </span>
 						        <td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_template_engine">
 								    	<option value="enabled"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'enabled') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Enabled', WBOUNCE_TD ); ?></option>

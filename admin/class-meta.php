@@ -97,8 +97,8 @@ class Wbounce_Meta {
 			<div id="wbounce-magic" class="hidden-by-default" style="display:none;">
 				<p>
 					<?php
-						printf( __( 'This template allows you to override the [wbounce-magic] shortcodes that can be placed in your default template. See <a href="%s">documentation [tbd]</a>.', WBOUNCE_TD ),
-							'#' // change link when documentation comes available
+						printf( __( 'This template allows you to override the [wbounce-magic] shortcodes that can be placed in your default template. See <a href="%s" title="wBounce Documentation" target="_blank">documentation</a>.', WBOUNCE_TD ),
+							'http://kevinw.de/wb-doc-te'
 						);
 					?>
 				</p>
