@@ -133,6 +133,14 @@ class Wbounce_Admin_Options {
 								    	<option value="enabled"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'enabled') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Enabled', WBOUNCE_TD ); ?></option>
 								    	<option value="disabled"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'disabled') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Disabled (No Override)', WBOUNCE_TD ); ?></option>
 		     						</select>
+							        <p>
+								        <?php
+								        	printf( __( 'When you use this feature, please <a href="%1$s" target="_blank">donate</a> and give this plugin a <a href="%2$s" target="_blank">5 star rating</a>.', WBOUNCE_TD ),
+												'http://kevinw.de/donate/wBounce/',
+												'http://wordpress.org/support/view/plugin-reviews/wbounce?filter=5'
+								        	);
+								        ?>
+								    </p>
 						        </td>
 					        </tr>
 					        <tr valign="top">
