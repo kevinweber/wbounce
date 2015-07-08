@@ -28,15 +28,15 @@ You want to enhance this plugin? Please [contribute on Github](https://github.co
 * Display inline popup before the user leaves the site
 * Alternatively display popup on enter or after a certain time period (self-acting fire)
 * Set custom content via backend
-* Shortcodes are supported
+* Define custom content for pages and posts individually using a flexible template engine which uses so-called "magic shortcodes"
+* Shortcodes from other plugins are also supported
 * Determine sensitivity, cookie expiration, hesitation, and more
 * Add custom CSS
 * Set default status: Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.
 * Event tracking with Google Analytics
 
 = Future features: =
-* Define custom content for pages and posts individually
-* Templates with intelligent template variables/shortcodes
+* More template options
 * Styling options (display "x" icon to close the popup, set background transparency, ...)
 * Intelligent timer (e.g., display popup when the user is inactive for a certain time period)
 * A/B testing with Google Analytics
