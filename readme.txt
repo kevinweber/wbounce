@@ -92,7 +92,7 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 = 1.5 =
 * HOT! New feature: Template engine to override templates on individual pages/posts. Introducing magic shortcodes.
-* Made the plugin translatable.
+* Made the plugin translatable. Great thanks to @senlin (https://github.com/senlin) for his contributions via wBounce on Github (https://github.com/kevinweber/wbounce).
 
 = 1.4.0.1 =
 * Improved CSS to hide scrollbars in some browsers. Note: To hide scrollbars in all browsers completely, use the following custom CSS: .wbounce-modal .wbounce-modal-sub { overflow: hidden; }
