@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the wBounce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: wBounce 1.5\n"
+"Project-Id-Version: wBounce 1.5.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wbounce\n"
-"POT-Creation-Date: 2015-07-08 16:35:41+00:00\n"
+"POT-Creation-Date: 2015-07-21 20:14:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Kevin Weber <k-iwi@web.de>\n"
-"Language-Team: Kevin Weber <k-iwi@web.de>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 
 #: admin/class-admin-options.php:31
 msgid "Settings"
@@ -19,141 +19,142 @@ msgstr ""
 #: admin/class-admin-options.php:78
 msgid ""
 "by <a href=\"%1$s\" target=\"_blank\" title=\"Website by Kevin Weber\">Kevin "
-"Weber</a> (Version %2$s)"
+"Weber</a> (Version %2$s) with best thanks to <a href=\"%3$s\" target=\"_blank"
+"\" title=\"Ouibounce by Carl Sednaoui\">Ouibounce by Carl Sednaoui</a>"
 msgstr ""
 
-#: admin/class-admin-options.php:85 admin/class-admin-options.php:99
+#: admin/class-admin-options.php:86 admin/class-admin-options.php:101
 msgid "Content"
 msgstr ""
 
-#: admin/class-admin-options.php:86 admin/class-admin-options.php:183
+#: admin/class-admin-options.php:87 admin/class-admin-options.php:185
 msgid "Options"
 msgstr ""
 
-#: admin/class-admin-options.php:87 admin/class-admin-options.php:248
+#: admin/class-admin-options.php:88 admin/class-admin-options.php:250
 msgid "Styling"
 msgstr ""
 
-#: admin/class-admin-options.php:88 admin/class-admin-options.php:279
+#: admin/class-admin-options.php:89 admin/class-admin-options.php:281
 msgid "Analytics"
 msgstr ""
 
-#: admin/class-admin-options.php:89
+#: admin/class-admin-options.php:90
 msgid "15% coupon for OptinMonster"
 msgstr ""
 
-#: admin/class-admin-options.php:104
+#: admin/class-admin-options.php:106
 msgid "Test mode"
 msgstr ""
 
-#: admin/class-admin-options.php:106
+#: admin/class-admin-options.php:108
 msgid ""
 "Check this option to enable \"Aggressive Mode\" <b>for admins</b>, "
 "regardless of the actual setting in the tab \"Options\"."
 msgstr ""
 
-#: admin/class-admin-options.php:110
+#: admin/class-admin-options.php:112
 msgid "Default status"
 msgstr ""
 
-#: admin/class-admin-options.php:113
+#: admin/class-admin-options.php:115
 msgid "Always fire"
 msgstr ""
 
-#: admin/class-admin-options.php:114
+#: admin/class-admin-options.php:116
 msgid "Fire on posts"
 msgstr ""
 
-#: admin/class-admin-options.php:115
+#: admin/class-admin-options.php:117
 msgid "Fire on pages"
 msgstr ""
 
-#: admin/class-admin-options.php:116
+#: admin/class-admin-options.php:118
 msgid "Fire on posts and pages"
 msgstr ""
 
-#: admin/class-admin-options.php:117
+#: admin/class-admin-options.php:119
 msgid "Don&#39;t fire"
 msgstr ""
 
-#: admin/class-admin-options.php:119
+#: admin/class-admin-options.php:121
 msgid ""
 "Define if wBounce should be fired on posts and/or pages by default. You can "
 "override the default setting on every post and page individually."
 msgstr ""
 
-#: admin/class-admin-options.php:123 admin/class-meta.php:85
+#: admin/class-admin-options.php:125 admin/class-meta.php:85
 msgid "Template Engine"
 msgstr ""
 
-#: admin/class-admin-options.php:123
+#: admin/class-admin-options.php:125
 msgid "New!"
 msgstr ""
 
-#: admin/class-admin-options.php:126
+#: admin/class-admin-options.php:128
 msgid ""
 "See <a href=\"%s\" target=\"_blank\" title=\"wBounce Documentation"
 "\">documentation</a>."
 msgstr ""
 
-#: admin/class-admin-options.php:133
+#: admin/class-admin-options.php:135
 msgid "Enabled"
 msgstr ""
 
-#: admin/class-admin-options.php:134
+#: admin/class-admin-options.php:136
 msgid "Disabled (No Override)"
 msgstr ""
 
-#: admin/class-admin-options.php:138
+#: admin/class-admin-options.php:140
 msgid ""
 "When you use this feature, please <a href=\"%1$s\" target=\"_blank\">donate</"
 "a> and give this plugin a <a href=\"%2$s\" target=\"_blank\">5 star rating</"
 "a>."
 msgstr ""
 
-#: admin/class-admin-options.php:147
+#: admin/class-admin-options.php:149
 msgid ""
 "wBounce content <span class=\"description thin\"><br>Add code that should be "
 "displayed within the wBounce window.</span>"
 msgstr ""
 
-#: admin/class-admin-options.php:149
+#: admin/class-admin-options.php:151
 msgid "Exemplary template below."
 msgstr ""
 
-#: admin/class-admin-options.php:152
+#: admin/class-admin-options.php:154
 msgid "Exemplary template:"
 msgstr ""
 
-#: admin/class-admin-options.php:155 admin/class-meta.php:106
+#: admin/class-admin-options.php:157 admin/class-meta.php:106
 msgid "Title"
 msgstr ""
 
-#: admin/class-admin-options.php:159
+#: admin/class-admin-options.php:161
 msgid "Paragraph"
 msgstr ""
 
-#: admin/class-admin-options.php:162
+#: admin/class-admin-options.php:164
 msgid "you@email.com"
 msgstr ""
 
-#: admin/class-admin-options.php:163
+#: admin/class-admin-options.php:165
 msgid "learn more &raquo;"
 msgstr ""
 
-#: admin/class-admin-options.php:164
+#: admin/class-admin-options.php:166
 msgid "*this is a fake form"
 msgstr ""
 
-#: admin/class-admin-options.php:169
+#: admin/class-admin-options.php:171
 msgid "no thanks"
 msgstr ""
 
-#: admin/class-admin-options.php:188
+#: admin/class-admin-options.php:190
 msgid "Aggressive mode"
 msgstr ""
 
-#: admin/class-admin-options.php:190
+#: admin/class-admin-options.php:192
 msgid ""
 "By default, wBounce will only fire once for each visitor. When wBounce "
 "fires, a cookie is created to ensure a non obtrusive experience."
@@ -162,23 +163,23 @@ msgid ""
 "aggressive, the modal can be fired any time the page is reloaded."
 msgstr ""
 
-#: admin/class-admin-options.php:194
+#: admin/class-admin-options.php:196
 msgid "Self-acting fire (timer)"
 msgstr ""
 
-#: admin/class-admin-options.php:196
+#: admin/class-admin-options.php:198
 msgid ""
 "Automatically trigger the popup after a certain time period. Insert 0 to "
 "fire immediately when the page is loaded. Leave blank to not use this option."
 msgstr ""
 
-#: admin/class-admin-options.php:200
+#: admin/class-admin-options.php:202
 msgid ""
 "Set a min time<br><span class=\"description thin\">&hellip; before wBounce "
 "fires.</span>"
 msgstr ""
 
-#: admin/class-admin-options.php:202
+#: admin/class-admin-options.php:204
 msgid ""
 "By default, wBounce won&#39;t fire in the first second to prevent false "
 "positives, as it&#39;s unlikely the user will be able to exit the page "
@@ -187,11 +188,11 @@ msgid ""
 "<br>Insert 0 to fire immediately."
 msgstr ""
 
-#: admin/class-admin-options.php:206
+#: admin/class-admin-options.php:208
 msgid "Hesitation"
 msgstr ""
 
-#: admin/class-admin-options.php:208
+#: admin/class-admin-options.php:210
 msgid ""
 "By default, wBounce will show the modal immediately when the user&#39;s "
 "cursor leaves the window. You could instead configure it to wait <i>x</i> "
@@ -201,11 +202,11 @@ msgid ""
 "the modal window."
 msgstr ""
 
-#: admin/class-admin-options.php:212
+#: admin/class-admin-options.php:214
 msgid "Cookie expiration"
 msgstr ""
 
-#: admin/class-admin-options.php:214
+#: admin/class-admin-options.php:216
 msgid ""
 "wBounce sets a cookie by default to prevent the modal from appearing more "
 "than once per user. You can add a cookie expiration (in days) to adjust the "
@@ -214,21 +215,21 @@ msgid ""
 "when the browser is closed entirely."
 msgstr ""
 
-#: admin/class-admin-options.php:218
+#: admin/class-admin-options.php:220
 msgid "Cookie per page"
 msgstr ""
 
-#: admin/class-admin-options.php:220
+#: admin/class-admin-options.php:222
 msgid ""
 "By default, the cookie is stored for the whole site. With the \"cookie per "
 "page\" option enabled, every page/post gets its own cookie."
 msgstr ""
 
-#: admin/class-admin-options.php:224
+#: admin/class-admin-options.php:226
 msgid "Cookie domain"
 msgstr ""
 
-#: admin/class-admin-options.php:226
+#: admin/class-admin-options.php:228
 msgid ""
 "wBounce sets a cookie by default to prevent the modal from appearing more "
 "than once per user. You can add a cookie domain to specify the domain under "
@@ -238,14 +239,14 @@ msgid ""
 "(notice the dot in front)."
 msgstr ""
 
-#: admin/class-admin-options.php:230
+#: admin/class-admin-options.php:232
 msgid ""
 "Sensitivity <span class=\"newred\">Deprecated</span><br><span class="
 "\"description thin\">Feature will be removed with one of the next updates.</"
 "span>"
 msgstr ""
 
-#: admin/class-admin-options.php:232
+#: admin/class-admin-options.php:234
 msgid ""
 "wBounce fires when the mouse cursor moves close to (or passes) the top of "
 "the viewport. You can define how far the mouse has to be before wBounce "
@@ -253,11 +254,11 @@ msgid ""
 "will fire. Defaults to 20."
 msgstr ""
 
-#: admin/class-admin-options.php:236
+#: admin/class-admin-options.php:238
 msgid "Load script in footer"
 msgstr ""
 
-#: admin/class-admin-options.php:238
+#: admin/class-admin-options.php:240
 msgid ""
 "Normally, scripts are placed in &lt;head&gt; of the HTML document. If this "
 "parameter is true, the script is placed before the &lt;/body&gt; end tag. "
@@ -265,35 +266,35 @@ msgid ""
 "appropriate place."
 msgstr ""
 
-#: admin/class-admin-options.php:253
+#: admin/class-admin-options.php:255
 msgid ""
 "Custom CSS <span class=\"description thin\"><br>Add additional CSS. This "
 "should override any other stylesheets.</span>"
 msgstr ""
 
-#: admin/class-admin-options.php:257
+#: admin/class-admin-options.php:259
 msgid "Examplary code:"
 msgstr ""
 
-#: admin/class-admin-options.php:260
+#: admin/class-admin-options.php:262
 msgid ""
 "(You don&#39;t know CSS? Try the <a href=\"%s\" target=\"_blank\" title="
 "\"CSS Tutorial on W3Schools\">CSS Tutorial</a> on W3Schools.)"
 msgstr ""
 
-#: admin/class-admin-options.php:268 admin/class-admin-options.php:343
+#: admin/class-admin-options.php:270 admin/class-admin-options.php:345
 msgid ""
 "MORE TO COME<br><span class=\"description thin\">with the next updates</span>"
 msgstr ""
 
-#: admin/class-admin-options.php:286
+#: admin/class-admin-options.php:288
 msgid ""
 "Enable <a href=\"%s\" target=\"_blank\" title=\"Google Analytics Event "
 "Tracking\">GA event tracking</a> <span class=\"description thin"
 "\"><br>Requires Google Analytics.</span>"
 msgstr ""
 
-#: admin/class-admin-options.php:295
+#: admin/class-admin-options.php:297
 msgid ""
 "Check this option to track events with Google Analytics.<br><b>Notice:</b> "
 "Event tracking might not work on your local (localhost) test environment "
@@ -301,7 +302,7 @@ msgid ""
 "localhost\">disabled the default</a> cookie domain."
 msgstr ""
 
-#: admin/class-admin-options.php:303
+#: admin/class-admin-options.php:305
 msgid ""
 "Available events <span class=\"newred\">Beta</span> <span class="
 "\"description thin\"><br>You can monitor tracked events with your Google "
@@ -309,71 +310,71 @@ msgid ""
 "Events\" and look for Event Category \"wBounce\"."
 msgstr ""
 
-#: admin/class-admin-options.php:308
+#: admin/class-admin-options.php:310
 msgid "Trigger"
 msgstr ""
 
-#: admin/class-admin-options.php:309
+#: admin/class-admin-options.php:311
 msgid "Event Category"
 msgstr ""
 
-#: admin/class-admin-options.php:310
+#: admin/class-admin-options.php:312
 msgid "Event Action"
 msgstr ""
 
-#: admin/class-admin-options.php:311
+#: admin/class-admin-options.php:313
 msgid "Event Label*"
 msgstr ""
 
-#: admin/class-admin-options.php:314
+#: admin/class-admin-options.php:316
 msgid "Popup appears."
 msgstr ""
 
-#: admin/class-admin-options.php:320
+#: admin/class-admin-options.php:322
 msgid "Click on area outside of the popup."
 msgstr ""
 
-#: admin/class-admin-options.php:326
+#: admin/class-admin-options.php:328
 msgid "Click on &#39;.modal-footer&#39;."
 msgstr ""
 
-#: admin/class-admin-options.php:332
+#: admin/class-admin-options.php:334
 msgid "Click on &#39;.modal-close&#39;."
 msgstr ""
 
-#: admin/class-admin-options.php:338
+#: admin/class-admin-options.php:340
 msgid "*<i>document.url</i> = URL of the page where the event is triggered."
 msgstr ""
 
-#: admin/class-admin-options.php:345
+#: admin/class-admin-options.php:347
 msgid "Feel free to contribute <a href=\"%s\" target=\"_blank\">on Github</a>"
 msgstr ""
 
-#: admin/class-admin-options.php:360
+#: admin/class-admin-options.php:362
 msgid "Should you switch to a premium plugin?"
 msgstr ""
 
-#: admin/class-admin-options.php:366
+#: admin/class-admin-options.php:368
 msgid ""
 "wBounce is the most lightweight exit popup plugin for WordPress, and it&#39;"
 "s available for free!"
 msgstr ""
 
-#: admin/class-admin-options.php:367
+#: admin/class-admin-options.php:369
 msgid ""
 "But I&#39;m aware of those people who want (and need) more than that; many "
 "people desire fancy ready-made popup themes, automatic popups on mobiles, A/"
 "B testing and more. You can choose:"
 msgstr ""
 
-#: admin/class-admin-options.php:369
+#: admin/class-admin-options.php:371
 msgid ""
 "Either stick with the <b>feather-light free wBounce</b> and get surprised by "
 "new features in future – but don&#39;t expect superpowers. wBounce does what "
 "it does."
 msgstr ""
 
-#: admin/class-admin-options.php:370
+#: admin/class-admin-options.php:372
 msgid ""
 "Or go premium and <b>get superpowers like split testing</b> and a conversion "
 "rate for each popup. I&#39;m pretty sure that you&#39;re aware of the fact "
@@ -382,56 +383,56 @@ msgid ""
 "s worth it.</b>)"
 msgstr ""
 
-#: admin/class-admin-options.php:374 admin/class-admin-options.php:395
+#: admin/class-admin-options.php:376 admin/class-admin-options.php:397
 msgid "OptinMonster Website"
 msgstr ""
 
-#: admin/class-admin-options.php:374
+#: admin/class-admin-options.php:376
 msgid ""
 "Premium Popup Plugin: OptinMonster<br><span style=\"font-size:0.6em;\">"
 "(exclusive 15% coupon: kevinweber)</span>"
 msgstr ""
 
-#: admin/class-admin-options.php:377
+#: admin/class-admin-options.php:379
 msgid "What&#39;s the best premium popup solution?"
 msgstr ""
 
-#: admin/class-admin-options.php:378
+#: admin/class-admin-options.php:380
 msgid ""
 "I&#39;ve tested several popup plugins with prices that range from $0 to "
 "$500, and you should do the same. My favourite premium popup plugin is "
 "OptinMonster. Let me explain why:"
 msgstr ""
 
-#: admin/class-admin-options.php:380
+#: admin/class-admin-options.php:382
 msgid ""
 "OptinMonster&#39;s user experience and service outranges other plugins, "
 "especially the popup builder which allows you to design popups easily and "
 "fast – without coding know-how."
 msgstr ""
 
-#: admin/class-admin-options.php:381
+#: admin/class-admin-options.php:383
 msgid ""
 "Lots of useful features, e.g. more granular targeting, built-in stats, "
 "various types of optin forms, &hellip;"
 msgstr ""
 
-#: admin/class-admin-options.php:382
+#: admin/class-admin-options.php:384
 msgid "A/B or split testing, of course."
 msgstr ""
 
-#: admin/class-admin-options.php:383
+#: admin/class-admin-options.php:385
 msgid ""
 "100% no-risk money back guarantee: If you don&#39;t like OptinMonster over "
 "the next 14 days, then they&#39;ll refund 100% of your money. No questions "
 "asked. [This statement is from their website.]"
 msgstr ""
 
-#: admin/class-admin-options.php:384
+#: admin/class-admin-options.php:386
 msgid "I captured an <b>exclusive 15% coupon for users of wBounce!"
 msgstr ""
 
-#: admin/class-admin-options.php:389
+#: admin/class-admin-options.php:391
 msgid ""
 "But before you start to test OptinMonster, here is one more hint: "
 "OptinMonster comes with several add-ons, and to use the exit popup add-on, "
@@ -439,23 +440,23 @@ msgid ""
 "coupon with any license."
 msgstr ""
 
-#: admin/class-admin-options.php:391
+#: admin/class-admin-options.php:393
 msgid "This video preview gives you an impression of the popup builder:"
 msgstr ""
 
-#: admin/class-admin-options.php:395
+#: admin/class-admin-options.php:397
 msgid ""
 "Discover OptinMonster now<br><span style=\"font-size:0.6em;\">(exclusive 15% "
 "coupon: kevinweber)</span>"
 msgstr ""
 
-#: admin/class-admin-options.php:417
+#: admin/class-admin-options.php:419
 msgid ""
 "<a href=\"%s\" target=\"_blank\">Kevin Weber</a> &ndash; that&#39;s me."
 "<br>I&#39;m the developer of this plugin. Love it!"
 msgstr ""
 
-#: admin/class-admin-options.php:426
+#: admin/class-admin-options.php:428
 msgid ""
 "<b>It&#39;s easy:</b> You increase sales thanks to my plugin. In exchange, "
 "you donate at least <a href=\"%1$s\" title=\"Donate me\" target=\"_blank"
@@ -464,29 +465,29 @@ msgid ""
 "WordPress.org</a>."
 msgstr ""
 
-#: admin/class-admin-options.php:435
+#: admin/class-admin-options.php:437
 msgid "Personal tip: Must use plugins"
 msgstr ""
 
-#: admin/class-admin-options.php:439
+#: admin/class-admin-options.php:441
 msgid ""
 "<a href=\"%s\" title=\"Lazy Load for Videos\" target=\"_blank\">Lazy Load "
 "for Videos</a> (on my part)"
 msgstr ""
 
-#: admin/class-admin-options.php:446
+#: admin/class-admin-options.php:448
 msgid ""
 "<a href=\"%s\" title=\"WordPress SEO by Yoast\" target=\"_blank\">WordPress "
 "SEO</a> (by Yoast)"
 msgstr ""
 
-#: admin/class-admin-options.php:453
+#: admin/class-admin-options.php:455
 msgid ""
 "<a href=\"%s\" title=\"Inline Comments\" target=\"_blank\">Inline Comments</"
 "a> (on my part)"
 msgstr ""
 
-#: admin/class-admin-options.php:460
+#: admin/class-admin-options.php:462
 msgid ""
 "<a href=\"%s\" title=\"Broken Link Checker\" target=\"_blank\">Broken Link "
 "Checker</a> (by Janis Elsts)"
@@ -504,15 +505,15 @@ msgstr ""
 msgid "Use wBounce on this %s?"
 msgstr ""
 
-#: admin/class-meta.php:78 admin/class-meta.php:197
+#: admin/class-meta.php:78 admin/class-meta.php:205
 msgid "Default"
 msgstr ""
 
-#: admin/class-meta.php:79 admin/class-meta.php:208
+#: admin/class-meta.php:79 admin/class-meta.php:216
 msgid "On"
 msgstr ""
 
-#: admin/class-meta.php:80 admin/class-meta.php:212
+#: admin/class-meta.php:80 admin/class-meta.php:220
 msgid "Off"
 msgstr ""
 
