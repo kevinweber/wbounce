@@ -75,9 +75,10 @@ class Wbounce_Admin_Options {
 
 		<div id="tabs" class="ui-tabs">
 			<?php
-				printf( '<h2>' . WBOUNCE_PLUGIN_NAME . '<span class="subtitle">' . __( 'by <a href="%1$s" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version %2$s)', WBOUNCE_TD ) . '</span></h2>',
+				printf( '<h2>' . WBOUNCE_PLUGIN_NAME . '<span class="subtitle">' . __( 'by <a href="%1$s" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (Version %2$s) with best thanks to <a href="%3$s" target="_blank" title="Ouibounce by Carl Sednaoui">Ouibounce by Carl Sednaoui</a>', WBOUNCE_TD ) . '</span></h2>',
 					'http://kevinw.de/wb',
-					WBOUNCE_VERSION_NUM
+					WBOUNCE_VERSION_NUM,
+					'https://github.com/carlsednaoui/ouibounce'
 				);
 			?>
 
@@ -89,6 +90,7 @@ class Wbounce_Admin_Options {
 		        <li><a href="#more" class="tab-orange tab-premium"><?php esc_html_e( '15% coupon for OptinMonster', WBOUNCE_TD ); ?></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
+
 
 			<form method="post" action="options.php">
 			    <?php settings_fields( WBOUNCE_OPTION_KEY.'-settings-group' ); ?>
