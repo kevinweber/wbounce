@@ -58,7 +58,7 @@ class Wbounce_Meta {
 			$text_content_magic_arr_input[$key] = isset( $values[$text_content_magic_arr[$key]] ) ? esc_attr( $values[$text_content_magic_arr[$key]][0] ) : '';
 		}
 
-
+		wp_nonce_field( 'add_wbounce_meta_box_nonce', 'wbounce_meta_box_nonce' );
 
 		?>
 
@@ -133,31 +133,39 @@ class Wbounce_Meta {
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 		
 		// If our nonce isn't there, or we can't verify it, bail
-		if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
-		
-		// SELECT
-		$select_name = $this->select_name;
-		if( isset( $_POST[$select_name] ) )
-			update_post_meta( $post_id, $select_name, esc_attr( $_POST[$select_name] ) );
+		if ( 
+			!isset( $_POST['wbounce_meta_box_nonce'] )
+			|| !wp_verify_nonce( $_POST['wbounce_meta_box_nonce'], 'add_wbounce_meta_box_nonce' ) 
+		) {
+			print 'Sorry, your nonce did not verify.';
+			exit;
+		} else {
 
-		// SELECT
-		$select_template = $this->select_template;
-		if( isset( $_POST[$select_template] ) )
-			update_post_meta( $post_id, $select_template, esc_attr( $_POST[$select_template] ) );
+			// SELECT
+			$select_name = $this->select_name;
+			if( isset( $_POST[$select_name] ) )
+				update_post_meta( $post_id, $select_name, esc_attr( $_POST[$select_name] ) );
 
-		// MAGIC SHORTCODES (INPUT or TEXTAREA)
-		$text_content_magic_arr = $this->text_content_magic_arr();
-		foreach ($text_content_magic_arr as $key => $value) {
-			if( isset( $_POST[$value] ) )
-				update_post_meta( $post_id, $value, wp_kses_post( $_POST[$value] ) );
+			// SELECT
+			$select_template = $this->select_template;
+			if( isset( $_POST[$select_template] ) )
+				update_post_meta( $post_id, $select_template, esc_attr( $_POST[$select_template] ) );
+
+			// MAGIC SHORTCODES (INPUT or TEXTAREA)
+			$text_content_magic_arr = $this->text_content_magic_arr();
+			foreach ($text_content_magic_arr as $key => $value) {
+				if( isset( $_POST[$value] ) )
+					update_post_meta( $post_id, $value, wp_kses_post( $_POST[$value] ) );
+			}
+
+			// TEXTAREA
+			$text_content = $this->text_content;
+			if( isset( $_POST[$text_content] ) )
+				update_post_meta( $post_id, $text_content, wp_kses_post( $_POST[$text_content] ) );
+			
+			do_action( WBOUNCE_OPTION_KEY.'_save_post', $post_id );
+
 		}
-
-		// TEXTAREA
-		$text_content = $this->text_content;
-		if( isset( $_POST[$text_content] ) )
-			update_post_meta( $post_id, $text_content, wp_kses_post( $_POST[$text_content] ) );
-		
-		do_action( WBOUNCE_OPTION_KEY.'_save_post', $post_id );
 
 	}
 
