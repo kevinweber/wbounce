@@ -22,7 +22,7 @@ This plugin makes it extremely easy to implement exit popups. You don't have to 
 
 Demo and more information on the developer's website: [kevinw.de/wbounce/](http://kevinw.de/wbounce/)
 
-You want to enhance this plugin? Please [contribute on Github](https://github.com/kevinweber/wbounce). I'm looking for a WordPress enthusiast who further develops this plugin; I'll give you guidance and promote you and the plugin.
+You want to enhance this plugin? Please [contribute on Github](https://github.com/kevinweber/wbounce).
 
 = Features: =
 * Display inline popup before the user leaves the site
@@ -34,13 +34,6 @@ You want to enhance this plugin? Please [contribute on Github](https://github.co
 * Add custom CSS
 * Set default status: Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.
 * Event tracking with Google Analytics
-
-= Future features: =
-* More template options
-* Styling options (display "x" icon to close the popup, set background transparency, ...)
-* Intelligent timer (e.g., display popup when the user is inactive for a certain time period)
-* A/B testing with Google Analytics
-* ... YOU want one of those features RIGHT NOW or want to implement a feature yourself? [Contribute on Github](https://github.com/kevinweber/wbounce) and I'll publish your enhancements to the official WordPress directory.
 
 
 == Installation ==
