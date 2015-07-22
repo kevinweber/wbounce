@@ -59,7 +59,6 @@ class Wbounce_Meta {
 		}
 
 		wp_nonce_field( 'add_wbounce_meta_box_nonce', 'wbounce_meta_box_nonce' );
-
 		?>
 
 		<h4 id="wbounce-status-group"><?php esc_html_e( 'Status', WBOUNCE_TD ); ?></h4>
@@ -134,8 +133,11 @@ class Wbounce_Meta {
 		
 		// If our nonce isn't there, or we can't verify it, bail
 		if ( 
-			!isset( $_POST['wbounce_meta_box_nonce'] )
-			|| !wp_verify_nonce( $_POST['wbounce_meta_box_nonce'], 'add_wbounce_meta_box_nonce' ) 
+			!empty( $_POST ) &&
+			(
+				!isset( $_POST['wbounce_meta_box_nonce'] )
+				|| !wp_verify_nonce( $_POST['wbounce_meta_box_nonce'], 'add_wbounce_meta_box_nonce' ) 
+			)
 		) {
 			print 'Sorry, your nonce did not verify.';
 			exit;
