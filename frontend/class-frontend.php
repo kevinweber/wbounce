@@ -103,7 +103,6 @@ class Wbounce_Frontend {
 		<script>
 		(function ( $ ) {
 			$(function() {
-				var fired = false;	// Set "fired" to true as soon as the popup is fired
 				var cookieName = 'wBounce';
 				var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
 
@@ -149,7 +148,6 @@ class Wbounce_Frontend {
 		      		// Callback
 		      		echo
 		      		"callback:function(){".
-		      			"fired = true;".	// Set fired to "true" when popup is fired
 		      			$this->analytics_action('fired').
 		      		"}"	
 
@@ -197,7 +195,7 @@ class Wbounce_Frontend {
 					return (typeof x === 'number') && (x % 1 === 0);
 				}
 				function handleAutoFire( delay ) {
-					if ( _ouibounce.isDisabled() || fired === true ) return;
+					if ( _ouibounce.isDisabled() ) return;
 					setTimeout( _ouibounce.fire, delay );
 				}
 				if ( isInteger(autoFire) && autoFire !== null ) {
