@@ -84,7 +84,7 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 == Changelog ==
 
 = 1.5.1.3 =
-* Display different default popup content when user is not an admin.
+* Updated exit popup script and improved self-acting fire.
 
 = 1.5.1.1 =
 * Fixed not working meta box besides page/post editor.

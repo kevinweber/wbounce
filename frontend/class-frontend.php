@@ -185,7 +185,11 @@ class Wbounce_Frontend {
 				var autoFire = null;
 				<?php
 				if ( $this->test_if_given_str('autoFire') ) {
-					echo 'autoFire = '.$this->get_option('autoFire').';';
+					$autoFire = $this->get_option('autoFire');
+					if ($autoFire < 1000) {
+						$autoFire = 1000;
+					}
+					echo 'autoFire = '.$autoFire.';';
 				}
 				?>
 
@@ -193,8 +197,8 @@ class Wbounce_Frontend {
 					return (typeof x === 'number') && (x % 1 === 0);
 				}
 				function handleAutoFire( delay ) {
-					if ( (_ouibounce.checkCookieValue( cookieName, 'true') && !aggressive ) || fired === true ) return;
-					setTimeout( _ouibounce._fireAndCallback, delay );
+					if ( _ouibounce.isDisabled() || fired === true ) return;
+					setTimeout( _ouibounce.fire, delay );
 				}
 				if ( isInteger(autoFire) && autoFire !== null ) {
 				  handleAutoFire( autoFire );
@@ -310,7 +314,8 @@ class Wbounce_Frontend {
 		else {
 			$id = $post->ID;
 		}
-		
+
+
 		// When the individual status for a page/post is 'off', all the other setting don't matter. So this has to be tested at first. 
 		if ( get_post_meta( $id, 'wbounce_status', true ) && get_post_meta( $id, 'wbounce_status', true ) === 'off' ) {
 			return true;
