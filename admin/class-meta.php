@@ -58,7 +58,7 @@ class Wbounce_Meta {
 			$text_content_magic_arr_input[$key] = isset( $values[$text_content_magic_arr[$key]] ) ? esc_attr( $values[$text_content_magic_arr[$key]][0] ) : '';
 		}
 
-		wp_nonce_field( 'add_wbounce_meta_box_nonce', 'wbounce_meta_box_nonce' );
+		// wp_nonce_field( 'add_wbounce_meta_box_nonce', 'wbounce_meta_box_nonce' );
 		?>
 
 		<h4 id="wbounce-status-group"><?php esc_html_e( 'Status', WBOUNCE_TD ); ?></h4>
@@ -131,17 +131,17 @@ class Wbounce_Meta {
 		// Bail if we're doing an auto save
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 		
-		// If our nonce isn't there, or we can't verify it, bail
-		if ( 
-			!empty( $_POST ) &&
-			(
-				!isset( $_POST['wbounce_meta_box_nonce'] )
-				|| !wp_verify_nonce( $_POST['wbounce_meta_box_nonce'], 'add_wbounce_meta_box_nonce' ) 
-			)
-		) {
-			print 'Sorry, your nonce did not verify.';
-			exit;
-		} else {
+		// // If our nonce isn't there, or we can't verify it, bail
+		// if ( 
+		// 	!empty( $_POST ) &&
+		// 	(
+		// 		!isset( $_POST['wbounce_meta_box_nonce'] )
+		// 		|| !wp_verify_nonce( $_POST['wbounce_meta_box_nonce'], 'add_wbounce_meta_box_nonce' ) 
+		// 	)
+		// ) {
+		// 	print 'Sorry, your nonce did not verify.';
+		// 	exit;
+		// } else {
 
 			// SELECT
 			$select_name = $this->select_name;
@@ -167,7 +167,7 @@ class Wbounce_Meta {
 			
 			do_action( WBOUNCE_OPTION_KEY.'_save_post', $post_id );
 
-		}
+		// }
 
 	}
 
