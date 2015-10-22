@@ -29,6 +29,9 @@ class Wbounce_Frontend {
 					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
 						printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) ) );
 					}
+					else if (current_user_can( 'manage_options' )) {
+						printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default_admin() );
+					}
 					else {
 						printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default() );
 					}
@@ -37,7 +40,7 @@ class Wbounce_Frontend {
 		</div>
 	<?php }
 
-	function create_modal_content_default() {
+	function create_modal_content_default_admin() {
 		$content_default = '
 			<div class="modal-title">
 	          <h3>' . __( 'Do you love this plugin as much as I do?', WBOUNCE_TD ) . '</h3>
@@ -63,6 +66,22 @@ class Wbounce_Frontend {
 				    <div style="position: absolute; left: -5000px;"><input type="text" name="b_f65d804ad274b9c8812b59b4d_39ca44d8d3" tabindex="-1" value=""></div>
 				</form>
 				</div>
+
+	        </div>
+		';
+		echo apply_filters( WBOUNCE_OPTION_KEY.'_create_modal_content_default_admin', $content_default );
+	}
+
+	function create_modal_content_default() {
+		$content_default = '
+			<div class="modal-title">
+	          <h3>' . __( 'Congrats!', WBOUNCE_TD ) . '</h3>
+	        </div>
+
+	        <div class="modal-body" style="text-align:center">
+
+	        	<p><a href="http://kevinw.de/wbounce/" title="WordPress plugin wBounce" target="_blank">wBounce</a> is succesfully installed and triggered.</p>
+	        	<p>Now go ahead and set up your own modal.</p>
 
 	        </div>
 		';
