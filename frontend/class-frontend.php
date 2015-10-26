@@ -244,7 +244,7 @@ class Wbounce_Frontend {
 	 */
 	function analytics_action( $action ) {
 		return (!$this->is_analytics_enabled()) ? '' :
-		"ga('send', 'event', ".$this->analytics_category().", '$action', ".$this->analytics_label().");";
+		"if (typeof ga == 'function') { ga('send', 'event', ".$this->analytics_category().", '$action', ".$this->analytics_label()."); }";
 	}
 	private function analytics_category() {
 		return '\'wBounce\'';
