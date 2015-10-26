@@ -102,6 +102,13 @@ class Wbounce_Frontend {
 	function load_footer_script() { ?>
 		<script>
 		(function ( $ ) {
+
+			if (typeof __gaTracker == 'function') {
+				__gaTracker( function() {
+				  window.ga = __gaTracker;
+				});
+			}
+
 			$(function() {
 				var cookieName = 'wBounce';
 				var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
