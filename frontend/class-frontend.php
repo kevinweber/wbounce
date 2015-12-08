@@ -312,7 +312,8 @@ class Wbounce_Frontend {
  	 */
  	function test_if_status_is_off() {
 		global $post;
-
+		
+		$result = false;
 		if (!isset($post->ID)) {
 			$id = null;
 		}
@@ -323,7 +324,7 @@ class Wbounce_Frontend {
 
 		// When the individual status for a page/post is 'off', all the other setting don't matter. So this has to be tested at first. 
 		if ( get_post_meta( $id, 'wbounce_status', true ) && get_post_meta( $id, 'wbounce_status', true ) === 'off' ) {
-			return true;
+			$result = true;
 		}
 		else if (
 			( !get_option(WBOUNCE_OPTION_KEY.'_status_default') ) ||	// Fire when no option is defined yet
@@ -333,10 +334,15 @@ class Wbounce_Frontend {
 			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages' && is_page() ) ||
 			( get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts_pages' && (is_single()||is_page()) )
 		) {
-			return false;
+			$result = false;
 		}
 		else
-			return true;
+			$result = true;
+
+		// wbounce_test_if_status_is_off
+		$result = apply_filters( WBOUNCE_OPTION_KEY.'_test_if_status_is_off', $result );
+
+		return $result;
  	}
 }
 
