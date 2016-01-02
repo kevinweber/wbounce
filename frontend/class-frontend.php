@@ -112,77 +112,109 @@ class Wbounce_Frontend {
 			$(function() {
 				var cookieName = 'wBounce';
 				var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
+				var wBounceModal = document.getElementById('wbounce-modal');
+				var wBounceModalSub = document.getElementById('wbounce-modal-sub');
 
 				if (typeof ouibounce !== 'undefined' && $.isFunction(ouibounce)) {
-			      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
-			      	<?php
-			      	// Echo options that require a string input
-			      	$option_str = array(
-			      		'cookieExpire',	// Cookie expiration
-			      		'cookieDomain', // Cookie domain
-			      	);	
-		      		foreach ($option_str as $str) {
-		      			$this->echo_option_str( $str );
-		      		}
+					var config = {
+						<?php
+						// Echo options that require a string input
+						$option_str = array(
+							'cookieExpire',	// Cookie expiration
+							'cookieDomain', // Cookie domain
+						);
+						foreach ($option_str as $str) {
+							$this->echo_option_str( $str );
+						}
 
-			      	// Echo options that require an integer input
-			      	$option_int = array(
-			      		'timer', // Timer (Set a min time before wBounce fires)
-			      		'sensitivity',	// Sensitivity
-			      	);	
-		      		foreach ($option_int as $int) {
-		      			$this->echo_option_int( $int );
-		      		}
+						// Echo options that require an integer input
+						$option_int = array(
+							'timer', // Timer (Set a min time before wBounce fires)
+							'sensitivity',	// Sensitivity
+						);
+						foreach ($option_int as $int) {
+							$this->echo_option_int( $int );
+						}
+						?>
+					};
 
-		      		// Aggressive Mode
-		      		if ( $this->test_if_aggressive() ) {
-		      			echo 'aggressive:true,';
-			      	}
+					<?php
+						// Aggressive Mode
+					if ( $this->test_if_aggressive() ) {
+						echo 'config.aggressive = true;';
+					}
 
-		      		// Cookie per page (sitewide cookie)
-		      		if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
-			      		echo 'sitewide:true,';
-			      	}
+					// Cookie per page (sitewide cookie)
+					if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
+						echo 'config.sitewide = true;';
+					}
 
-		      		// Hesitation
-		      		if ( $this->test_if_given_str('hesitation') ) {
-		      			echo 'delay:'.$this->get_option('hesitation').',';
-		      		}
+					// Hesitation
+					if ( $this->test_if_given_str('hesitation') ) {
+						echo 'config.delay = '.$this->get_option('hesitation').';';
+					}
 
-			      	// Custom cookie name
-			      	echo "cookieName:cookieName,";
+					// Custom cookie name
+					echo "config.cookieName = cookieName;";
 
-		      		// Callback
-		      		echo
-		      		"callback:function(){".
-		      			$this->analytics_action('fired').
-		      		"}"	
+					// Delay/Intelligent timer
+					// ...
+					?>
 
-		      		// Delay/Intelligent timer
-		      		// ...
-			      	?>
-			      });
+					// Callback
+					config.callback = function() {
+						<?php if (!$this->test_if_animation_none('open')) : ?>
+						var animationClass = 'animated <?php echo $this->get_option('open_animation'); ?>';
+						$(wBounceModalSub)
+							.addClass(animationClass)
+							.one(
+								'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+								function() { $(this).removeClass(animationClass); }
+							);
+						<?php endif; ?>
 
-				};
+						<?php echo $this->analytics_action('fired'); ?>
+					};
+
+					//Init
+			      	var _ouibounce = ouibounce(wBounceModal, config);
+				}
 
 				$('body').on('click', function() {
-					$('#wbounce-modal').hide();
+					hidePopup();
 					<?php echo $this->analytics_action('hidden_outside'); ?>
 				});
 
-				$('#wbounce-modal .modal-close').on('click', function() {
-					$('#wbounce-modal').hide();
+				$(wBounceModal).find('.modal-close').on('click', function() {
+					hidePopup();
 					<?php echo $this->analytics_action('hidden_close'); ?>
 				});
 
-				$('#wbounce-modal .modal-footer').on('click', function() {
-					$('#wbounce-modal').hide();
+				$(wBounceModal).find('.modal-footer').on('click', function() {
+					hidePopup();
 					<?php echo $this->analytics_action('hidden_footer'); ?>
 				});
 
-				$('#wbounce-modal-sub').on('click', function(e) {
+				$(wBounceModalSub).on('click', function(e) {
 					e.stopPropagation();
 				});
+
+				function hidePopup() {
+					<?php if ($this->test_if_animation_none('exit')) : ?>
+						$(wBounceModal).hide();
+					<?php else : ?>
+					var animationClass = 'animated <?php echo $this->get_option('exit_animation'); ?>';
+					$(wBounceModalSub)
+						.addClass(animationClass)
+						.one(
+							'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+							function() {
+								$(this).removeClass(animationClass);
+								$(wBounceModal).hide()
+							}
+						);
+					<?php endif; ?>
+				}
 
 				/*
 				 * AUTOFIRE JS
@@ -219,6 +251,9 @@ class Wbounce_Frontend {
 	}
 	function test_if_given_str( $optionname ) {
 		return ( get_option(WBOUNCE_OPTION_KEY.'_'.$optionname) != "" ) ? true : false;
+	}
+	function test_if_animation_none( $optionname ) {
+		return ( get_option(WBOUNCE_OPTION_KEY.'_'.$optionname.'_animation') != "none" ) ? false : true;
 	}
 	function echo_option_str( $optionname ) {
   		if ( $this->test_if_given_str(strtolower($optionname)) ) {
@@ -289,6 +324,9 @@ class Wbounce_Frontend {
 	 */
 	function enqueue_style() {
 		if ($this->test_if_status_is_off()) return;
+
+		wp_register_style( 'animate-style', plugins_url('css/min/animate.min.css', plugin_dir_path( __FILE__ ) ) );
+		wp_enqueue_style( 'animate-style' );
 
 		wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'.css', plugin_dir_path( __FILE__ ) ) );
 		wp_enqueue_style( WBOUNCE_OPTION_KEY.'-style' );

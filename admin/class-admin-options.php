@@ -4,6 +4,33 @@
  */
 class Wbounce_Admin_Options {
 
+	private $animationOptions = array(
+		'open' => array(
+			'None' => array('none'),
+			'Attention Seekers' => array('bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'swing', 'tada', 'wobble', 'jello'),
+			'Bouncing Entrances' => array('bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp'),
+			'Fading Entrances' => array('fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig'),
+			'Flippers' => array('flip', 'flipInX', 'flipInY'),
+			'Lightspeed' => array('lightSpeedIn'),
+			'Rotating Entrances' => array('rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight'),
+			'Sliding Entrances' => array('slideInUp', 'slideInDown', 'slideInLeft', 'slideInRight'),
+			'Zoom Entrances' => array('zoomIn', 'zoomInDown', 'zoomInLeft', 'zoomInRight', 'zoomInUp'),
+			'Specials' => array('hinge', 'rollIn')
+		),
+		'exit' => array(
+			'None' => array('none'),
+			'Attention Seekers' => array('bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'swing', 'tada', 'wobble', 'jello'),
+			'Bouncing Exits' => array('bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp'),
+			'Fading Exits' => array('fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig'),
+			'Flippers' => array('flip', 'flipOutX', 'flipOutY'),
+			'Lightspeed' => array('lightSpeedOut'),
+			'Rotating Exits' => array('rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight'),
+			'Sliding Exits' => array('slideOutUp', 'slideOutDown', 'slideOutLeft', 'slideOutRight'),
+			'Zoom Exits' => array('zoomOut', 'zoomOutDown', 'zoomOutLeft', 'zoomOutRight', 'zoomOutUp'),
+			'Specials' => array('hinge', 'rollOut')
+		)
+	);
+
 	function __construct() {
 		add_action( 'admin_menu', array( $this, 'create_menu' ));	
 		add_action( 'admin_init', array( $this, 'admin_init_options' ) );
@@ -49,6 +76,8 @@ class Wbounce_Admin_Options {
 			'_autofire',
 			'_timer',
 			'_hesitation',
+			'_open_animation',
+			'_exit_animation',
 			'_cookieexpire',
 			'_sitewide',
 			'_cookiedomain',
@@ -209,6 +238,38 @@ class Wbounce_Admin_Options {
 						        <td>
 						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_hesitation" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_hesitation'); ?>" /><br><label><?php _e( 'By default, wBounce will show the modal immediately when the user&#39;s cursor leaves the window. You could instead configure it to wait <i>x</i> milliseconds before showing the modal. If the cursor re-enters the body before delay ms have passed, the modal will not appear. This can be used to provide a "grace period" for visitors instead of immediately presenting the modal window.', WBOUNCE_TD ); ?></label>
 						        </td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row"><?php esc_html_e( 'Open Animation', WBOUNCE_TD ); ?></th>
+								<td>
+									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_open_animation">
+										<?php $openAnimation = get_option(WBOUNCE_OPTION_KEY.'_open_animation'); ?>
+										<?php foreach($this->animationOptions['open'] as $group => $options) : ?>
+											<optgroup label="<?php echo $group; ?>">
+												<?php foreach($options as $option) : ?>
+													<option value="<?php echo $option; ?>" <?php selected($openAnimation, $option); ?>><?php echo $option; ?></option>
+												<?php endforeach; ?>
+											</optgroup>
+										<?php endforeach; ?>
+									</select>
+									<p><?php esc_html_e( 'Define animation when wBounce fires up.', WBOUNCE_TD ); ?></p>
+								</td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?></th>
+								<td>
+									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_exit_animation">
+										<?php $exitAnimation = get_option(WBOUNCE_OPTION_KEY.'_exit_animation'); ?>
+										<?php foreach($this->animationOptions['exit'] as $group => $options) : ?>
+											<optgroup label="<?php echo $group; ?>">
+												<?php foreach($options as $option) : ?>
+													<option value="<?php echo $option; ?>" <?php selected($exitAnimation, $option); ?>><?php echo $option; ?></option>
+												<?php endforeach; ?>
+											</optgroup>
+										<?php endforeach; ?>
+									</select>
+									<p><?php esc_html_e( 'Define animation when closing wBounce.', WBOUNCE_TD ); ?></p>
+								</td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Cookie expiration', WBOUNCE_TD ); ?></th>
