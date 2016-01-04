@@ -46,7 +46,7 @@ $white: #fff;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999;
+  z-index: 10011;
   overflow: scroll;
   @include vendor-prefix( box-sizing, border-box );
   @include vendor-prefix( transform-style, preserve-3d );  // prevent elements from being "blurry" when a child uses "transform" (http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/)
