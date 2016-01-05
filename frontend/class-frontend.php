@@ -17,25 +17,27 @@ class Wbounce_Frontend {
 	 */
 	function create_modal_content() { ?>
 		<div id="wbounce-modal" class="wbounce-modal underlay" style="display:none">
-			<div id="wbounce-modal-sub" class="wbounce-modal-sub modal">
-				<?php 
-					$templateEngine = get_option(WBOUNCE_OPTION_KEY.'_template_engine');
-					$templateEngineTemplate = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true);
-					$totalOverrideText = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
+			<div id="wbounce-modal-flex" class="wbounce-modal-flex">
+				<div id="wbounce-modal-sub" class="wbounce-modal-sub">
+					<?php
+						$templateEngine = get_option(WBOUNCE_OPTION_KEY.'_template_engine');
+						$templateEngineTemplate = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true);
+						$totalOverrideText = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
 
-					if ($templateEngineTemplate == 'all' && $totalOverrideText != '' && $templateEngine == 'enabled') {
-						printf( __( '%s', WBOUNCE_TD ), $totalOverrideText );
-					}
-					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
-						printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) ) );
-					}
-					else if (current_user_can( 'manage_options' )) {
-						printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default_admin() );
-					}
-					else {
-						printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default() );
-					}
-				?>
+						if ($templateEngineTemplate == 'all' && $totalOverrideText != '' && $templateEngine == 'enabled') {
+							printf( __( '%s', WBOUNCE_TD ), $totalOverrideText );
+						}
+						else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
+							printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) ) );
+						}
+						else if (current_user_can( 'manage_options' )) {
+							printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default_admin() );
+						}
+						else {
+							printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default() );
+						}
+					?>
+				</div>
 			</div>
 		</div>
 	<?php }
@@ -114,6 +116,34 @@ class Wbounce_Frontend {
 				var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
 				var wBounceModal = document.getElementById('wbounce-modal');
 				var wBounceModalSub = document.getElementById('wbounce-modal-sub');
+				var wBounceModalFlex = document.getElementById('wbounce-modal-flex');
+
+				// Assuming, if (animation !== 'none' or IE > 9)
+				var isAnimationIn = true;
+				var isAnimationOut = true;
+				var animationInClass, animationOutClass;
+
+				<?php if (!$this->test_if_animation_none('open')) : ?>
+					animationInClass = 'animated <?php echo $this->get_option('open_animation'); ?>';
+				<?php else: ?>
+					isAnimationIn = false;
+				<?php endif; ?>
+
+				<?php if (!$this->test_if_animation_none('exit')) : ?>
+					animationOutClass = 'animated <?php echo $this->get_option('exit_animation'); ?>';
+				<?php else: ?>
+					isAnimationOut = false;
+				<?php endif; ?>
+
+				// Time to correct our assumption
+				if (isIE() && isIE() < 10) {
+					isAnimationIn = false;
+					isAnimationOut = false;
+					animationOutClass = 'belowIE10';
+					$(wBounceModalSub).addClass(animationOutClass);
+				} else {
+					$(wBounceModalFlex).addClass('wbounce-modal-flex-activated');
+				}
 
 				if (typeof ouibounce !== 'undefined' && $.isFunction(ouibounce)) {
 					var config = {
@@ -163,17 +193,15 @@ class Wbounce_Frontend {
 
 					// Callback
 					config.callback = function() {
-						<?php if (!$this->test_if_animation_none('open')) : ?>
-						var animationClass = 'animated <?php echo $this->get_option('open_animation'); ?>';
-						$(wBounceModalSub)
-							.addClass(animationClass)
-							.one(
-								'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-								function() { $(this).removeClass(animationClass); }
-							);
-						<?php endif; ?>
-
 						<?php echo $this->analytics_action('fired'); ?>
+						if (isAnimationIn) {
+							$(wBounceModalSub)
+								.addClass(animationInClass)
+								.one(
+									'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+									function() { $(this).removeClass(animationInClass); }
+								);
+						}
 					};
 
 					//Init
@@ -200,20 +228,19 @@ class Wbounce_Frontend {
 				});
 
 				function hidePopup() {
-					<?php if ($this->test_if_animation_none('exit')) : ?>
-						$(wBounceModal).hide();
-					<?php else : ?>
-					var animationClass = 'animated <?php echo $this->get_option('exit_animation'); ?>';
+					if (!isAnimationOut) {
+						return $(wBounceModal).hide();
+					}
+
 					$(wBounceModalSub)
-						.addClass(animationClass)
+						.addClass(animationOutClass)
 						.one(
 							'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
 							function() {
-								$(this).removeClass(animationClass);
+								$(this).removeClass(animationOutClass);
 								$(wBounceModal).hide()
 							}
 						);
-					<?php endif; ?>
 				}
 
 				/*
@@ -241,6 +268,15 @@ class Wbounce_Frontend {
 				  handleAutoFire( autoFire );
 				}
 				/*** /AUTOFIRE JS ***/
+
+				/**
+				 * Reference: http://stackoverflow.com/a/15983064/2706988
+				 * @returns {*}
+                 */
+				function isIE() {
+					var myNav = navigator.userAgent.toLowerCase();
+					return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+				}
 			});
 		})(jQuery);
 		</script>
