@@ -90,15 +90,16 @@ $white: #fff;
   // }
 
   .wbounce-modal-flex {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+
     &.wbounce-modal-flex-activated {
       @include flexbox();
       @include vendor-prefix( justify-content, center );
       @include vendor-prefix( align-items, center );
-      position: absolute;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      top: 0;
     }
   }
 
