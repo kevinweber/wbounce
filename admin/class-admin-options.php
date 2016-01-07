@@ -71,6 +71,7 @@ class Wbounce_Admin_Options {
 			'_status_default',
 			'_template_engine',
 			'_content',
+            '_attribution',
 			// Tab 'Options'
 			'_aggressive_mode',
 			'_autofire',
@@ -202,6 +203,21 @@ class Wbounce_Admin_Options {
 
 					        		</span>
 					        	</td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row"><?php esc_html_e( 'Attribution', WBOUNCE_TD ); ?><br><span class="description thin"><?php esc_html_e( 'Give appropriate credit for my time-consuming efforts', WBOUNCE_TD ); ?></span></th>
+						        <td>
+									<?php $options = get_option( WBOUNCE_OPTION_KEY.'_attribution' ); ?>
+									<input class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="none"<?php checked( 'none' == $options || empty($options) ); ?> /> <label for="none"><?php esc_html_e( 'No attribution: "I can not afford to give appropriate credit for this free plugin."', WBOUNCE_TD ); ?></label><br><br>
+									<input class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="donate"<?php checked( 'donate' == $options ); ?> /> 
+									<label for="donate">
+										<?php esc_html_e( 'Donation: "I have donated already or will do so soon."', WBOUNCE_TD ); ?> 
+										<?php printf( esc_html__( 'Please %1$sdonate now%2$s so that I can keep up the development of this plugin.', WBOUNCE_TD ),
+											'<a href="http://kevinw.de/donate/wBounce/" target="_blank">',
+											'</a>'
+										); ?>
+									</label><br>
+						        </td>
 					        </tr>
 					    </tbody>
 				    </table>
