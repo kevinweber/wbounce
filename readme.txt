@@ -88,6 +88,7 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 = 1.6 =
 * New feature: Popup animations. You find them under your styling tab. Merged pull request from @rahilwazir on Github (https://github.com/kevinweber/wbounce/pull/10).
+* Allow shortcodes in "Template Total Override".
 
 = 1.5.1.5 =
 * Merged pull request from @dima-stefantsov on Github (https://github.com/kevinweber/wbounce/pull/7): wBounce can by default be disabled with post meta flag.

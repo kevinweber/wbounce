@@ -25,7 +25,7 @@ class Wbounce_Frontend {
 						$totalOverrideText = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
 
 						if ($templateEngineTemplate == 'all' && $totalOverrideText != '' && $templateEngine == 'enabled') {
-							printf( __( '%s', WBOUNCE_TD ), $totalOverrideText );
+                            printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes($totalOverrideText)) );
 						}
 						else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
 							printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) ) );
