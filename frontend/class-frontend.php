@@ -17,25 +17,27 @@ class Wbounce_Frontend {
 	 */
 	function create_modal_content() { ?>
 		<div id="wbounce-modal" class="wbounce-modal underlay" style="display:none">
-			<div id="wbounce-modal-sub" class="wbounce-modal-sub modal">
-				<?php 
-					$templateEngine = get_option(WBOUNCE_OPTION_KEY.'_template_engine');
-					$templateEngineTemplate = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true);
-					$totalOverrideText = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
+			<div id="wbounce-modal-flex" class="wbounce-modal-flex">
+				<div id="wbounce-modal-sub" class="wbounce-modal-sub">
+					<?php
+						$templateEngine = get_option(WBOUNCE_OPTION_KEY.'_template_engine');
+						$templateEngineTemplate = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_template', true);
+						$totalOverrideText = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
 
-					if ($templateEngineTemplate == 'all' && $totalOverrideText != '' && $templateEngine == 'enabled') {
-						printf( __( '%s', WBOUNCE_TD ), $totalOverrideText );
-					}
-					else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
-						printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) ) );
-					}
-					else if (current_user_can( 'manage_options' )) {
-						printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default_admin() );
-					}
-					else {
-						printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default() );
-					}
-				?>
+						if ($templateEngineTemplate == 'all' && $totalOverrideText != '' && $templateEngine == 'enabled') {
+							printf( __( '%s', WBOUNCE_TD ), $totalOverrideText );
+						}
+						else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
+							printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) ) );
+						}
+						else if (current_user_can( 'manage_options' )) {
+							printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default_admin() );
+						}
+						else {
+							printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default() );
+						}
+					?>
+				</div>
 			</div>
 		</div>
 	<?php }
@@ -112,77 +114,134 @@ class Wbounce_Frontend {
 			$(function() {
 				var cookieName = 'wBounce';
 				var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
+				var wBounceModal = document.getElementById('wbounce-modal');
+				var wBounceModalSub = document.getElementById('wbounce-modal-sub');
+				var wBounceModalFlex = document.getElementById('wbounce-modal-flex');
+
+				// Assuming, if (animation !== 'none' or IE > 9)
+				var isAnimationIn = true;
+				var isAnimationOut = true;
+				var animationInClass, animationOutClass;
+
+				<?php if (!$this->test_if_animation_none('open')) : ?>
+					animationInClass = 'animated <?php echo $this->get_option('open_animation'); ?>';
+				<?php else: ?>
+					isAnimationIn = false;
+				<?php endif; ?>
+
+				<?php if (!$this->test_if_animation_none('exit')) : ?>
+					animationOutClass = 'animated <?php echo $this->get_option('exit_animation'); ?>';
+				<?php else: ?>
+					isAnimationOut = false;
+				<?php endif; ?>
+
+				// Time to correct our assumption
+				if (isIE() && isIE() < 10) {
+					isAnimationIn = false;
+					isAnimationOut = false;
+					animationOutClass = 'belowIE10';
+					$(wBounceModalSub).addClass(animationOutClass);
+				} else {
+					$(wBounceModalFlex).addClass('wbounce-modal-flex-activated');
+				}
 
 				if (typeof ouibounce !== 'undefined' && $.isFunction(ouibounce)) {
-			      var _ouibounce = ouibounce(document.getElementById('wbounce-modal'), {
-			      	<?php
-			      	// Echo options that require a string input
-			      	$option_str = array(
-			      		'cookieExpire',	// Cookie expiration
-			      		'cookieDomain', // Cookie domain
-			      	);	
-		      		foreach ($option_str as $str) {
-		      			$this->echo_option_str( $str );
-		      		}
+					var config = {
+						<?php
+						// Echo options that require a string input
+						$option_str = array(
+							'cookieExpire',	// Cookie expiration
+							'cookieDomain', // Cookie domain
+						);
+						foreach ($option_str as $str) {
+							$this->echo_option_str( $str );
+						}
 
-			      	// Echo options that require an integer input
-			      	$option_int = array(
-			      		'timer', // Timer (Set a min time before wBounce fires)
-			      		'sensitivity',	// Sensitivity
-			      	);	
-		      		foreach ($option_int as $int) {
-		      			$this->echo_option_int( $int );
-		      		}
+						// Echo options that require an integer input
+						$option_int = array(
+							'timer', // Timer (Set a min time before wBounce fires)
+							'sensitivity',	// Sensitivity
+						);
+						foreach ($option_int as $int) {
+							$this->echo_option_int( $int );
+						}
+						?>
+					};
 
-		      		// Aggressive Mode
-		      		if ( $this->test_if_aggressive() ) {
-		      			echo 'aggressive:true,';
-			      	}
+					<?php
+						// Aggressive Mode
+					if ( $this->test_if_aggressive() ) {
+						echo 'config.aggressive = true;';
+					}
 
-		      		// Cookie per page (sitewide cookie)
-		      		if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
-			      		echo 'sitewide:true,';
-			      	}
+					// Cookie per page (sitewide cookie)
+					if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
+						echo 'config.sitewide = true;';
+					}
 
-		      		// Hesitation
-		      		if ( $this->test_if_given_str('hesitation') ) {
-		      			echo 'delay:'.$this->get_option('hesitation').',';
-		      		}
+					// Hesitation
+					if ( $this->test_if_given_str('hesitation') ) {
+						echo 'config.delay = '.$this->get_option('hesitation').';';
+					}
 
-			      	// Custom cookie name
-			      	echo "cookieName:cookieName,";
+					// Custom cookie name
+					echo "config.cookieName = cookieName;";
 
-		      		// Callback
-		      		echo
-		      		"callback:function(){".
-		      			$this->analytics_action('fired').
-		      		"}"	
+					// Delay/Intelligent timer
+					// ...
+					?>
 
-		      		// Delay/Intelligent timer
-		      		// ...
-			      	?>
-			      });
+					// Callback
+					config.callback = function() {
+						<?php echo $this->analytics_action('fired'); ?>
+						if (isAnimationIn) {
+							$(wBounceModalSub)
+								.addClass(animationInClass)
+								.one(
+									'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+									function() { $(this).removeClass(animationInClass); }
+								);
+						}
+					};
 
-				};
+					//Init
+			      	var _ouibounce = ouibounce(wBounceModal, config);
+				}
 
 				$('body').on('click', function() {
-					$('#wbounce-modal').hide();
+					hidePopup();
 					<?php echo $this->analytics_action('hidden_outside'); ?>
 				});
 
-				$('#wbounce-modal .modal-close').on('click', function() {
-					$('#wbounce-modal').hide();
+				$(wBounceModal).find('.modal-close').on('click', function() {
+					hidePopup();
 					<?php echo $this->analytics_action('hidden_close'); ?>
 				});
 
-				$('#wbounce-modal .modal-footer').on('click', function() {
-					$('#wbounce-modal').hide();
+				$(wBounceModal).find('.modal-footer').on('click', function() {
+					hidePopup();
 					<?php echo $this->analytics_action('hidden_footer'); ?>
 				});
 
-				$('#wbounce-modal-sub').on('click', function(e) {
+				$(wBounceModalSub).on('click', function(e) {
 					e.stopPropagation();
 				});
+
+				function hidePopup() {
+					if (!isAnimationOut) {
+						return $(wBounceModal).hide();
+					}
+
+					$(wBounceModalSub)
+						.addClass(animationOutClass)
+						.one(
+							'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+							function() {
+								$(this).removeClass(animationOutClass);
+								$(wBounceModal).hide()
+							}
+						);
+				}
 
 				/*
 				 * AUTOFIRE JS
@@ -209,6 +268,15 @@ class Wbounce_Frontend {
 				  handleAutoFire( autoFire );
 				}
 				/*** /AUTOFIRE JS ***/
+
+				/**
+				 * Reference: http://stackoverflow.com/a/15983064/2706988
+				 * @returns {*}
+                 */
+				function isIE() {
+					var myNav = navigator.userAgent.toLowerCase();
+					return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+				}
 			});
 		})(jQuery);
 		</script>
@@ -219,6 +287,9 @@ class Wbounce_Frontend {
 	}
 	function test_if_given_str( $optionname ) {
 		return ( get_option(WBOUNCE_OPTION_KEY.'_'.$optionname) != "" ) ? true : false;
+	}
+	function test_if_animation_none( $optionname ) {
+		return ( get_option(WBOUNCE_OPTION_KEY.'_'.$optionname.'_animation') != "none" ) ? false : true;
 	}
 	function echo_option_str( $optionname ) {
   		if ( $this->test_if_given_str(strtolower($optionname)) ) {
@@ -290,8 +361,14 @@ class Wbounce_Frontend {
 	function enqueue_style() {
 		if ($this->test_if_status_is_off()) return;
 
-		wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'.css', plugin_dir_path( __FILE__ ) ) );
+        wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'.min.css', plugin_dir_path( __FILE__ ) ) );
 		wp_enqueue_style( WBOUNCE_OPTION_KEY.'-style' );
+        
+        if ((get_option(WBOUNCE_OPTION_KEY.'_open_animation') | get_option(WBOUNCE_OPTION_KEY.'_exit_animation'))
+                != 'none') {
+            wp_register_style( 'animate-style', plugins_url('css/min/animate.min.css', plugin_dir_path( __FILE__ ) ) );
+            wp_enqueue_style( 'animate-style' );
+        }
 	}
 
 	/**

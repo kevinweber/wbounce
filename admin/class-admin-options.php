@@ -4,6 +4,33 @@
  */
 class Wbounce_Admin_Options {
 
+	private $animationOptions = array(
+		'open' => array(
+			'None' => array('none'),
+			'Attention Seekers' => array('bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'swing', 'tada', 'wobble', 'jello'),
+			'Bouncing Entrances' => array('bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp'),
+			'Fading Entrances' => array('fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig'),
+			'Flippers' => array('flip', 'flipInX', 'flipInY'),
+			'Lightspeed' => array('lightSpeedIn'),
+			'Rotating Entrances' => array('rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight'),
+			'Sliding Entrances' => array('slideInUp', 'slideInDown', 'slideInLeft', 'slideInRight'),
+			'Zoom Entrances' => array('zoomIn', 'zoomInDown', 'zoomInLeft', 'zoomInRight', 'zoomInUp'),
+			'Specials' => array('hinge', 'rollIn')
+		),
+		'exit' => array(
+			'None' => array('none'),
+			'Attention Seekers' => array('bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'swing', 'tada', 'wobble', 'jello'),
+			'Bouncing Exits' => array('bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp'),
+			'Fading Exits' => array('fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig'),
+			'Flippers' => array('flip', 'flipOutX', 'flipOutY'),
+			'Lightspeed' => array('lightSpeedOut'),
+			'Rotating Exits' => array('rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight'),
+			'Sliding Exits' => array('slideOutUp', 'slideOutDown', 'slideOutLeft', 'slideOutRight'),
+			'Zoom Exits' => array('zoomOut', 'zoomOutDown', 'zoomOutLeft', 'zoomOutRight', 'zoomOutUp'),
+			'Specials' => array('hinge', 'rollOut')
+		)
+	);
+
 	function __construct() {
 		add_action( 'admin_menu', array( $this, 'create_menu' ));	
 		add_action( 'admin_init', array( $this, 'admin_init_options' ) );
@@ -56,6 +83,8 @@ class Wbounce_Admin_Options {
 			'_load_in_footer',
 			// Tab 'Styling'
 			'_custom_css',
+			'_open_animation',
+			'_exit_animation',
 			// Tab 'Analytics'
 			'_analytics',
 			//... more to come
@@ -83,11 +112,10 @@ class Wbounce_Admin_Options {
 			?>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?></a></li>
 		        <li><a href="#options"><?php esc_html_e( 'Options', WBOUNCE_TD ); ?></a></li>
-		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?></a></li>
+		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?></a></li>
-		        <li><a href="#more" class="tab-orange tab-premium"><?php esc_html_e( '15% coupon for OptinMonster', WBOUNCE_TD ); ?></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -122,7 +150,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row"><?php esc_html_e( 'Template Engine', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span><br>
+					        	<th scope="row"><?php esc_html_e( 'Template Engine', WBOUNCE_TD ); ?><br>
 					        	<span class="description thin">
 					        	<?php 
 						        	printf( __( 'See <a href="%s" target="_blank" title="wBounce Documentation">documentation</a>.', WBOUNCE_TD ),
@@ -267,6 +295,50 @@ class Wbounce_Admin_Options {
 					        	</td>
 					        </tr>
 					        <tr valign="top">
+						        <th scope="row"><?php esc_html_e( 'Open Animation', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
+								<td>
+									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_open_animation">
+										<?php $openAnimation = get_option(WBOUNCE_OPTION_KEY.'_open_animation'); ?>
+										<?php foreach($this->animationOptions['open'] as $group => $options) : ?>
+											<optgroup label="<?php echo $group; ?>">
+												<?php foreach($options as $option) : ?>
+													<option value="<?php echo $option; ?>" <?php selected($openAnimation, $option); ?>><?php echo $option; ?></option>
+												<?php endforeach; ?>
+											</optgroup>
+										<?php endforeach; ?>
+									</select>
+									<p>
+                                        <?php
+						        			printf( __( 'Define animation when wBounce fires up. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
+						        			'http://daneden.github.io/animate.css/'	
+						        			);
+					        			?>
+                                    </p>
+								</td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
+								<td>
+									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_exit_animation">
+										<?php $exitAnimation = get_option(WBOUNCE_OPTION_KEY.'_exit_animation'); ?>
+										<?php foreach($this->animationOptions['exit'] as $group => $options) : ?>
+											<optgroup label="<?php echo $group; ?>">
+												<?php foreach($options as $option) : ?>
+													<option value="<?php echo $option; ?>" <?php selected($exitAnimation, $option); ?>><?php echo $option; ?></option>
+												<?php endforeach; ?>
+											</optgroup>
+										<?php endforeach; ?>
+									</select>
+									<p>
+                                        <?php
+						        			printf( __( 'Define animation when closing wBounce. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
+						        			'http://daneden.github.io/animate.css/'	
+						        			);
+					        			?>
+                                    </p>
+								</td>
+					        </tr>
+					        <tr valign="top">
 						        <th scope="row" style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', WBOUNCE_TD ); ?></th>
 						        <td>
 						        </td>
@@ -350,52 +422,6 @@ class Wbounce_Admin_Options {
 							        ?></span>
 						        </th>
 						        <td>
-						        </td>
-					        </tr>
-					    </tbody>
-				    </table>
-
-			    </div>
-
-			    <div id="more">
-
-					<h3><?php esc_html_e( 'Should you switch to a premium plugin?', WBOUNCE_TD ); ?></h3>
-
-				    <table class="form-table">
-					    <tbody>
-					        <tr valign="top">
-						        <td>
-									<p><?php esc_html_e( 'wBounce is the most lightweight exit popup plugin for WordPress, and it&#39;s available for free!', WBOUNCE_TD ); ?></p>
-									<p><?php esc_html_e( 'But I&#39;m aware of those people who want (and need) more than that; many people desire fancy ready-made popup themes, automatic popups on mobiles, A/B testing and more. You can choose:', WBOUNCE_TD ); ?></p>
-									<ol>
-										<li><?php _e( 'Either stick with the <b>feather-light free wBounce</b> and get surprised by new features in future – but don&#39;t expect superpowers. wBounce does what it does.', WBOUNCE_TD ); ?></li>
-										<li><?php _e( 'Or go premium and <b>get superpowers like split testing</b> and a conversion rate for each popup. I&#39;m pretty sure that you&#39;re aware of the fact that popups can boost newsletter signups vastly. So consider if a premium solution is worthwhile. (Not for everyone, but in many cases: <b>Yes, it&#39;s worth it.</b>)', WBOUNCE_TD ); ?></li>
-									</ol>
-
-									<p>
-										<a class="button button-primary button-monster" href="http://optinmonster.com/" title="<?php esc_html_e( 'OptinMonster Website', WBOUNCE_TD ); ?>" target="_blank"><?php _e( 'Premium Popup Plugin: OptinMonster<br><span style="font-size:0.6em;">(exclusive 15% coupon: kevinweber)</span>', WBOUNCE_TD ); ?></a>
-									</p>
-
-									<h4><?php esc_html_e( 'What&#39;s the best premium popup solution?', WBOUNCE_TD ); ?></h4>
-									<p><?php esc_html_e( 'I&#39;ve tested several popup plugins with prices that range from $0 to $500, and you should do the same. My favourite premium popup plugin is OptinMonster. Let me explain why:', WBOUNCE_TD ); ?></p>
-									<ol>
-										<li><?php esc_html_e( 'OptinMonster&#39;s user experience and service outranges other plugins, especially the popup builder which allows you to design popups easily and fast – without coding know-how.', WBOUNCE_TD ); ?></li>
-										<li><?php esc_html_e( 'Lots of useful features, e.g. more granular targeting, built-in stats, various types of optin forms, &hellip;', WBOUNCE_TD ); ?></li>
-										<li><?php esc_html_e( 'A/B or split testing, of course.', WBOUNCE_TD ); ?></li>
-										<li><?php esc_html_e( '100% no-risk money back guarantee: If you don&#39;t like OptinMonster over the next 14 days, then they&#39;ll refund 100% of your money. No questions asked. [This statement is from their website.]', WBOUNCE_TD ); ?></li>
-										<li><?php _e( 'I captured an <b>exclusive 15% coupon for users of wBounce!', WBOUNCE_TD ); ?></b></li>
-									</ol>
-
-									<p style="border:1px solid #000;padding:10px;margin-bottom:12px;">To get the 15% coupon, enter my name (<i>kevinweber</i>) as coupon on the checkout page of <a href="http://optinmonster.com/" title="OptinMonster Website" target="_blank">OptinMonster</a>.</p>							
-
-									<p><?php esc_html_e( 'But before you start to test OptinMonster, here is one more hint: OptinMonster comes with several add-ons, and to use the exit popup add-on, you must acquire at least the Pro license. Fortunately, you can use my coupon with any license.', WBOUNCE_TD ); ?></p>
-									
-									<h4><?php esc_html_e( 'This video preview gives you an impression of the popup builder:', WBOUNCE_TD ); ?></h4>
-									<iframe width="560" height="315" src="//www.youtube.com/embed/T_gTIXGlU1Y" frameborder="0" allowfullscreen></iframe>
-									<p>
-										<br>
-										<a class="button button-primary button-monster" href="http://optinmonster.com/" title="<?php esc_html_e( 'OptinMonster Website', WBOUNCE_TD ); ?>" target="_blank"><?php _e( 'Discover OptinMonster now<br><span style="font-size:0.6em;">(exclusive 15% coupon: kevinweber)</span>', WBOUNCE_TD ); ?></a>
-									</p>
 						        </td>
 					        </tr>
 					    </tbody>

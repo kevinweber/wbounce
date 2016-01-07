@@ -16,6 +16,14 @@ $white: #fff;
   #{$property}: #{$value};
 }
 
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
 @mixin keyframes($name){
   @-webkit-keyframes #{$name} {
     @content;
@@ -46,7 +54,7 @@ $white: #fff;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999;
+  z-index: 10011;
   overflow: scroll;
   @include vendor-prefix( box-sizing, border-box );
   @include vendor-prefix( transform-style, preserve-3d );  // prevent elements from being "blurry" when a child uses "transform" (http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/)
@@ -65,26 +73,23 @@ $white: #fff;
     cursor: pointer;
   }
 
-  // @TODO
-  // &.animate {
-  //   &.linear {
-  //     &.underlay, .wbounce-modal-sub {
-  //       @include vendor-prefix( animation, fadein 0.3s );
-  //     }
-  //   }
-  //   &.bottom-middle {
-  //     .wbounce-modal-sub {
-  //       top: 50%;
-  //       @include vendor-prefix( animation, popin 0.3s );
-  //       @include vendor-prefix( transform, translateY(-50%) );
-  //     }
-  //   }
-  // }
+  .wbounce-modal-flex {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+
+    &.wbounce-modal-flex-activated {
+      @include flexbox();
+      @include vendor-prefix( justify-content, center );
+      @include vendor-prefix( align-items, center );
+    }
+  }
 
   .wbounce-modal-sub {
     display: block;
     position: relative;
-    top: 50%;
     left: initial;
     opacity: 1;
     overflow: scroll;
@@ -96,11 +101,15 @@ $white: #fff;
     width: 600px;
     background-color: #f0f1f2;
     z-index: 21;
-    margin: auto;
     border-radius: 4px;
-    @include vendor-prefix( transform, translateY(-50%) );
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    &.belowIE10 {
+      top: 50%;
+      margin: auto;
+      @include vendor-prefix( transform, translateY(-50%) );
     }
   }
 
@@ -143,7 +152,7 @@ $white: #fff;
   form {
     text-align: center;
     margin-top: 35px;
-    
+
     p {
       text-align: left;
       margin-left: 35px;
@@ -154,14 +163,14 @@ $white: #fff;
     }
 
     input[type=email] {
-        color: #999;
-        padding: 12px;
-        font-size: 15px;
-        width: 300px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        -webkit-font-smoothing: antialiased;
-      }
+      color: #999;
+      padding: 12px;
+      font-size: 15px;
+      width: 300px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      -webkit-font-smoothing: antialiased;
+    }
 
     input[type=text] {
       padding: 12px;
@@ -222,21 +231,3 @@ $white: #fff;
   0% { opacity: 0; }
   100% { opacity: 1; }
 };
-
-// @include keyframes( popin ) {
-//   0% {
-//     -webkit-transform: scale(0);
-//     transform: scale(0);
-//     opacity: 0;
-//   }
-//   85% {
-//     -webkit-transform: scale(1.05);
-//     transform: scale(1.05);
-//     opacity: 1;
-//   }
-//   100% {
-//     -webkit-transform: scale(1);
-//     transform: scale(1);
-//     opacity: 1;
-//   }
-// };

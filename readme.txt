@@ -5,7 +5,7 @@ License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.5
 Tested up to: 4.4
-Stable tag: 1.5.1.5
+Stable tag: 1.6
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
 
@@ -24,11 +24,14 @@ Demo and more information on the developer's website: [kevinw.de/wbounce/](http:
 
 You want to enhance this plugin? Please [contribute on Github](https://github.com/kevinweber/wbounce).
 
+
 = Features: =
+
 * Display inline popup before the user leaves the site
 * Alternatively display popup on enter or after a certain time period (self-acting fire)
 * Set custom content via backend
 * Define custom content for pages and posts individually using a flexible template engine which uses so-called "magic shortcodes"
+* Lots of open/exit animation styles
 * Shortcodes from other plugins are also supported
 * Determine sensitivity, cookie expiration, hesitation, and more
 * Add custom CSS
@@ -83,7 +86,10 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 == Changelog ==
 
-1.5.1.5 =
+= 1.6 =
+* New feature: Popup animations. You find them under your styling tab. Merged pull request from @rahilwazir on Github (https://github.com/kevinweber/wbounce/pull/10).
+
+= 1.5.1.5 =
 * Merged pull request from @dima-stefantsov on Github (https://github.com/kevinweber/wbounce/pull/7): wBounce can by default be disabled with post meta flag.
 
 = 1.5.1.4 =
