@@ -252,7 +252,13 @@ class Wbounce_Admin_Options {
 											</optgroup>
 										<?php endforeach; ?>
 									</select>
-									<p><?php esc_html_e( 'Define animation when wBounce fires up.', WBOUNCE_TD ); ?></p>
+									<p>
+                                        <?php
+						        			printf( __( 'Define animation when wBounce fires up. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
+						        			'http://daneden.github.io/animate.css/'	
+						        			);
+					        			?>
+                                    </p>
 								</td>
 					        </tr>
 					        <tr valign="top">
@@ -268,7 +274,13 @@ class Wbounce_Admin_Options {
 											</optgroup>
 										<?php endforeach; ?>
 									</select>
-									<p><?php esc_html_e( 'Define animation when closing wBounce.', WBOUNCE_TD ); ?></p>
+									<p>
+                                        <?php
+						        			printf( __( 'Define animation when closing wBounce. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
+						        			'http://daneden.github.io/animate.css/'	
+						        			);
+					        			?>
+                                    </p>
 								</td>
 					        </tr>
 					        <tr valign="top">
