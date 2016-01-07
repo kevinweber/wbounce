@@ -112,9 +112,9 @@ class Wbounce_Admin_Options {
 			?>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?></a></li>
 		        <li><a href="#options"><?php esc_html_e( 'Options', WBOUNCE_TD ); ?></a></li>
-		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?></a></li>
+		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?></a></li>
 		        <li><a href="#more" class="tab-orange tab-premium"><?php esc_html_e( '15% coupon for OptinMonster', WBOUNCE_TD ); ?></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
@@ -151,7 +151,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row"><?php esc_html_e( 'Template Engine', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span><br>
+					        	<th scope="row"><?php esc_html_e( 'Template Engine', WBOUNCE_TD ); ?><br>
 					        	<span class="description thin">
 					        	<?php 
 						        	printf( __( 'See <a href="%s" target="_blank" title="wBounce Documentation">documentation</a>.', WBOUNCE_TD ),
@@ -296,7 +296,7 @@ class Wbounce_Admin_Options {
 					        	</td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row"><?php esc_html_e( 'Open Animation', WBOUNCE_TD ); ?></th>
+						        <th scope="row"><?php esc_html_e( 'Open Animation', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
 								<td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_open_animation">
 										<?php $openAnimation = get_option(WBOUNCE_OPTION_KEY.'_open_animation'); ?>
@@ -318,7 +318,7 @@ class Wbounce_Admin_Options {
 								</td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?></th>
+						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
 								<td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_exit_animation">
 										<?php $exitAnimation = get_option(WBOUNCE_OPTION_KEY.'_exit_animation'); ?>
