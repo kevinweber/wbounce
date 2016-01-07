@@ -361,11 +361,14 @@ class Wbounce_Frontend {
 	function enqueue_style() {
 		if ($this->test_if_status_is_off()) return;
 
-		wp_register_style( 'animate-style', plugins_url('css/min/animate.min.css', plugin_dir_path( __FILE__ ) ) );
-		wp_enqueue_style( 'animate-style' );
-
-		wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'.css', plugin_dir_path( __FILE__ ) ) );
+        wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'.css', plugin_dir_path( __FILE__ ) ) );
 		wp_enqueue_style( WBOUNCE_OPTION_KEY.'-style' );
+        
+        if ((get_option(WBOUNCE_OPTION_KEY.'_open_animation') | get_option(WBOUNCE_OPTION_KEY.'_exit_animation'))
+                != 'none') {
+            wp_register_style( 'animate-style', plugins_url('css/min/animate.min.css', plugin_dir_path( __FILE__ ) ) );
+            wp_enqueue_style( 'animate-style' );
+        }
 	}
 
 	/**
