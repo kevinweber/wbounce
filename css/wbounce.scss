@@ -73,22 +73,6 @@ $white: #fff;
     cursor: pointer;
   }
 
-  // @TODO
-  // &.animate {
-  //   &.linear {
-  //     &.underlay, .wbounce-modal-sub {
-  //       @include vendor-prefix( animation, fadein 0.3s );
-  //     }
-  //   }
-  //   &.bottom-middle {
-  //     .wbounce-modal-sub {
-  //       top: 50%;
-  //       @include vendor-prefix( animation, popin 0.3s );
-  //       @include vendor-prefix( transform, translateY(-50%) );
-  //     }
-  //   }
-  // }
-
   .wbounce-modal-flex {
     position: absolute;
     right: 0;
@@ -247,21 +231,3 @@ $white: #fff;
   0% { opacity: 0; }
   100% { opacity: 1; }
 };
-
-// @include keyframes( popin ) {
-//   0% {
-//     -webkit-transform: scale(0);
-//     transform: scale(0);
-//     opacity: 0;
-//   }
-//   85% {
-//     -webkit-transform: scale(1.05);
-//     transform: scale(1.05);
-//     opacity: 1;
-//   }
-//   100% {
-//     -webkit-transform: scale(1);
-//     transform: scale(1);
-//     opacity: 1;
-//   }
-// };
