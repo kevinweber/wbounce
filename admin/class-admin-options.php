@@ -76,8 +76,6 @@ class Wbounce_Admin_Options {
 			'_autofire',
 			'_timer',
 			'_hesitation',
-			'_open_animation',
-			'_exit_animation',
 			'_cookieexpire',
 			'_sitewide',
 			'_cookiedomain',
@@ -85,6 +83,8 @@ class Wbounce_Admin_Options {
 			'_load_in_footer',
 			// Tab 'Styling'
 			'_custom_css',
+			'_open_animation',
+			'_exit_animation',
 			// Tab 'Analytics'
 			'_analytics',
 			//... more to come
@@ -240,50 +240,6 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row"><?php esc_html_e( 'Open Animation', WBOUNCE_TD ); ?></th>
-								<td>
-									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_open_animation">
-										<?php $openAnimation = get_option(WBOUNCE_OPTION_KEY.'_open_animation'); ?>
-										<?php foreach($this->animationOptions['open'] as $group => $options) : ?>
-											<optgroup label="<?php echo $group; ?>">
-												<?php foreach($options as $option) : ?>
-													<option value="<?php echo $option; ?>" <?php selected($openAnimation, $option); ?>><?php echo $option; ?></option>
-												<?php endforeach; ?>
-											</optgroup>
-										<?php endforeach; ?>
-									</select>
-									<p>
-                                        <?php
-						        			printf( __( 'Define animation when wBounce fires up. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
-						        			'http://daneden.github.io/animate.css/'	
-						        			);
-					        			?>
-                                    </p>
-								</td>
-					        </tr>
-					        <tr valign="top">
-						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?></th>
-								<td>
-									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_exit_animation">
-										<?php $exitAnimation = get_option(WBOUNCE_OPTION_KEY.'_exit_animation'); ?>
-										<?php foreach($this->animationOptions['exit'] as $group => $options) : ?>
-											<optgroup label="<?php echo $group; ?>">
-												<?php foreach($options as $option) : ?>
-													<option value="<?php echo $option; ?>" <?php selected($exitAnimation, $option); ?>><?php echo $option; ?></option>
-												<?php endforeach; ?>
-											</optgroup>
-										<?php endforeach; ?>
-									</select>
-									<p>
-                                        <?php
-						        			printf( __( 'Define animation when closing wBounce. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
-						        			'http://daneden.github.io/animate.css/'	
-						        			);
-					        			?>
-                                    </p>
-								</td>
-					        </tr>
-					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Cookie expiration', WBOUNCE_TD ); ?></th>
 						        <td>
 						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_cookieexpire" placeholder="days" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookieexpire'); ?>" /><br><label><?php esc_html_e( 'wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user. By default, the cookie will expire at the end of the session, which for most browsers is when the browser is closed entirely.', WBOUNCE_TD ); ?></label>
@@ -338,6 +294,50 @@ class Wbounce_Admin_Options {
 					        			?>
 					        		</span>
 					        	</td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row"><?php esc_html_e( 'Open Animation', WBOUNCE_TD ); ?></th>
+								<td>
+									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_open_animation">
+										<?php $openAnimation = get_option(WBOUNCE_OPTION_KEY.'_open_animation'); ?>
+										<?php foreach($this->animationOptions['open'] as $group => $options) : ?>
+											<optgroup label="<?php echo $group; ?>">
+												<?php foreach($options as $option) : ?>
+													<option value="<?php echo $option; ?>" <?php selected($openAnimation, $option); ?>><?php echo $option; ?></option>
+												<?php endforeach; ?>
+											</optgroup>
+										<?php endforeach; ?>
+									</select>
+									<p>
+                                        <?php
+						        			printf( __( 'Define animation when wBounce fires up. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
+						        			'http://daneden.github.io/animate.css/'	
+						        			);
+					        			?>
+                                    </p>
+								</td>
+					        </tr>
+					        <tr valign="top">
+						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?></th>
+								<td>
+									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_exit_animation">
+										<?php $exitAnimation = get_option(WBOUNCE_OPTION_KEY.'_exit_animation'); ?>
+										<?php foreach($this->animationOptions['exit'] as $group => $options) : ?>
+											<optgroup label="<?php echo $group; ?>">
+												<?php foreach($options as $option) : ?>
+													<option value="<?php echo $option; ?>" <?php selected($exitAnimation, $option); ?>><?php echo $option; ?></option>
+												<?php endforeach; ?>
+											</optgroup>
+										<?php endforeach; ?>
+									</select>
+									<p>
+                                        <?php
+						        			printf( __( 'Define animation when closing wBounce. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
+						        			'http://daneden.github.io/animate.css/'	
+						        			);
+					        			?>
+                                    </p>
+								</td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row" style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', WBOUNCE_TD ); ?></th>
