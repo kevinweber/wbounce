@@ -13,4 +13,5 @@ wp-content/backups/
 sitemap.xml.gz
 *.DS_Store
 *.codekit
-.sass-cache
+*.sass-cache
+*.scssc
