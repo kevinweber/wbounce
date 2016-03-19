@@ -119,21 +119,19 @@ class Wbounce_Frontend {
 				var wBounceModalFlex = document.getElementById('wbounce-modal-flex');
 
 				// Assuming, if (animation !== 'none' or IE > 9)
-				var isAnimationIn = true;
-				var isAnimationOut = true;
+				var isAnimationIn = false;
+				var isAnimationOut = false;
 				var animationInClass, animationOutClass;
 
-				<?php if (!$this->test_if_animation_none('open')) : ?>
+				<?php if (!$this->test_if_animation_none('open')) { ?>
 					animationInClass = 'animated <?php echo $this->get_option('open_animation'); ?>';
-				<?php else: ?>
-					isAnimationIn = false;
-				<?php endif; ?>
+                    isAnimationIn = true;
+				<?php } ?>
 
-				<?php if (!$this->test_if_animation_none('exit')) : ?>
+				<?php if (!$this->test_if_animation_none('exit')) { ?>
 					animationOutClass = 'animated <?php echo $this->get_option('exit_animation'); ?>';
-				<?php else: ?>
-					isAnimationOut = false;
-				<?php endif; ?>
+                    isAnimationOut = true;
+				<?php } ?>
 
 				// Time to correct our assumption
 				if (isIE() && isIE() < 10) {
@@ -208,17 +206,19 @@ class Wbounce_Frontend {
 			      	var _ouibounce = ouibounce(wBounceModal, config);
 				}
 
-				$('body').on('click', function() {
-					hidePopup();
+                var $wBounceModal = $(wBounceModal);
+              
+				$wBounceModal.on('click', function() {
+                  	hidePopup();
 					<?php echo $this->analytics_action('hidden_outside'); ?>
 				});
 
-				$(wBounceModal).find('.modal-close').on('click', function() {
+				$wBounceModal.find('.modal-close').on('click', function() {
 					hidePopup();
 					<?php echo $this->analytics_action('hidden_close'); ?>
 				});
 
-				$(wBounceModal).find('.modal-footer').on('click', function() {
+				$wBounceModal.find('.modal-footer').on('click', function() {
 					hidePopup();
 					<?php echo $this->analytics_action('hidden_footer'); ?>
 				});
@@ -229,7 +229,7 @@ class Wbounce_Frontend {
 
 				function hidePopup() {
 					if (!isAnimationOut) {
-						return $(wBounceModal).hide();
+						return $wBounceModal.hide();
 					}
 
 					$(wBounceModalSub)
@@ -238,7 +238,7 @@ class Wbounce_Frontend {
 							'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
 							function() {
 								$(this).removeClass(animationOutClass);
-								$(wBounceModal).hide()
+								$wBounceModal.hide()
 							}
 						);
 				}

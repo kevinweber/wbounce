@@ -106,7 +106,7 @@ class Wbounce_Admin_Options {
 		<div id="tabs" class="ui-tabs">
 			<?php
 				printf( '<h2>' . WBOUNCE_PLUGIN_NAME . '<span class="subtitle">' . __( 'by <a href="%1$s" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (version %2$s) with best thanks to <a href="%3$s" target="_blank" title="Ouibounce by Carl Sednaoui">Ouibounce by Carl Sednaoui</a>', WBOUNCE_TD ) . '</span></h2>',
-					'http://kevinw.de/wb',
+					'//kevinw.de/wb',
 					WBOUNCE_VERSION_NUM,
 					'https://github.com/carlsednaoui/ouibounce'
 				);
@@ -155,7 +155,7 @@ class Wbounce_Admin_Options {
 					        	<span class="description thin">
 					        	<?php 
 						        	printf( __( 'See <a href="%s" target="_blank" title="wBounce Documentation">documentation</a>.', WBOUNCE_TD ),
-						        	'http://kevinw.de/wb-doc-te'	
+						        	'//kevinw.de/wb-doc-te'	
 						        	); ?>
 						        </th>
 						        </span>
@@ -167,8 +167,8 @@ class Wbounce_Admin_Options {
 							        <p>
 								        <?php
 								        	printf( __( 'When you use this feature, please <a href="%1$s" target="_blank">donate</a> and give this plugin a <a href="%2$s" target="_blank">5 star rating</a>.', WBOUNCE_TD ),
-												'http://kevinw.de/donate/wBounce/',
-												'http://wordpress.org/support/view/plugin-reviews/wbounce?filter=5'
+												'//kevinw.de/donate/wBounce/',
+												'//wordpress.org/support/view/plugin-reviews/wbounce?filter=5'
 								        	);
 								        ?>
 								    </p>
@@ -213,7 +213,7 @@ class Wbounce_Admin_Options {
 									<label for="donate">
 										<?php esc_html_e( 'Donation: "I have donated already or will do so soon."', WBOUNCE_TD ); ?> 
 										<?php printf( esc_html__( 'Please %1$sdonate now%2$s so that I can keep up the development of this plugin.', WBOUNCE_TD ),
-											'<a href="http://kevinw.de/donate/wBounce/" target="_blank">',
+											'<a href="//kevinw.de/donate/wBounce/" target="_blank">',
 											'</a>'
 										); ?>
 									</label><br>
@@ -304,7 +304,7 @@ class Wbounce_Admin_Options {
 					        			<i>.wbounce-modal .modal-title { background-color: #4ab471; }</i><br>
 					        			<?php
 						        			printf( __( '(You don&#39;t know CSS? Try the <a href="%s" target="_blank" title="CSS Tutorial on W3Schools">CSS Tutorial</a> on W3Schools.)', WBOUNCE_TD ),
-						        			'http://kevinw.de/css-tutorial'	
+						        			'//kevinw.de/css-tutorial'	
 						        			);
 					        			?>
 					        		</span>
@@ -326,7 +326,7 @@ class Wbounce_Admin_Options {
 									<p>
                                         <?php
 						        			printf( __( 'Define animation when wBounce fires up. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
-						        			'http://daneden.github.io/animate.css/'	
+						        			'//daneden.github.io/animate.css/'	
 						        			);
 					        			?>
                                     </p>
@@ -348,7 +348,7 @@ class Wbounce_Admin_Options {
 									<p>
                                         <?php
 						        			printf( __( 'Define animation when closing wBounce. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
-						        			'http://daneden.github.io/animate.css/'	
+						        			'//daneden.github.io/animate.css/'	
 						        			);
 					        			?>
                                     </p>
@@ -392,7 +392,7 @@ class Wbounce_Admin_Options {
 							<tr valign="top">
 								<th scope="row"><?php _e( 'Available events <span class="newred">Beta</span> <span class="description thin"><br>You can monitor tracked events with your Google Analytics accout. For example, go to "Real-Time > Events" or "Behaviour > Events" and look for Event Category "wBounce".', WBOUNCE_TD ); ?></th>
 								<td>
-									<!-- Generated with http://www.tablesgenerator.com/html_tables -->
+									<!-- Generated with //www.tablesgenerator.com/html_tables -->
 									<table class="inline-table">
 										<tr>
 										    <th class="first-column"><?php esc_html_e( 'Trigger', WBOUNCE_TD ); ?></th>
@@ -454,12 +454,12 @@ class Wbounce_Admin_Options {
 
 		    <table class="form-table">
 		        <tr valign="top">
-		        <th scope="row" style="width:100px;"><a href="http://kevinw.de/wb/" target="_blank"><img src="https://www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
+		        <th scope="row" style="width:100px;"><a href="//kevinw.de/wb/" target="_blank"><img src="https://www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
 		        <td style="width:200px;">
 		        	<p>
 			        	<?php
 				        	printf( __( '<a href="%s" target="_blank">Kevin Weber</a> &ndash; that&#39;s me.<br>I&#39;m the developer of this plugin. Love it!', WBOUNCE_TD ),
-				        		'http://kevinw.de/wb'
+				        		'//kevinw.de/wb'
 				        	);
 			        	?>
 			        </p>
@@ -468,8 +468,8 @@ class Wbounce_Admin_Options {
 					<p>
 			        	<?php
 				        	printf( __( '<b>It&#39;s easy:</b> You increase sales thanks to my plugin. In exchange, you donate at least <a href="%1$s" title="Donate me" target="_blank">9,37€</a> so I can further develop it. And please, give this plugin a 5 star rating <a href="%2$s" title="Vote for wBounce" target="_blank">on WordPress.org</a>.', WBOUNCE_TD ),
-				        		'http://kevinw.de/donate/wBounce/',
-				        		'http://wordpress.org/support/view/plugin-reviews/wbounce?filter=5'
+				        		'//kevinw.de/donate/wBounce/',
+				        		'//wordpress.org/support/view/plugin-reviews/wbounce?filter=5'
 				        	);
 			        	?>
 					</p>
@@ -481,7 +481,7 @@ class Wbounce_Admin_Options {
 							<li>
 					        	<?php
 						        	printf( __( '<a href="%s" title="Lazy Load for Videos" target="_blank">Lazy Load for Videos</a> (on my part)', WBOUNCE_TD ),
-						        		'http://kevinw.de/wb-ll'
+						        		'//kevinw.de/wb-ll'
 						        	);
 					        	?>
 							</li>
@@ -495,7 +495,7 @@ class Wbounce_Admin_Options {
 							<li>
 					        	<?php
 						        	printf( __( '<a href="%s" title="Inline Comments" target="_blank">Inline Comments</a> (on my part)', WBOUNCE_TD ),
-						        		'http://kevinw.de/wb-ic'
+						        		'//kevinw.de/wb-ic'
 						        	);
 					        	?>
 							</li>
