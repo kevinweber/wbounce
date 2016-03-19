@@ -87,8 +87,10 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 == Changelog ==
 
 = 1.6.1 =
-* Bugfix: Popup triggered by self-acting timer and exit animation was closed immediately when user clicked somewhere before it showed up.
-* Bugfix: 'hidden_outside' analytics event was triggered to often. 
+* New: Users can close popup using ESC key.
+* New analytics event 'hidden_escape': Triggered when user closes popup using ESC key.
+* Fix: Popup triggered by self-acting timer and exit animation was closed immediately when user clicked somewhere before it showed up.
+* Fix: 'hidden_outside' analytics event was triggered to often.
 
 = 1.6 =
 * New feature: Popup animations. You find them under your styling tab. Merged pull request from @rahilwazir on Github (https://github.com/kevinweber/wbounce/pull/10).
@@ -98,7 +100,7 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 * Merged pull request from @dima-stefantsov on Github (https://github.com/kevinweber/wbounce/pull/7): wBounce can by default be disabled with post meta flag.
 
 = 1.5.1.4 =
-* Bugfix: Cookie storage didn't work correctly when user has no Google Analytics script on his site but GA event tracking (in plugin settings) is enabled.
+* Fix: Cookie storage didn't work correctly when user has no Google Analytics script on his site but GA event tracking (in plugin settings) is enabled.
 
 = 1.5.1.3 =
 * Updated exit popup script and improved self-acting fire.

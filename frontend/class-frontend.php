@@ -227,6 +227,13 @@ class Wbounce_Frontend {
 					e.stopPropagation();
 				});
 
+                $(document).keyup(function(e) {
+                  if (e.which === 27 && $wBounceModal.is(":visible")) {
+					hidePopup();
+					<?php echo $this->analytics_action('hidden_escape'); ?>
+                  }
+                });
+
 				function hidePopup() {
 					if (!isAnimationOut) {
 						return $wBounceModal.hide();

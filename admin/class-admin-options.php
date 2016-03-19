@@ -108,7 +108,7 @@ class Wbounce_Admin_Options {
 				printf( '<h2>' . WBOUNCE_PLUGIN_NAME . '<span class="subtitle">' . __( 'by <a href="%1$s" target="_blank" title="Website by Kevin Weber">Kevin Weber</a> (version %2$s) with best thanks to <a href="%3$s" target="_blank" title="Ouibounce by Carl Sednaoui">Ouibounce by Carl Sednaoui</a>', WBOUNCE_TD ) . '</span></h2>',
 					'//kevinw.de/wb',
 					WBOUNCE_VERSION_NUM,
-					'https://github.com/carlsednaoui/ouibounce'
+					'//github.com/carlsednaoui/ouibounce'
 				);
 			?>
 
@@ -374,7 +374,7 @@ class Wbounce_Admin_Options {
 						        <th scope="row">
 				        			<?php
 					        			printf( __( 'Enable <a href="%s" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span>', WBOUNCE_TD ),
-					        			'https://developers.google.com/analytics/devguides/collection/analyticsjs/events'	
+					        			'//developers.google.com/analytics/devguides/collection/analyticsjs/events'	
 					        			);
 				        			?>
 							        </th>
@@ -383,7 +383,7 @@ class Wbounce_Admin_Options {
 									<label>
 					        			<?php
 						        			printf( __( 'Check this option to track events with Google Analytics.<br><b>Notice:</b> Event tracking might not work on your local (localhost) test environment when you haven&#39;t <a href="%s" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.', WBOUNCE_TD ),
-						        			'https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost'	
+						        			'//developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost'	
 						        			);
 					        			?>
 									</label>	        	
@@ -424,6 +424,12 @@ class Wbounce_Admin_Options {
 										    <td>hidden_close</td>
 										    <td>document.url</td>
 										  </tr>
+										  <tr>
+										    <td class="first-column italic"><?php esc_html_e( 'Closed popup using ESC key.', WBOUNCE_TD ); ?></td>
+										    <td>wBounce</td>
+										    <td>hidden_escape</td>
+										    <td>document.url</td>
+										  </tr>
 									</table>
 									<p><?php _e( '*<i>document.url</i> = URL of the page where the event is triggered.', WBOUNCE_TD ); ?></p>
 								</td>
@@ -433,7 +439,7 @@ class Wbounce_Admin_Options {
 						        	<span style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', WBOUNCE_TD ); ?></span><br>
 							        <span class="description thin"><?php
 							        	printf( __( 'Feel free to contribute <a href="%s" target="_blank">on Github</a>', WBOUNCE_TD ),
-							        		'https://github.com/kevinweber/wbounce'
+							        		'//github.com/kevinweber/wbounce'
 							        	);
 							        ?></span>
 						        </th>
@@ -454,7 +460,7 @@ class Wbounce_Admin_Options {
 
 		    <table class="form-table">
 		        <tr valign="top">
-		        <th scope="row" style="width:100px;"><a href="//kevinw.de/wb/" target="_blank"><img src="https://www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
+		        <th scope="row" style="width:100px;"><a href="//kevinw.de/wb/" target="_blank"><img src="//www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
 		        <td style="width:200px;">
 		        	<p>
 			        	<?php
@@ -488,7 +494,7 @@ class Wbounce_Admin_Options {
 							<li>
 					        	<?php
 						        	printf( __( '<a href="%s" title="WordPress SEO by Yoast" target="_blank">WordPress SEO</a> (by Yoast)', WBOUNCE_TD ),
-						        		'https://yoast.com/wordpress/plugins/seo/'
+						        		'//yoast.com/wordpress/plugins/seo/'
 						        	);
 					        	?>
 							</li>
@@ -502,7 +508,7 @@ class Wbounce_Admin_Options {
 							<li>
 					        	<?php
 						        	printf( __( '<a href="%s" title="Broken Link Checker" target="_blank">Broken Link Checker</a> (by Janis Elsts)', WBOUNCE_TD ),
-						        		'https://wordpress.org/plugins/broken-link-checker/'
+						        		'//wordpress.org/plugins/broken-link-checker/'
 						        	);
 					        	?>
 							</li>
