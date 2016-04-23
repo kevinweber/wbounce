@@ -44,11 +44,7 @@ class Wbounce_Admin_Options {
 	}
 
 	function admin_js() {
-		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
-			wp_enqueue_script( 'wbounce_backend_admin_js', plugins_url( '../js/wbounce-backend.js' , __FILE__ ), array( 'jquery' ) );
-		} else {
-			wp_enqueue_script( 'wbounce_backend_admin_js', plugins_url( '../js/min/wbounce-backend.min.js' , __FILE__ ), array( 'jquery' ) );
-		}
+		wp_enqueue_script( 'wbounce_backend_admin_js', plugins_url( '../js/wbounce-backend.js' , __FILE__ ), array( 'jquery' ) );
 	}
 
 	/**

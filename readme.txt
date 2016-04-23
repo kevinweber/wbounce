@@ -4,8 +4,8 @@ Donate link: http://kevinw.de/donate/wBounce/
 License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page
 Requires at least: 3.5
-Tested up to: 4.4.2
-Stable tag: 1.6.1
+Tested up to: 4.5
+Stable tag: 1.6.1.1
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
 
@@ -85,6 +85,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 
 == Changelog ==
+
+= 1.6.1.1 =
+* Removed minified JavaScript file (which was used in WordPress backend only) because it caused (false) positives in several virus scanners.
 
 = 1.6.1 =
 * New: Users can close popup using ESC key.
