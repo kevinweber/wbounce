@@ -171,7 +171,17 @@ $white: #fff;
       border: 1px solid #ccc;
       -webkit-font-smoothing: antialiased;
     }
-
+    
+    input[type=tel] {
+      color: #999;
+      padding: 12px;
+      font-size: 15px;
+      width: 300px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      -webkit-font-smoothing: antialiased;
+    }
+    
     input[type=text] {
       padding: 12px;
       font-size: 1.2em;
