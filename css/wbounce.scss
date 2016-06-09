@@ -162,16 +162,7 @@ $white: #fff;
       font-size: 0.9em;
     }
 
-    input[type=email] {
-      color: #999;
-      padding: 12px;
-      font-size: 15px;
-      width: 300px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      -webkit-font-smoothing: antialiased;
-    }
-    
+    input[type=email],
     input[type=tel] {
       color: #999;
       padding: 12px;
