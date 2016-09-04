@@ -101,19 +101,44 @@ class Wbounce_Frontend {
 	}
 
 
-	function load_footer_script() { ?>
+	function load_footer_script() {
+      $WBOUNCE_CONFIG = [
+        "cookieName" => "wBounce",
+        "isAggressive" => $this->is_aggressive(),
+        "isSitewide" => get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1',
+        "hesitation" => $this->get_option('hesitation'),
+        "openAnimation" => $this->is_animation_none('open') ? false : $this->get_option("open_animation"),
+        "exitAnimation" => $this->is_animation_none('exit') ? false : $this->get_option("exit_animation"),
+        "timer" => $this->get_option("timer"),
+        "sensitivity" => $this->get_option("sensitivity"),
+        "cookieExpire" => $this->get_option("cookieexpire"),
+        "cookieDomain" => $this->get_option("cookiedomain"),
+        "autoFire" => $this->get_option('autoFire'),
+        "isAnalyticsEnabled" => get_option(WBOUNCE_OPTION_KEY.'_analytics') == '1'
+      ];
+      
+      echo '<div id="wbounce-config" style="display: block;">';
+      echo json_encode($WBOUNCE_CONFIG);
+      echo '</div>'
+    ?>
+
 		<script>
 		(function ( $ ) {
-
 			if (typeof __gaTracker == 'function') {
 				__gaTracker( function() {
 				  window.ga = __gaTracker;
 				});
 			}
 
-			$(function() {
-				var cookieName = 'wBounce';
-				var aggressive = '<?php echo $this->test_if_aggressive(); ?>';
+            $(function() {
+                var WBOUNCE_CONFIG = JSON.parse($('#wbounce-config').text());
+              
+                if (typeof ga !== 'function') {
+                  WBOUNCE_CONFIG.isAnalyticsEnabled = false;
+                }
+
+              console.log(WBOUNCE_CONFIG);
+              
 				var wBounceModal = document.getElementById('wbounce-modal');
 				var wBounceModalSub = document.getElementById('wbounce-modal-sub');
 				var wBounceModalFlex = document.getElementById('wbounce-modal-flex');
@@ -123,15 +148,15 @@ class Wbounce_Frontend {
 				var isAnimationOut = false;
 				var animationInClass, animationOutClass;
 
-				<?php if (!$this->test_if_animation_none('open')) { ?>
-					animationInClass = 'animated <?php echo $this->get_option('open_animation'); ?>';
+				if (WBOUNCE_CONFIG.openAnimation) {
+					animationInClass = 'animated ' + WBOUNCE_CONFIG.openAnimation;
                     isAnimationIn = true;
-				<?php } ?>
-
-				<?php if (!$this->test_if_animation_none('exit')) { ?>
-					animationOutClass = 'animated <?php echo $this->get_option('exit_animation'); ?>';
+                }
+              
+                if (WBOUNCE_CONFIG.exitAnimation) {
+                    animationOutClass = 'animated ' + WBOUNCE_CONFIG.exitAnimation;
                     isAnimationOut = true;
-				<?php } ?>
+                }
 
 				// Time to correct our assumption
 				if (isIE() && isIE() < 10) {
@@ -144,54 +169,38 @@ class Wbounce_Frontend {
 				}
 
 				if (typeof ouibounce !== 'undefined' && $.isFunction(ouibounce)) {
-					var config = {
-						<?php
-						// Echo options that require a string input
-						$option_str = array(
-							'cookieExpire',	// Cookie expiration
-							'cookieDomain', // Cookie domain
-						);
-						foreach ($option_str as $str) {
-							$this->echo_option_str( $str );
-						}
-
-						// Echo options that require an integer input
-						$option_int = array(
-							'timer', // Timer (Set a min time before wBounce fires)
-							'sensitivity',	// Sensitivity
-						);
-						foreach ($option_int as $int) {
-							$this->echo_option_int( $int );
-						}
-						?>
+					var OUIBOUNCE_CONFIG = {
+                      // Aggressive Mode
+                      aggressive: WBOUNCE_CONFIG.isAggressive,
+                      // Cookie per page (sitewide cookie)
+                      sitewide: WBOUNCE_CONFIG.isSitewide,
+                      // Custom cookie name
+                      cookieName: WBOUNCE_CONFIG.cookieName,
+                      cookieExpire: WBOUNCE_CONFIG.cookieExpire,
+                      cookieDomain: WBOUNCE_CONFIG.cookieDomain,
+                      // Timer (Set a min time before wBounce fires)
+                      timer: parseInt(WBOUNCE_CONFIG.timer, 10),
+                      sensitivity: parseInt(WBOUNCE_CONFIG.sensitivity, 10)
 					};
 
-					<?php
-						// Aggressive Mode
-					if ( $this->test_if_aggressive() ) {
-						echo 'config.aggressive = true;';
-					}
-
-					// Cookie per page (sitewide cookie)
-					if ( get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1' ) {
-						echo 'config.sitewide = true;';
-					}
-
-					// Hesitation
-					if ( $this->test_if_given_str('hesitation') ) {
-						echo 'config.delay = '.$this->get_option('hesitation').';';
-					}
-
-					// Custom cookie name
-					echo "config.cookieName = cookieName;";
-
-					// Delay/Intelligent timer
-					// ...
-					?>
-
+                    WBOUNCE_CONFIG.hesitation = parseInt(WBOUNCE_CONFIG.hesitation, 10);
+                  
+                    // Hesitation
+                    if (isInteger(WBOUNCE_CONFIG.hesitation)) {
+                      OUIBOUNCE_CONFIG.delay = WBOUNCE_CONFIG.hesitation;
+                    }
+                  
+                    console.log(OUIBOUNCE_CONFIG);
+                  
+                    function sendAnalyticsEvent(action) {
+                      if (WBOUNCE_CONFIG.isAnalyticsEnabled) {
+                        ga('send', 'event', 'wBounce', action, document.URL);
+                      }
+                    }
+                  
 					// Callback
-					config.callback = function() {
-						<?php echo $this->analytics_action('fired'); ?>
+					OUIBOUNCE_CONFIG.callback = function() {
+						sendAnalyticsEvent("fired");
 						if (isAnimationIn) {
 							$(wBounceModalSub)
 								.addClass(animationInClass)
@@ -202,25 +211,25 @@ class Wbounce_Frontend {
 						}
 					};
 
-					//Init
-			      	var _ouibounce = ouibounce(wBounceModal, config);
+					// Init
+			      	var _ouibounce = ouibounce(wBounceModal, OUIBOUNCE_CONFIG);
 				}
 
                 var $wBounceModal = $(wBounceModal);
               
 				$wBounceModal.on('click', function() {
                   	hidePopup();
-					<?php echo $this->analytics_action('hidden_outside'); ?>
+					sendAnalyticsEvent("hidden_outside");
 				});
 
 				$wBounceModal.find('.modal-close').on('click', function() {
 					hidePopup();
-					<?php echo $this->analytics_action('hidden_close'); ?>
+					sendAnalyticsEvent("hidden_close");
 				});
 
 				$wBounceModal.find('.modal-footer').on('click', function() {
 					hidePopup();
-					<?php echo $this->analytics_action('hidden_footer'); ?>
+					sendAnalyticsEvent("hidden_footer");
 				});
 
 				$(wBounceModalSub).on('click', function(e) {
@@ -230,7 +239,7 @@ class Wbounce_Frontend {
                 $(document).keyup(function(e) {
                   if (e.which === 27 && $wBounceModal.is(":visible")) {
 					hidePopup();
-					<?php echo $this->analytics_action('hidden_escape'); ?>
+					sendAnalyticsEvent("hidden_escape");
                   }
                 });
 
@@ -253,16 +262,10 @@ class Wbounce_Frontend {
 				/*
 				 * AUTOFIRE JS
 				 */
-				var autoFire = null;
-				<?php
-				if ( $this->test_if_given_str('autoFire') ) {
-					$autoFire = $this->get_option('autoFire');
-					if ($autoFire < 1000) {
-						$autoFire = 1000;
-					}
-					echo 'autoFire = '.$autoFire.';';
-				}
-				?>
+				var autoFire = parseInt(WBOUNCE_CONFIG.autoFire, 10);
+                if (autoFire < 1000) {
+                    autoFire = 1000;
+                }
 
 				function isInteger(x) {
 					return (typeof x === 'number') && (x % 1 === 0);
@@ -271,11 +274,10 @@ class Wbounce_Frontend {
 					if ( _ouibounce.isDisabled() ) return;
 					setTimeout( _ouibounce.fire, delay );
 				}
-				if ( isInteger(autoFire) && autoFire !== null ) {
+				if (isInteger(autoFire)) {
 				  handleAutoFire( autoFire );
 				}
-				/*** /AUTOFIRE JS ***/
-
+                
 				/**
 				 * Reference: http://stackoverflow.com/a/15983064/2706988
 				 * @returns {*}
@@ -292,53 +294,16 @@ class Wbounce_Frontend {
 	function get_option( $optionname ) {
 		return get_option(WBOUNCE_OPTION_KEY.'_'.$optionname);
 	}
-	function test_if_given_str( $optionname ) {
-		return ( get_option(WBOUNCE_OPTION_KEY.'_'.$optionname) != "" ) ? true : false;
-	}
-	function test_if_animation_none( $optionname ) {
+	function is_animation_none( $optionname ) {
 		return ( get_option(WBOUNCE_OPTION_KEY.'_'.$optionname.'_animation') != "none" ) ? false : true;
 	}
-	function echo_option_str( $optionname ) {
-  		if ( $this->test_if_given_str(strtolower($optionname)) ) {
-  			echo $optionname.':\''.$this->get_option(strtolower($optionname)).'\',';
-  		}
-	}
-	function echo_option_int( $optionname ) {
-  		if ( $this->test_if_given_str(strtolower($optionname)) ) {
-  			echo $optionname.':'.$this->get_option($optionname).',';
-  		}
-	}
 
-	function test_if_aggressive() {
+	function is_aggressive() {
 		return ( 
 			( $this->get_option('aggressive_mode') == '1' ) ||
 		    ( current_user_can( 'manage_options' ) && ( $this->get_option('test_mode') == '1' ) )
 		 ) ? true : false;
 	}
-
-
-	/**
-	 * Test if analytics is enabled
-	 */
-	function is_analytics_enabled() {
-		return ( get_option(WBOUNCE_OPTION_KEY.'_analytics') == '1' ) ? true : false;
-	}
-	/**
-	 * Set analytics event
-	 * @param String
-	 */
-	function analytics_action( $action ) {
-		return (!$this->is_analytics_enabled()) ? '' :
-		"if (typeof ga == 'function') { ga('send', 'event', ".$this->analytics_category().", '$action', ".$this->analytics_label()."); }";
-	}
-	private function analytics_category() {
-		return '\'wBounce\'';
-	}
-	private function analytics_label() {
-		return 'document.URL';
-	}
-
-
 
 	/**
 	 * Add scripts (like JS)
