@@ -15,8 +15,9 @@ This plugin makes it extremely easy to implement exit popups. You don't have to 
 
 **Demo, download link and more information** on the developer's website: [kevinw.de/wbounce/](http://kevinw.de/wbounce/)
 
-## You want to contribute?
-That's amazing! I'm looking forward to your contribution. Here are a few steps that may you to get started:
+## Want to contribute?
+That's amazing! I'm looking forward to your contribution. Here are a few steps that may help you getting started:
+
 1. Fork/clone this repository to your computer.
 2. Navigate to your downloaded folder in your terminal.
 3. Install the project-specific npm dependencies (run: `npm install`).
