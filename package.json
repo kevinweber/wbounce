@@ -11,6 +11,7 @@
     "watch:scss:frontend": "sass --watch frontend/css/wbounce.scss:frontend/css/min/wbounce.min.css --sourcemap=none --style=compressed",
     "watch:scss:admin": "sass --watch admin/css/edit-page.scss:admin/css/min/edit-page.min.css --sourcemap=none --style=compressed",
     "prewatch": "sh _build-tools/sass.sh",
+    "prebuild": "sh _build-tools/sass.sh",
     "watch": "npm-run-all --parallel watch:**",
     "build": "npm-run-all build:**",
     "test": "echo \"Error: no test specified\" && exit 1"
