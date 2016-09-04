@@ -144,10 +144,10 @@ class Wbounce_Frontend {
 		
 		wp_enqueue_script( 'jquery' );	// Enable jQuery (comes with WordPress)
 		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
-			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/'.WBOUNCE_OPTION_KEY.'.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
-            wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function-extended', plugins_url( 'js/'.WBOUNCE_OPTION_KEY.'-extended.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
+			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'frontend/js/'.WBOUNCE_OPTION_KEY.'.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
+            wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function-extended', plugins_url( 'frontend/js/'.WBOUNCE_OPTION_KEY.'-extended.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
 		} else {
-			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/min/'.WBOUNCE_OPTION_KEY.'.min.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
+			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'frontend/js/min/'.WBOUNCE_OPTION_KEY.'.min.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
 		}
 	}
 
@@ -165,12 +165,12 @@ class Wbounce_Frontend {
 	function enqueue_style() {
 		if ($this->test_if_status_is_off()) return;
 
-        wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('css/min/'.WBOUNCE_OPTION_KEY.'.min.css', plugin_dir_path( __FILE__ ) ) );
+        wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('frontend/css/min/'.WBOUNCE_OPTION_KEY.'.min.css', plugin_dir_path( __FILE__ ) ) );
 		wp_enqueue_style( WBOUNCE_OPTION_KEY.'-style' );
         
         if ((get_option(WBOUNCE_OPTION_KEY.'_open_animation') | get_option(WBOUNCE_OPTION_KEY.'_exit_animation'))
                 != 'none') {
-            wp_register_style( 'animate-style', plugins_url('css/min/animate.min.css', plugin_dir_path( __FILE__ ) ) );
+            wp_register_style( 'animate-style', plugins_url('frontend/css/min/animate.min.css', plugin_dir_path( __FILE__ ) ) );
             wp_enqueue_style( 'animate-style' );
         }
 	}

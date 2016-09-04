@@ -234,7 +234,7 @@ class Wbounce_Meta {
 	function post_columns_css() {
 		$screen = get_current_screen();
 		if ( $screen->base == 'edit' ) {
-			wp_enqueue_style( 'wbounce-edit-page', plugins_url('../css/min/edit-page.css', __FILE__) );
+			wp_enqueue_style( 'wbounce-edit-page', plugins_url('css/min/edit-page.min.css', __FILE__) );
 		}
 	}
 

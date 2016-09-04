@@ -44,7 +44,7 @@ class Wbounce_Admin_Options {
 	}
 
 	function admin_js() {
-		wp_enqueue_script( 'wbounce_backend_admin_js', plugins_url( '../js/wbounce-backend.js' , __FILE__ ), array( 'jquery' ) );
+		wp_enqueue_script( 'wbounce_backend_admin_js', plugins_url( 'js/wbounce-backend.js' , __FILE__ ), array( 'jquery' ) );
 	}
 
 	/**
