@@ -1,0 +1,51 @@
+{
+  "name": "wbounce",
+  "version": "1.0.0",
+  "description": "wBounce by [Kevin Weber](http://kevinw.de)",
+  "main": "build-tools/index.js",
+  "scripts": {
+    "build:js:frontend": "uglifyjs js/*.js -o js/min/wbounce.min.js --compress --mangle",
+    "watch:js:frontend": "nodemon -e js -w js/ -i js/min/ -x \"npm run build:js:frontend\"",
+    "build:scss:frontend": "sass css/wbounce.scss:css/min/wbounce.min.css --sourcemap=none --style=compressed",
+    "build:scss:admin": "sass css/edit-page.scss:css/min/edit-page.min.css --sourcemap=none --style=compressed",
+    "watch:scss:frontend": "sass --watch css/wbounce.scss:css/min/wbounce.min.css",
+    "watch:scss:admin": "sass --watch css/edit-page.scss:css/min/edit-page.min.css",
+    "prewatch": "sh build-tools/sass.sh",
+    "watch": "npm-run-all --parallel watch:**",
+    "build": "npm-run-all build:**",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinweber/wbounce.git"
+  },
+  "keywords": [
+    "newsletter",
+    "exit",
+    "popup",
+    "exit",
+    "popups",
+    "roi",
+    "conversion",
+    "conversion",
+    "rate",
+    "optimisation",
+    "free",
+    "plugin",
+    "wordpress",
+    "marketing",
+    "landing",
+    "page"
+  ],
+  "author": "Kevin Weber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinweber/wbounce/issues"
+  },
+  "homepage": "https://github.com/kevinweber/wbounce#readme",
+  "dependencies": {
+    "nodemon": "^1.10.2",
+    "npm-run-all": "^3.1.0",
+    "uglify-js": "^2.7.3"
+  }
+}

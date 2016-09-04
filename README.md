@@ -14,3 +14,12 @@ One concern in everyone's interest: Make sure to provide VALUE when you use wBou
 This plugin makes it extremely easy to implement exit popups. You don't have to manually "hack" your WordPress theme. Just activate and modify it via your admin backend.
 
 **Demo, download link and more information** on the developer's website: [kevinw.de/wbounce/](http://kevinw.de/wbounce/)
+
+## You want to contribute?
+That's amazing! I'm looking forward to your contribution. Here are a few steps that may you to get started:
+1. Fork/clone this repository to your computer.
+2. Navigate to your downloaded folder in your terminal.
+3. Install the project-specific npm dependencies (run: `npm install`).
+4. Afterwards you can run `npm watch` to automatically compile all JavaScript and SCSS changes whenever you save a file.
+5. When you're done, run `npm build`.
+6. Create a [pull request](https://help.github.com/articles/creating-a-pull-request/).

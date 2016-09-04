@@ -145,14 +145,9 @@ class Wbounce_Frontend {
 		wp_enqueue_script( 'jquery' );	// Enable jQuery (comes with WordPress)
 		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
 			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/'.WBOUNCE_OPTION_KEY.'.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
+            wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function-extended', plugins_url( 'js/'.WBOUNCE_OPTION_KEY.'-extended.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
 		} else {
 			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'js/min/'.WBOUNCE_OPTION_KEY.'.min.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
-		}
-
-		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
-			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function-extended', plugins_url( 'js/'.WBOUNCE_OPTION_KEY.'-extended.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
-		} else {
-			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function-extended', plugins_url( 'js/min/'.WBOUNCE_OPTION_KEY.'-extended.min.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
 		}
 	}
 
