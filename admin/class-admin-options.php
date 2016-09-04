@@ -153,8 +153,8 @@ class Wbounce_Admin_Options {
 						        	printf( __( 'See <a href="%s" target="_blank" title="wBounce Documentation">documentation</a>.', WBOUNCE_TD ),
 						        	'//kevinw.de/wb-doc-te'	
 						        	); ?>
-						        </th>
 						        </span>
+                                </th>
 						        <td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_template_engine">
 								    	<option value="enabled"<?php if (get_option(WBOUNCE_OPTION_KEY.'_template_engine') === 'enabled') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Enabled', WBOUNCE_TD ); ?></option>

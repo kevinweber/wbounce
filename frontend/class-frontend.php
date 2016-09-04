@@ -25,10 +25,10 @@ class Wbounce_Frontend {
 						$totalOverrideText = get_post_meta(get_the_ID(), WBOUNCE_OPTION_KEY.'_override', true);
 
 						if ($templateEngineTemplate == 'all' && $totalOverrideText != '' && $templateEngine == 'enabled') {
-                            printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes($totalOverrideText)) );
+                            printf( __( '%s', WBOUNCE_TD ), do_shortcode( html_entity_decode(stripslashes($totalOverrideText))) );
 						}
 						else if (stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) != '') {
-							printf( __( '%s', WBOUNCE_TD ), do_shortcode( stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content')) ) );
+							printf( __( '%s', WBOUNCE_TD ), do_shortcode( html_entity_decode(stripslashes(get_option(WBOUNCE_OPTION_KEY.'_content'))) ) );
 						}
 						else if (current_user_can( 'manage_options' )) {
 							printf( __( '%s', WBOUNCE_TD ), $this->create_modal_content_default_admin() );

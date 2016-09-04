@@ -157,13 +157,13 @@ class Wbounce_Meta {
 			$text_content_magic_arr = $this->text_content_magic_arr();
 			foreach ($text_content_magic_arr as $key => $value) {
 				if( isset( $_POST[$value] ) )
-					update_post_meta( $post_id, $value, wp_kses_post( $_POST[$value] ) );
+					update_post_meta( $post_id, $value, esc_attr( $_POST[$value] ) );
 			}
 
 			// TEXTAREA
 			$text_content = $this->text_content;
 			if( isset( $_POST[$text_content] ) )
-				update_post_meta( $post_id, $text_content, wp_kses_post( $_POST[$text_content] ) );
+				update_post_meta( $post_id, $text_content, esc_attr( $_POST[$text_content] ) );
 			
 			do_action( WBOUNCE_OPTION_KEY.'_save_post', $post_id );
 
