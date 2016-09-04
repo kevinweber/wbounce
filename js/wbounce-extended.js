@@ -1,8 +1,24 @@
+/*global jQuery, __gaTracker, ga, ouibounce */
 (function ($) {
-  if (typeof __gaTracker == 'function') {
+  'use strict';
+  
+  if (typeof __gaTracker === 'function') {
     __gaTracker(function () {
       window.ga = __gaTracker;
     });
+  }
+
+  /**
+   * Reference: http://stackoverflow.com/a/15983064/2706988
+   * @returns {*}
+   */
+  function isIE() {
+    var myNav = navigator.userAgent.toLowerCase();
+    return (myNav.indexOf('msie') !== -1) ? parseInt(myNav.split('msie')[1], 10) : false;
+  }
+
+  function isInteger(x) {
+    return (typeof x === 'number') && (x % 1 === 0);
   }
 
   $(function () {
@@ -127,7 +143,7 @@
           'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
           function () {
             $(this).removeClass(animationOutClass);
-            $wBounceModal.hide()
+            $wBounceModal.hide();
           }
         );
     }
@@ -140,25 +156,14 @@
       autoFire = 1000;
     }
 
-    function isInteger(x) {
-      return (typeof x === 'number') && (x % 1 === 0);
-    }
-
     function handleAutoFire(delay) {
-      if (_ouibounce.isDisabled()) return;
+      if (_ouibounce.isDisabled()) {
+        return;
+      }
       setTimeout(_ouibounce.fire, delay);
     }
     if (isInteger(autoFire)) {
       handleAutoFire(autoFire);
     }
-
-    /**
-     * Reference: http://stackoverflow.com/a/15983064/2706988
-     * @returns {*}
-     */
-    function isIE() {
-      var myNav = navigator.userAgent.toLowerCase();
-      return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
-    }
   });
-})(jQuery);
+}(jQuery));
