@@ -1,7 +1,7 @@
 /*global jQuery, __gaTracker, ga, ouibounce */
 (function ($) {
   'use strict';
-  
+
   if (typeof __gaTracker === 'function') {
     __gaTracker(function () {
       window.ga = __gaTracker;
@@ -36,6 +36,12 @@
     var isAnimationIn = false;
     var isAnimationOut = false;
     var animationInClass, animationOutClass;
+
+    function sendAnalyticsEvent(action) {
+      if (WBOUNCE_CONFIG.isAnalyticsEnabled) {
+        ga('send', 'event', 'wBounce', action, document.URL);
+      }
+    }
 
     if (WBOUNCE_CONFIG.openAnimation) {
       animationInClass = 'animated ' + WBOUNCE_CONFIG.openAnimation;
@@ -77,12 +83,6 @@
       // Hesitation
       if (isInteger(WBOUNCE_CONFIG.hesitation)) {
         OUIBOUNCE_CONFIG.delay = WBOUNCE_CONFIG.hesitation;
-      }
-
-      function sendAnalyticsEvent(action) {
-        if (WBOUNCE_CONFIG.isAnalyticsEnabled) {
-          ga('send', 'event', 'wBounce', action, document.URL);
-        }
       }
 
       // Callback
