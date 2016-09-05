@@ -22,25 +22,30 @@
   }
 
   $(function () {
-    var WBOUNCE_CONFIG = JSON.parse($('#wbounce-config').text());
+    var WBOUNCE_CONFIG = JSON.parse($('#wbounce-config').text()),
 
-    if (typeof ga !== 'function') {
-      WBOUNCE_CONFIG.isAnalyticsEnabled = false;
-    }
+      wBounceModal = document.getElementById('wbounce-modal'),
+      wBounceModalSub = document.getElementById('wbounce-modal-sub'),
+      wBounceModalFlex = document.getElementById('wbounce-modal-flex'),
 
-    var wBounceModal = document.getElementById('wbounce-modal');
-    var wBounceModalSub = document.getElementById('wbounce-modal-sub');
-    var wBounceModalFlex = document.getElementById('wbounce-modal-flex');
-
-    // Assuming, if (animation !== 'none' or IE > 9)
-    var isAnimationIn = false;
-    var isAnimationOut = false;
-    var animationInClass, animationOutClass;
+      // Assuming, if (animation !== 'none' or IE > 9)
+      isAnimationIn = false,
+      isAnimationOut = false,
+      animationInClass,
+      animationOutClass,
+      _ouibounce,
+      $wBounceModal,
+      autoFire,
+      OUIBOUNCE_CONFIG;
 
     function sendAnalyticsEvent(action) {
       if (WBOUNCE_CONFIG.isAnalyticsEnabled) {
         ga('send', 'event', 'wBounce', action, document.URL);
       }
+    }
+
+    if (typeof ga !== 'function') {
+      WBOUNCE_CONFIG.isAnalyticsEnabled = false;
     }
 
     if (WBOUNCE_CONFIG.openAnimation) {
@@ -64,7 +69,7 @@
     }
 
     if (typeof ouibounce !== 'undefined' && $.isFunction(ouibounce)) {
-      var OUIBOUNCE_CONFIG = {
+      OUIBOUNCE_CONFIG = {
         // Aggressive Mode
         aggressive: WBOUNCE_CONFIG.isAggressive,
         // Cookie per page (sitewide cookie)
@@ -101,10 +106,26 @@
       };
 
       // Init
-      var _ouibounce = ouibounce(wBounceModal, OUIBOUNCE_CONFIG);
+      _ouibounce = ouibounce(wBounceModal, OUIBOUNCE_CONFIG);
     }
 
-    var $wBounceModal = $(wBounceModal);
+    $wBounceModal = $(wBounceModal);
+
+    function hidePopup() {
+      if (!isAnimationOut) {
+        return $wBounceModal.hide();
+      }
+
+      $(wBounceModalSub)
+        .addClass(animationOutClass)
+        .one(
+          'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+          function () {
+            $(this).removeClass(animationOutClass);
+            $wBounceModal.hide();
+          }
+        );
+    }
 
     $wBounceModal.on('click', function () {
       hidePopup();
@@ -132,26 +153,10 @@
       }
     });
 
-    function hidePopup() {
-      if (!isAnimationOut) {
-        return $wBounceModal.hide();
-      }
-
-      $(wBounceModalSub)
-        .addClass(animationOutClass)
-        .one(
-          'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-          function () {
-            $(this).removeClass(animationOutClass);
-            $wBounceModal.hide();
-          }
-        );
-    }
-
     /*
      * AUTOFIRE JS
      */
-    var autoFire = parseInt(WBOUNCE_CONFIG.autoFire, 10);
+    autoFire = parseInt(WBOUNCE_CONFIG.autoFire, 10);
     if (autoFire < 1000) {
       autoFire = 1000;
     }
