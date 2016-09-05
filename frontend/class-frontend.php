@@ -117,7 +117,7 @@ class Wbounce_Frontend {
         "isAnalyticsEnabled" => get_option(WBOUNCE_OPTION_KEY.'_analytics') == '1'
       ];
       
-      echo '<div id="wbounce-config" style="display: block;">';
+      echo '<div id="wbounce-config" style="display: none;">';
       echo json_encode($WBOUNCE_CONFIG);
       echo '</div>';
     }
