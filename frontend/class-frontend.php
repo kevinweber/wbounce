@@ -102,7 +102,7 @@ class Wbounce_Frontend {
 
 
 	function load_footer_script() {
-      $WBOUNCE_CONFIG = [
+      $WBOUNCE_CONFIG = array(
         "cookieName" => "wBounce",
         "isAggressive" => $this->is_aggressive(),
         "isSitewide" => get_option(WBOUNCE_OPTION_KEY.'_sitewide') != '1',
@@ -115,7 +115,7 @@ class Wbounce_Frontend {
         "cookieDomain" => $this->get_option("cookiedomain"),
         "autoFire" => $this->get_option('autoFire'),
         "isAnalyticsEnabled" => get_option(WBOUNCE_OPTION_KEY.'_analytics') == '1'
-      ];
+      );
       
       echo '<div id="wbounce-config" style="display: none;">';
       echo json_encode($WBOUNCE_CONFIG);
