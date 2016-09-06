@@ -76,7 +76,6 @@
         sitewide: WBOUNCE_CONFIG.isSitewide,
         // Custom cookie name
         cookieName: WBOUNCE_CONFIG.cookieName,
-        cookieExpire: WBOUNCE_CONFIG.cookieExpire,
         cookieDomain: WBOUNCE_CONFIG.cookieDomain,
         // Timer (Set a min time before wBounce fires)
         timer: parseInt(WBOUNCE_CONFIG.timer, 10),
@@ -84,6 +83,11 @@
       };
 
       WBOUNCE_CONFIG.hesitation = parseInt(WBOUNCE_CONFIG.hesitation, 10);
+
+      // Expiration time in days
+      if (WBOUNCE_CONFIG.cookieExpire) {
+        OUIBOUNCE_CONFIG.cookieExpire = WBOUNCE_CONFIG.cookieExpire;
+      }
 
       // Hesitation
       if (isInteger(WBOUNCE_CONFIG.hesitation)) {
