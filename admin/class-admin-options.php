@@ -32,12 +32,12 @@ class Wbounce_Admin_Options {
 	);
 
 	function __construct() {
-		add_action( 'admin_menu', array( $this, 'create_menu' ));	
+		add_action( 'admin_menu', array( $this, 'create_menu' ));
 		add_action( 'admin_init', array( $this, 'admin_init_options' ) );
 	}
 
 	function admin_init_options() {
-		$plugin = plugin_basename( WBOUNCE_FILE ); 
+		$plugin = plugin_basename( WBOUNCE_FILE );
 		add_filter("plugin_action_links_$plugin", array( $this, 'settings_link' ) );
 		$this->register_settings();
 		$this->admin_js();
@@ -50,10 +50,10 @@ class Wbounce_Admin_Options {
 	/**
 	 * Add settings link on plugin page
 	 */
-	function settings_link($links) { 
-	  $settings_link = '<a href="options-general.php?page='.WBOUNCE_OPTION_KEY.'.php">' . __( 'Settings', WBOUNCE_TD ) . '</a>'; 
-	  array_unshift($links, $settings_link); 
-	  return $links; 
+	function settings_link($links) {
+	  $settings_link = '<a href="options-general.php?page='.WBOUNCE_OPTION_KEY.'.php">' . __( 'Settings', WBOUNCE_TD ) . '</a>';
+	  array_unshift($links, $settings_link);
+	  return $links;
 	}
 
 	function create_menu() {
@@ -130,7 +130,7 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Test mode', WBOUNCE_TD ); ?></th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_test_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_test_mode' ) ); ?> /> <label><?php _e( 'Check this option to enable "Aggressive Mode" <b>for admins</b>, regardless of the actual setting in the tab "Options".', WBOUNCE_TD ); ?></label>
+									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_test_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_test_mode' ) ); ?> /> <label><?php _e( 'Check this option to enable "Aggressive Mode" <b>for admins</b>. If this option is checked, the popup will <b>always</b> fire for you (regardless of the actual setting in the tab "Options") but not for your regular visitors.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
@@ -149,9 +149,9 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 					        	<th scope="row"><?php esc_html_e( 'Template Engine', WBOUNCE_TD ); ?><br>
 					        	<span class="description thin">
-					        	<?php 
+					        	<?php
 						        	printf( __( 'See <a href="%s" target="_blank" title="wBounce Documentation">documentation</a>.', WBOUNCE_TD ),
-						        	'//kevinw.de/wb-doc-te'	
+						        	'//kevinw.de/wb-doc-te'
 						        	); ?>
 						        </span>
                                 </th>
@@ -205,9 +205,9 @@ class Wbounce_Admin_Options {
 						        <td>
 									<?php $options = get_option( WBOUNCE_OPTION_KEY.'_attribution' ); ?>
 									<input class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="none"<?php checked( 'none' == $options || empty($options) ); ?> /> <label for="none"><?php esc_html_e( 'No attribution: "I can not afford to give appropriate credit for this free plugin."', WBOUNCE_TD ); ?></label><br><br>
-									<input class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="donate"<?php checked( 'donate' == $options ); ?> /> 
+									<input class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="donate"<?php checked( 'donate' == $options ); ?> />
 									<label for="donate">
-										<?php esc_html_e( 'Donation: "I have donated already or will do so soon."', WBOUNCE_TD ); ?> 
+										<?php esc_html_e( 'Donation: "I have donated already or will do so soon."', WBOUNCE_TD ); ?>
 										<?php printf( esc_html__( 'Please %1$sdonate now%2$s so that I can keep up the development of this plugin.', WBOUNCE_TD ),
 											'<a href="//kevinw.de/donate/wBounce/" target="_blank">',
 											'</a>'
@@ -300,7 +300,7 @@ class Wbounce_Admin_Options {
 					        			<i>.wbounce-modal .modal-title { background-color: #4ab471; }</i><br>
 					        			<?php
 						        			printf( __( '(You don&#39;t know CSS? Try the <a href="%s" target="_blank" title="CSS Tutorial on W3Schools">CSS Tutorial</a> on W3Schools.)', WBOUNCE_TD ),
-						        			'//kevinw.de/css-tutorial'	
+						        			'//kevinw.de/css-tutorial'
 						        			);
 					        			?>
 					        		</span>
@@ -322,7 +322,7 @@ class Wbounce_Admin_Options {
 									<p>
                                         <?php
 						        			printf( __( 'Define animation when wBounce fires up. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
-						        			'//daneden.github.io/animate.css/'	
+						        			'//daneden.github.io/animate.css/'
 						        			);
 					        			?>
                                     </p>
@@ -344,7 +344,7 @@ class Wbounce_Admin_Options {
 									<p>
                                         <?php
 						        			printf( __( 'Define animation when closing wBounce. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
-						        			'//daneden.github.io/animate.css/'	
+						        			'//daneden.github.io/animate.css/'
 						        			);
 					        			?>
                                     </p>
@@ -370,7 +370,7 @@ class Wbounce_Admin_Options {
 						        <th scope="row">
 				        			<?php
 					        			printf( __( 'Enable <a href="%s" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span>', WBOUNCE_TD ),
-					        			'//developers.google.com/analytics/devguides/collection/analyticsjs/events'	
+					        			'//developers.google.com/analytics/devguides/collection/analyticsjs/events'
 					        			);
 				        			?>
 							        </th>
@@ -379,10 +379,10 @@ class Wbounce_Admin_Options {
 									<label>
 					        			<?php
 						        			printf( __( 'Check this option to track events with Google Analytics.<br><b>Notice:</b> Event tracking might not work on your local (localhost) test environment when you haven&#39;t <a href="%s" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.', WBOUNCE_TD ),
-						        			'//developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost'	
+						        			'//developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost'
 						        			);
 					        			?>
-									</label>	        	
+									</label>
 						        </td>
 					        </tr>
 							<tr valign="top">
@@ -475,7 +475,7 @@ class Wbounce_Admin_Options {
 				        	);
 			        	?>
 					</p>
-		        </td>       
+		        </td>
 		        <td style="width:300px;">
 					<p>
 						<b><?php esc_html_e( 'Personal tip: Must use plugins', WBOUNCE_TD ); ?></b>
