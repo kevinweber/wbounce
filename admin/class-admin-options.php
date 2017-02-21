@@ -82,6 +82,7 @@ class Wbounce_Admin_Options {
 			'_custom_css',
 			'_open_animation',
 			'_exit_animation',
+			'_demo_css',
 			// Tab 'Analytics'
 			'_analytics',
 			//... more to come
@@ -320,36 +321,40 @@ class Wbounce_Admin_Options {
 										<?php endforeach; ?>
 									</select>
 									<p>
-                                        <?php
-						        			printf( __( 'Define animation when wBounce fires up. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
-						        			'//daneden.github.io/animate.css/'
-						        			);
-					        			?>
-                                    </p>
+                  <?php printf( __( 'Define animation when wBounce fires up. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
+			        			'//daneden.github.io/animate.css/'
+			        			);
+		        			?>
+                	</p>
 								</td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
-								<td>
-									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_exit_animation">
-										<?php $exitAnimation = get_option(WBOUNCE_OPTION_KEY.'_exit_animation'); ?>
-										<?php foreach($this->animationOptions['exit'] as $group => $options) : ?>
-											<optgroup label="<?php echo $group; ?>">
-												<?php foreach($options as $option) : ?>
-													<option value="<?php echo $option; ?>" <?php selected($exitAnimation, $option); ?>><?php echo $option; ?></option>
+										<td>
+											<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_exit_animation">
+												<?php $exitAnimation = get_option(WBOUNCE_OPTION_KEY.'_exit_animation'); ?>
+												<?php foreach($this->animationOptions['exit'] as $group => $options) : ?>
+													<optgroup label="<?php echo $group; ?>">
+														<?php foreach($options as $option) : ?>
+															<option value="<?php echo $option; ?>" <?php selected($exitAnimation, $option); ?>><?php echo $option; ?></option>
+														<?php endforeach; ?>
+													</optgroup>
 												<?php endforeach; ?>
-											</optgroup>
-										<?php endforeach; ?>
-									</select>
-									<p>
-                                        <?php
-						        			printf( __( 'Define animation when closing wBounce. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
+											</select>
+											<p>
+		                  	<?php printf( __( 'Define animation when closing wBounce. <a href="%s" target="_blank" title="Preview animations of animate.css">Preview animations</a>.', WBOUNCE_TD ),
 						        			'//daneden.github.io/animate.css/'
 						        			);
 					        			?>
-                                    </p>
-								</td>
+		                	</p>
+										</td>
 					        </tr>
+									<tr valign="top">
+										<th scope="row"><?php esc_html_e( 'Ignore Demo CSS', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
+										<td>
+									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_demo_css" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_demo_css' ) ); ?> /> <label><?php _e( 'If checked, the styles written for the exemplary template will be removed. This reduces the CSS file size, and makes your site a little bit faster. It also makes it easier to style the popup the way you want.', WBOUNCE_TD ); ?></label>
+										</td>
+									</tr>
 					        <tr valign="top">
 						        <th scope="row" style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', WBOUNCE_TD ); ?></th>
 						        <td>
@@ -434,7 +439,7 @@ class Wbounce_Admin_Options {
 						        <th scope="row">
 						        	<span style="color: red"><?php _e( 'MORE TO COME<br><span class="description thin">with the next updates</span>', WBOUNCE_TD ); ?></span><br>
 							        <span class="description thin"><?php
-							        	printf( __( 'Feel free to contribute <a href="%s" target="_blank">on Github</a>', WBOUNCE_TD ),
+							        	printf( __( 'You can contribute <a href="%s" target="_blank">on Github</a>', WBOUNCE_TD ),
 							        		'//github.com/kevinweber/wbounce'
 							        	);
 							        ?></span>

@@ -6,9 +6,11 @@
   "scripts": {
     "build:js:frontend": "uglifyjs frontend/js/*.js -o frontend/js/min/wbounce.min.js --compress --mangle",
     "watch:js:frontend": "nodemon -e js -w js/ -i frontend/js/min/ -x \"npm run build:js:frontend\"",
-    "build:scss:frontend": "sass frontend/css/wbounce.scss:frontend/css/min/wbounce.min.css --sourcemap=none --style=compressed",
+    "build:scss:frontend-base": "sass frontend/css/base.scss:frontend/css/min/wbounce-base.min.css --sourcemap=none --style=compressed",
+    "build:scss:frontend": "sass frontend/css/all.scss:frontend/css/min/wbounce-all.min.css --sourcemap=none --style=compressed",
     "build:scss:admin": "sass admin/css/edit-page.scss:admin/css/min/edit-page.min.css --sourcemap=none --style=compressed",
-    "watch:scss:frontend": "sass --watch frontend/css/wbounce.scss:frontend/css/min/wbounce.min.css --sourcemap=none --style=compressed",
+    "watch:scss:frontend-base": "sass --watch frontend/css/base.scss:frontend/css/min/wbounce-base.min.css --sourcemap=none --style=compressed",
+    "watch:scss:frontend": "sass --watch frontend/css/all.scss:frontend/css/min/wbounce-all.min.css --sourcemap=none --style=compressed",
     "watch:scss:admin": "sass --watch admin/css/edit-page.scss:admin/css/min/edit-page.min.css --sourcemap=none --style=compressed",
     "prewatch": "sh _build-tools/sass.sh",
     "prebuild": "sh _build-tools/sass.sh",

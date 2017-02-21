@@ -1,0 +1,119 @@
+.wbounce-modal {
+  .modal-title {
+    font-size: 18px;
+    background-color: #252525;
+    color: $white;
+    padding: 10px;
+    margin: 0;
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+  }
+
+  .modal-body {
+    padding: 20px 35px;
+    font-size: 0.9em;
+  }
+
+  h3 {
+    color: $white;
+    font-size: 1em;
+    margin: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: 1.25em;
+    margin: 10px 0;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  p {
+    line-height: 1.4em;
+    color: #344a5f;
+  }
+
+  form {
+    text-align: center;
+    margin-top: 35px;
+
+    p {
+      text-align: left;
+      margin-left: 35px;
+      opacity: 0.8;
+      margin-top: 1px;
+      padding-top: 1px;
+      font-size: 0.9em;
+    }
+
+    input[type=email],
+    input[type=tel] {
+      color: #999;
+      padding: 12px;
+      font-size: 15px;
+      width: 300px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    input[type=text] {
+      padding: 12px;
+      font-size: 1.2em;
+      width: 300px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    input[type=submit] {
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 12px;
+      font-size: 14px;
+      border-radius: 4px;
+      color: $white;
+      background-image: none;
+      background-color: #4ab471;
+      border: none;
+      cursor: pointer;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  .byline,
+  .updated {
+    display: block;
+  }
+
+  .modal-footer {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0 20px;
+
+    p {
+      text-transform: capitalize;
+      cursor: pointer;
+      display: inline;
+      border-bottom: 1px solid #344a5f;
+    }
+  }
+
+  .wbounce-modal-sub {
+    border-radius: 4px;
+    max-height: 95%;
+    max-width: 95%;
+  }
+}
+/*
+ * Fixes for users with visible admin bar
+ */
+.admin-bar {
+  .wbounce-modal {
+    padding-top: 32px;
+  }
+}

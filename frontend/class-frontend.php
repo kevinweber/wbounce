@@ -116,7 +116,7 @@ class Wbounce_Frontend {
         "autoFire" => $this->get_option('autoFire'),
         "isAnalyticsEnabled" => get_option(WBOUNCE_OPTION_KEY.'_analytics') == '1'
       );
-      
+
       echo '<div id="wbounce-config" style="display: none;">';
       echo json_encode($WBOUNCE_CONFIG);
       echo '</div>';
@@ -130,7 +130,7 @@ class Wbounce_Frontend {
 	}
 
 	function is_aggressive() {
-		return ( 
+		return (
 			( $this->get_option('aggressive_mode') == '1' ) ||
 		    ( current_user_can( 'manage_options' ) && ( $this->get_option('test_mode') == '1' ) )
 		 ) ? true : false;
@@ -141,7 +141,7 @@ class Wbounce_Frontend {
 	 */
 	function enqueue_scripts() {
 		if ($this->test_if_status_is_off()) return;
-		
+
 		wp_enqueue_script( 'jquery' );	// Enable jQuery (comes with WordPress)
 		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
 			wp_enqueue_script( WBOUNCE_OPTION_KEY.'-function', plugins_url( 'frontend/js/'.WBOUNCE_OPTION_KEY.'.js' , plugin_dir_path( __FILE__ ) ), 'jquery', WBOUNCE_VERSION_NUM, $this->test_if_script_should_be_loaded_in_footer() );
@@ -155,7 +155,7 @@ class Wbounce_Frontend {
 		if ( get_option(WBOUNCE_OPTION_KEY.'_load_in_footer') ) {
 			return true;
 		}
-		else 
+		else
 			return false;
 	}
 
@@ -165,9 +165,14 @@ class Wbounce_Frontend {
 	function enqueue_style() {
 		if ($this->test_if_status_is_off()) return;
 
-        wp_register_style( WBOUNCE_OPTION_KEY.'-style', plugins_url('frontend/css/min/'.WBOUNCE_OPTION_KEY.'.min.css', plugin_dir_path( __FILE__ ) ) );
-		wp_enqueue_style( WBOUNCE_OPTION_KEY.'-style' );
-        
+				if ($this->get_option('demo_css') == '1' ) {
+					wp_register_style( 'wbounce-style-base', plugins_url('frontend/css/min/wbounce-base.min.css', plugin_dir_path( __FILE__ ) ) );
+					wp_enqueue_style( 'wbounce-style-base' );
+				} else {
+					wp_register_style( 'wbounce-style-all', plugins_url('frontend/css/min/wbounce-all.min.css', plugin_dir_path( __FILE__ ) ) );
+					wp_enqueue_style( 'wbounce-style-all' );
+				}
+
         if ((get_option(WBOUNCE_OPTION_KEY.'_open_animation') | get_option(WBOUNCE_OPTION_KEY.'_exit_animation'))
                 != 'none') {
             wp_register_style( 'animate-style', plugins_url('frontend/css/min/animate.min.css', plugin_dir_path( __FILE__ ) ) );
@@ -193,7 +198,7 @@ class Wbounce_Frontend {
  	 */
  	function test_if_status_is_off() {
 		global $post;
-		
+
 		$result = false;
 		if (!isset($post->ID)) {
 			$id = null;
@@ -203,7 +208,7 @@ class Wbounce_Frontend {
 		}
 
 
-		// When the individual status for a page/post is 'off', all the other setting don't matter. So this has to be tested at first. 
+		// When the individual status for a page/post is 'off', all the other setting don't matter. So this has to be tested at first.
 		if ( get_post_meta( $id, 'wbounce_status', true ) && get_post_meta( $id, 'wbounce_status', true ) === 'off' ) {
 			$result = true;
 		}

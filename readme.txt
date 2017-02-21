@@ -86,11 +86,12 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 == Changelog ==
 
-= 1.6.2.4 =
-* Fix: Never display scrollbars for popup underlay
+= 1.6.3 =
+* New: Disable demo CSS used for exemplary template. This reduces the file size and makes it easier to use custom popup styles.
+* Fix: Never display scrollbars for popup underlay.
 
 = 1.6.2.3 =
-* Fix: Incorrect cookie expiration date
+* Fix: Incorrect cookie expiration date.
 
 = 1.6.2.2 =
 * Fix: Change how array is created to work with PHP versions lower than 5.4.

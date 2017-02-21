@@ -1,0 +1,69 @@
+/*
+ * Styling
+ */
+.wbounce-modal {
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow: scroll;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 10011;
+  @include vendor-prefix( box-sizing, border-box );
+  @include vendor-prefix( transform-style, preserve-3d );
+  // prevent elements from being "blurry" when a child uses "transform" (http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/)
+  * {
+    @include vendor-prefix( box-sizing, border-box );
+  }
+
+  &.underlay {
+    background-color: rgba($black, 0.5);
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+  }
+
+  .wbounce-modal-flex {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &.wbounce-modal-flex-activated {
+      @include flexbox();
+      @include vendor-prefix( justify-content, center );
+      @include vendor-prefix( align-items, center );
+    }
+  }
+
+  .wbounce-modal-sub {
+    background-color: #f0f1f2;
+    display: block;
+    left: initial;
+    position: relative;
+    opacity: 1;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    width: 600px;
+    z-index: 21;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.belowIE10 {
+      @include vendor-prefix( transform, translateY(-50%) );
+      margin: auto;
+      top: 50%;
+    }
+  }
+}

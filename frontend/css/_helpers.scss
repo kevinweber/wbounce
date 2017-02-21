@@ -1,0 +1,51 @@
+/*
+ * Variables
+ */
+$font-family: 'Open Sans', sans-serif;
+$black: #000;
+$white: #fff;
+
+/*
+ * Mixins
+ */
+@mixin vendor-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin keyframes($name){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/*
+ * General includes
+ */
+@include keyframes( fadein ) {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+};
