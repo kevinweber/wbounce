@@ -21,6 +21,6 @@ That's amazing! I'm looking forward to your contribution. Here are a few steps t
 1. Fork/clone this repository to your computer.
 2. Navigate to your downloaded folder in your terminal.
 3. Install the project-specific npm dependencies (run: `npm install`).
-4. Afterwards you can run `npm watch` to automatically compile all JavaScript and SCSS changes whenever you save a file.
+4. Afterwards you can run `npm run watch` to automatically compile all JavaScript and SCSS changes whenever you save a file.
 5. When you're done, run `npm build`.
 6. Create a [pull request](https://help.github.com/articles/creating-a-pull-request/).
