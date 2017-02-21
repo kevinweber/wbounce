@@ -71,6 +71,7 @@ $white: #fff;
     left: 0;
     background-color: rgba($black,0.5);
     cursor: pointer;
+    overflow: hidden;
   }
 
   .wbounce-modal-flex {
@@ -172,7 +173,7 @@ $white: #fff;
       border: 1px solid #ccc;
       -webkit-font-smoothing: antialiased;
     }
-    
+
     input[type=text] {
       padding: 12px;
       font-size: 1.2em;

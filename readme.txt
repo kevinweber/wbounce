@@ -56,7 +56,7 @@ Yes! You can use any form from every newsletter service since you can insert HTM
 Additionally, you can add CSS using the "Custom CSS" text field.
 
 = How to use MailPoet, SendPress Newsletters and other plugins with wBounce? =
-You can actually insert any shortcode that is provided by other plugins, such as GravityForms or SendPress Newsletters. For example, to use MailPoet with wBounce, simply insert the provided shortcode that contains the form's ID, as follows:  
+You can actually insert any shortcode that is provided by other plugins, such as GravityForms or SendPress Newsletters. For example, to use MailPoet with wBounce, simply insert the provided shortcode that contains the form's ID, as follows:
 `[wysija_form id="1"]`
 
 By the way, [MailPoet](https://wordpress.org/plugins/wysija-newsletters/) allows to set up autoresponders, so give it a try.
@@ -85,6 +85,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 
 == Changelog ==
+
+= 1.6.2.4 =
+* Fix: Never display scrollbars for popup underlay
 
 = 1.6.2.3 =
 * Fix: Incorrect cookie expiration date
