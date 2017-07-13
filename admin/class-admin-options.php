@@ -131,7 +131,7 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Test mode', WBOUNCE_TD ); ?></th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_test_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_test_mode' ) ); ?> /> <label><?php _e( 'Check this option to enable "Aggressive Mode" <b>for admins</b>. If this option is checked, the popup will <b>always</b> fire for you (regardless of the actual setting in the tab "Options") but not for your regular visitors.', WBOUNCE_TD ); ?></label>
+									<input id="<?php echo WBOUNCE_OPTION_KEY; ?>_test_mode" name="<?php echo WBOUNCE_OPTION_KEY; ?>_test_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_test_mode' ) ); ?> /> <label for="<?php echo WBOUNCE_OPTION_KEY; ?>_test_mode"><?php _e( 'Check this option to enable "Aggressive Mode" <b>for admins</b>. If this option is checked, the popup will <b>always</b> fire for you (regardless of the actual setting in the tab "Options") but not for your regular visitors.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
@@ -205,8 +205,10 @@ class Wbounce_Admin_Options {
 						        <th scope="row"><?php esc_html_e( 'Attribution', WBOUNCE_TD ); ?><br><span class="description thin"><?php esc_html_e( 'Give appropriate credit for my time-consuming efforts', WBOUNCE_TD ); ?></span></th>
 						        <td>
 									<?php $options = get_option( WBOUNCE_OPTION_KEY.'_attribution' ); ?>
-									<input class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="none"<?php checked( 'none' == $options || empty($options) ); ?> /> <label for="none"><?php esc_html_e( 'No attribution: "I can not afford to give appropriate credit for this free plugin."', WBOUNCE_TD ); ?></label><br><br>
-									<input class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="donate"<?php checked( 'donate' == $options ); ?> />
+									<input id="none" class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="none"<?php checked( 'none' == $options || empty($options) ); ?> />
+									<label for="none"><?php esc_html_e( 'No attribution: "I can not afford to give appropriate credit for this free plugin."', WBOUNCE_TD ); ?></label><br><br>
+
+									<input id="donate" class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="donate"<?php checked( 'donate' == $options ); ?> />
 									<label for="donate">
 										<?php esc_html_e( 'Donation: "I have donated already or will do so soon."', WBOUNCE_TD ); ?>
 										<?php printf( esc_html__( 'Please %1$sdonate now%2$s so that I can keep up the development of this plugin.', WBOUNCE_TD ),
@@ -230,55 +232,55 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Aggressive mode', WBOUNCE_TD ); ?></th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_aggressive_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_aggressive_mode' ) ); ?> /> <label><?php _e( 'By default, wBounce will only fire once for each visitor. When wBounce fires, a cookie is created to ensure a non obtrusive experience.<br><br>There are cases, however, when you may want to be more aggressive. An example use-case might be on your paid landing pages. If you enable aggressive, the modal can be fired any time the page is reloaded.', WBOUNCE_TD ); ?></label>
+									<input id="<?php echo WBOUNCE_OPTION_KEY; ?>_aggressive_mode" name="<?php echo WBOUNCE_OPTION_KEY; ?>_aggressive_mode" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_aggressive_mode' ) ); ?> /> <label for="<?php echo WBOUNCE_OPTION_KEY; ?>_aggressive_mode"><?php _e( 'By default, wBounce will only fire once for each visitor. When wBounce fires, a cookie is created to ensure a non obtrusive experience.<br><br>There are cases, however, when you may want to be more aggressive. An example use-case might be on your paid landing pages. If you enable aggressive, the modal can be fired any time the page is reloaded.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Self-acting fire (timer)', WBOUNCE_TD ); ?></th>
 						        <td>
-									<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_autofire" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_autofire'); ?>" /><br><label><?php esc_html_e( 'Automatically trigger the popup after a certain time period. Insert 0 to fire immediately when the page is loaded. Leave blank to not use this option.', WBOUNCE_TD ); ?></label>
+									<input type="number" id="<?php echo WBOUNCE_OPTION_KEY; ?>_autofire" name="<?php echo WBOUNCE_OPTION_KEY; ?>_autofire" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_autofire'); ?>" /><br><label for="<?php echo WBOUNCE_OPTION_KEY; ?>_autofire"><?php esc_html_e( 'Automatically trigger the popup after a certain time period. Insert 0 to fire immediately when the page is loaded. Leave blank to not use this option.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php _e( 'Set a min time<br><span class="description thin">&hellip; before wBounce fires.</span>', WBOUNCE_TD ); ?></th>
 						        <td>
-						        	<input type="number" name="<?echo WBOUNCE_OPTION_KEY; ?>_timer" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_timer'); ?>" /><br><label><?php _e( 'By default, wBounce won&#39;t fire in the first second to prevent false positives, as it&#39;s unlikely the user will be able to exit the page within less than a second. If you want to change the amount of time that firing is surpressed for, you can pass in a number of milliseconds to timer.<br>Insert 0 to fire immediately.', WBOUNCE_TD ); ?></label>
+						        	<input type="number" id="<?echo WBOUNCE_OPTION_KEY; ?>_timer" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_timer'); ?>" /><br><label for="<?echo WBOUNCE_OPTION_KEY; ?>_timer"><?php _e( 'By default, wBounce won&#39;t fire in the first second to prevent false positives, as it&#39;s unlikely the user will be able to exit the page within less than a second. If you want to change the amount of time that firing is surpressed for, you can pass in a number of milliseconds to timer.<br>Insert 0 to fire immediately.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Hesitation', WBOUNCE_TD ); ?></th>
 						        <td>
-						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_hesitation" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_hesitation'); ?>" /><br><label><?php _e( 'By default, wBounce will show the modal immediately when the user&#39;s cursor leaves the window. You could instead configure it to wait <i>x</i> milliseconds before showing the modal. If the cursor re-enters the body before delay ms have passed, the modal will not appear. This can be used to provide a "grace period" for visitors instead of immediately presenting the modal window.', WBOUNCE_TD ); ?></label>
+						        	<input type="number" id="<?php echo WBOUNCE_OPTION_KEY; ?>_hesitation" name="<?php echo WBOUNCE_OPTION_KEY; ?>_hesitation" placeholder="milliseconds" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_hesitation'); ?>" /><br><label for="<?php echo WBOUNCE_OPTION_KEY; ?>_hesitation"><?php _e( 'By default, wBounce will show the modal immediately when the user&#39;s cursor leaves the window. You could instead configure it to wait <i>x</i> milliseconds before showing the modal. If the cursor re-enters the body before delay ms have passed, the modal will not appear. This can be used to provide a "grace period" for visitors instead of immediately presenting the modal window.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Cookie expiration', WBOUNCE_TD ); ?></th>
 						        <td>
-						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_cookieexpire" placeholder="days" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookieexpire'); ?>" /><br><label><?php esc_html_e( 'wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user. By default, the cookie will expire at the end of the session, which for most browsers is when the browser is closed entirely.', WBOUNCE_TD ); ?></label>
+						        	<input type="number" id="<?php echo WBOUNCE_OPTION_KEY; ?>_cookieexpire" name="<?php echo WBOUNCE_OPTION_KEY; ?>_cookieexpire" placeholder="days" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookieexpire'); ?>" /><br><label for="<?php echo WBOUNCE_OPTION_KEY; ?>_cookieexpire"><?php esc_html_e( 'wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie expiration (in days) to adjust the time period before the modal will appear again for a user. By default, the cookie will expire at the end of the session, which for most browsers is when the browser is closed entirely.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Cookie per page', WBOUNCE_TD ); ?></th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_sitewide" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_sitewide' ) ); ?> /> <label><?php esc_html_e( 'By default, the cookie is stored for the whole site. With the "cookie per page" option enabled, every page/post gets its own cookie.', WBOUNCE_TD ); ?></label>
+									<input id="<?php echo WBOUNCE_OPTION_KEY; ?>_sitewide" name="<?php echo WBOUNCE_OPTION_KEY; ?>_sitewide" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_sitewide' ) ); ?> /> <label for="<?php echo WBOUNCE_OPTION_KEY; ?>_sitewide"><?php esc_html_e( 'By default, the cookie is stored for the whole site. With the "cookie per page" option enabled, every page/post gets its own cookie.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
 					        	<th scope="row"><?php esc_html_e( 'Cookie domain', WBOUNCE_TD ); ?></th>
 					        	<td>
-					        		<input type="text" name="<?php echo WBOUNCE_OPTION_KEY; ?>_cookiedomain" placeholder="" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookiedomain'); ?>" /><br><span><?php esc_html_e( 'wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie domain to specify the domain under which the cookie should work. By default, no extra domain information will be added. If you need a cookie to work also in your subdomain (like blog.example.com and example.com), then set a cookie domain such as .example.com (notice the dot in front).', WBOUNCE_TD ); ?></span>
+					        		<input type="text" id="<?php echo WBOUNCE_OPTION_KEY; ?>_cookiedomain" name="<?php echo WBOUNCE_OPTION_KEY; ?>_cookiedomain" placeholder="" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_cookiedomain'); ?>" /><br><span><?php esc_html_e( 'wBounce sets a cookie by default to prevent the modal from appearing more than once per user. You can add a cookie domain to specify the domain under which the cookie should work. By default, no extra domain information will be added. If you need a cookie to work also in your subdomain (like blog.example.com and example.com), then set a cookie domain such as .example.com (notice the dot in front).', WBOUNCE_TD ); ?></span>
 					        	</td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php _e( 'Sensitivity <span class="newred">Deprecated</span><br><span class="description thin">Feature will be removed with one of the next updates.</span>', WBOUNCE_TD ); ?></th>
 						        <td>
-						        	<input type="number" name="<?php echo WBOUNCE_OPTION_KEY; ?>_sensitivity" placeholder="20" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_sensitivity'); ?>" /><br><label><?php esc_html_e( 'wBounce fires when the mouse cursor moves close to (or passes) the top of the viewport. You can define how far the mouse has to be before wBounce fires. The higher value, the more sensitive, and the more quickly the event will fire. Defaults to 20.', WBOUNCE_TD ); ?></label>
+						        	<input type="number" id="<?php echo WBOUNCE_OPTION_KEY; ?>_sensitivity" name="<?php echo WBOUNCE_OPTION_KEY; ?>_sensitivity" placeholder="20" value="<?php echo get_option(WBOUNCE_OPTION_KEY.'_sensitivity'); ?>" /><br><label for="<?php echo WBOUNCE_OPTION_KEY; ?>_sensitivity"><?php esc_html_e( 'wBounce fires when the mouse cursor moves close to (or passes) the top of the viewport. You can define how far the mouse has to be before wBounce fires. The higher value, the more sensitive, and the more quickly the event will fire. Defaults to 20.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					        <tr valign="top">
 						        <th scope="row"><?php esc_html_e( 'Load script in footer', WBOUNCE_TD ); ?></th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_load_in_footer" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_load_in_footer' ) ); ?> /> <label><?php esc_html_e( 'Normally, scripts are placed in &lt;head&gt; of the HTML document. If this parameter is true, the script is placed before the &lt;/body&gt; end tag. This requires the theme to have the wp_footer() template tag in the appropriate place.', WBOUNCE_TD ); ?></label>
+									<input id="<?php echo WBOUNCE_OPTION_KEY; ?>_load_in_footer" name="<?php echo WBOUNCE_OPTION_KEY; ?>_load_in_footer" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_load_in_footer' ) ); ?> /> <label for="<?php echo WBOUNCE_OPTION_KEY; ?>_load_in_footer"><?php esc_html_e( 'Normally, scripts are placed in &lt;head&gt; of the HTML document. If this parameter is true, the script is placed before the &lt;/body&gt; end tag. This requires the theme to have the wp_footer() template tag in the appropriate place.', WBOUNCE_TD ); ?></label>
 						        </td>
 					        </tr>
 					    </tbody>
@@ -352,7 +354,7 @@ class Wbounce_Admin_Options {
 									<tr valign="top">
 										<th scope="row"><?php esc_html_e( 'Ignore Demo CSS', WBOUNCE_TD ); ?></span></th>
 										<td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_demo_css" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_demo_css' ) ); ?> /> <label><?php _e( 'If checked, the styles written for the exemplary template will be removed. This reduces the CSS file size, and makes your site a little bit faster. It also makes it easier to style the popup the way you want.', WBOUNCE_TD ); ?></label>
+									<input id="<?php echo WBOUNCE_OPTION_KEY; ?>_demo_css" name="<?php echo WBOUNCE_OPTION_KEY; ?>_demo_css" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_demo_css' ) ); ?> /> <label for="<?php echo WBOUNCE_OPTION_KEY; ?>_demo_css"><?php _e( 'If checked, the styles written for the exemplary template will be removed. This reduces the CSS file size, and makes your site a little bit faster. It also makes it easier to style the popup the way you want.', WBOUNCE_TD ); ?></label>
 										</td>
 									</tr>
 					        <tr valign="top">
@@ -384,10 +386,10 @@ class Wbounce_Admin_Options {
 											</span>
 							        </th>
 						        <td>
-									<input id="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_analytics' ) ); ?> />
+									<input id="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" name="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_analytics' ) ); ?> />
 									<label for="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics">
 					        			<?php
-						        			printf( __( 'Check this option to track events if you site uses an analytics solution.<br><b>Notice:</b> Event tracking might not work on your local test environment (localhost) when you haven&#39;t <a href="%s" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.', WBOUNCE_TD ),
+						        			printf( __( 'Check this option to track events if your site uses analytics.<br><b>Notice:</b> Event tracking might not work on your local test environment (localhost) when you haven&#39;t <a href="%s" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.', WBOUNCE_TD ),
 						        			'//developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost'
 						        			);
 					        			?>
