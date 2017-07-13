@@ -40,7 +40,9 @@
 
     function sendAnalyticsEvent(action) {
       if (WBOUNCE_CONFIG.isAnalyticsEnabled) {
+        // Track event in Google Analytics
         window.ga && window.ga('send', 'event', 'wBounce', action, document.URL);
+        // Track event in Piwik
         window._paq && window._paq.push(['trackEvent', 'wBounce', action, document.URL]);
       }
     }
