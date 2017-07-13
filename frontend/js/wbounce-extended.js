@@ -40,12 +40,9 @@
 
     function sendAnalyticsEvent(action) {
       if (WBOUNCE_CONFIG.isAnalyticsEnabled) {
-        ga('send', 'event', 'wBounce', action, document.URL);
+        window.ga && window.ga('send', 'event', 'wBounce', action, document.URL);
+        window._paq && window._paq.push(['trackEvent', 'wBounce', action, document.URL]);
       }
-    }
-
-    if (typeof ga !== 'function') {
-      WBOUNCE_CONFIG.isAnalyticsEnabled = false;
     }
 
     if (WBOUNCE_CONFIG.openAnimation) {

@@ -112,8 +112,8 @@ class Wbounce_Admin_Options {
 			<ul class="ui-tabs-nav">
 		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?></a></li>
 		        <li><a href="#options"><?php esc_html_e( 'Options', WBOUNCE_TD ); ?></a></li>
-		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
-		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?></a></li>
+		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?></a></li>
+		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -308,7 +308,7 @@ class Wbounce_Admin_Options {
 					        	</td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row"><?php esc_html_e( 'Open Animation', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
+						        <th scope="row"><?php esc_html_e( 'Open Animation', WBOUNCE_TD ); ?></span></th>
 								<td>
 									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_open_animation">
 										<?php $openAnimation = get_option(WBOUNCE_OPTION_KEY.'_open_animation'); ?>
@@ -329,7 +329,7 @@ class Wbounce_Admin_Options {
 								</td>
 					        </tr>
 					        <tr valign="top">
-						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
+						        <th scope="row"><?php esc_html_e( 'Exit Animation', WBOUNCE_TD ); ?></span></th>
 										<td>
 											<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_exit_animation">
 												<?php $exitAnimation = get_option(WBOUNCE_OPTION_KEY.'_exit_animation'); ?>
@@ -350,7 +350,7 @@ class Wbounce_Admin_Options {
 										</td>
 					        </tr>
 									<tr valign="top">
-										<th scope="row"><?php esc_html_e( 'Ignore Demo CSS', WBOUNCE_TD ); ?> <span class="newred"><?php esc_html_e( 'New!', WBOUNCE_TD ); ?></span></th>
+										<th scope="row"><?php esc_html_e( 'Ignore Demo CSS', WBOUNCE_TD ); ?></span></th>
 										<td>
 									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_demo_css" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_demo_css' ) ); ?> /> <label><?php _e( 'If checked, the styles written for the exemplary template will be removed. This reduces the CSS file size, and makes your site a little bit faster. It also makes it easier to style the popup the way you want.', WBOUNCE_TD ); ?></label>
 										</td>
@@ -373,17 +373,21 @@ class Wbounce_Admin_Options {
 					    <tbody>
 					        <tr valign="top">
 						        <th scope="row">
-				        			<?php
-					        			printf( __( 'Enable <a href="%s" target="_blank" title="Google Analytics Event Tracking">GA event tracking</a> <span class="description thin"><br>Requires Google Analytics.</span>', WBOUNCE_TD ),
-					        			'//developers.google.com/analytics/devguides/collection/analyticsjs/events'
+											<?php _e( 'Enable event tracking <span class="newred">Piwik</span>', WBOUNCE_TD ); ?>
+											<br>
+				        			<span class="description thin"><?php
+					        			printf( __( 'Supports and requires <a href="%1$s" target="_blank" title="Google Analytics Event Tracking">Google Analytics</a> or <a href="%2$s" target="_blank" title="Piwik Event Tracking">Piwik</a>.', WBOUNCE_TD ),
+					        			'//developers.google.com/analytics/devguides/collection/analyticsjs/events',
+												'//piwik.org/docs/event-tracking/'
 					        			);
 				        			?>
+											</span>
 							        </th>
 						        <td>
-									<input name="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_analytics' ) ); ?> />
-									<label>
+									<input id="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics" type="checkbox" value="1" <?php checked( '1', get_option( WBOUNCE_OPTION_KEY.'_analytics' ) ); ?> />
+									<label for="<?php echo WBOUNCE_OPTION_KEY; ?>_analytics">
 					        			<?php
-						        			printf( __( 'Check this option to track events with Google Analytics.<br><b>Notice:</b> Event tracking might not work on your local (localhost) test environment when you haven&#39;t <a href="%s" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.', WBOUNCE_TD ),
+						        			printf( __( 'Check this option to track events if you site uses an analytics solution.<br><b>Notice:</b> Event tracking might not work on your local test environment (localhost) when you haven&#39;t <a href="%s" target="_blank" title="Testing on localhost">disabled the default</a> cookie domain.', WBOUNCE_TD ),
 						        			'//developers.google.com/analytics/devguides/collection/analyticsjs/advanced#localhost'
 						        			);
 					        			?>
@@ -391,7 +395,7 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 							<tr valign="top">
-								<th scope="row"><?php _e( 'Available events <span class="newred">Beta</span> <span class="description thin"><br>You can monitor tracked events with your Google Analytics accout. For example, go to "Real-Time > Events" or "Behaviour > Events" and look for Event Category "wBounce".', WBOUNCE_TD ); ?></th>
+								<th scope="row"><?php _e( 'Available events<br><span class="description thin">You can monitor tracked events with your analytics account. For example, in Google Analytics, go to "Real-Time > Events" or "Behaviour > Events" and look for Event Category "wBounce".', WBOUNCE_TD ); ?></th>
 								<td>
 									<!-- Generated with //www.tablesgenerator.com/html_tables -->
 									<table class="inline-table">
@@ -399,7 +403,7 @@ class Wbounce_Admin_Options {
 										    <th class="first-column"><?php esc_html_e( 'Trigger', WBOUNCE_TD ); ?></th>
 										    <th><?php esc_html_e( 'Event Category', WBOUNCE_TD ); ?></th>
 										    <th><?php esc_html_e( 'Event Action', WBOUNCE_TD ); ?></th>
-										    <th><?php esc_html_e( 'Event Label*', WBOUNCE_TD ); ?></th>
+										    <th><?php esc_html_e( 'Event Label/Name*', WBOUNCE_TD ); ?></th>
 										  </tr>
 										  <tr>
 										    <td class="first-column italic"><?php esc_html_e( 'Popup appears.', WBOUNCE_TD ); ?></td>
@@ -461,7 +465,7 @@ class Wbounce_Admin_Options {
 
 		    <table class="form-table">
 		        <tr valign="top">
-		        <th scope="row" style="width:100px;"><a href="//kevinw.de/wb/" target="_blank"><img src="//www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
+		        <th scope="row" style="width:100px;"><a href="//kevinw.de/wb/" target="_blank"><img src="//www.gravatar.com/avatar/9d876cfd1fed468f71c84d26ca0e9e33?d=https%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536&s=100" style="-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;"></a></th>
 		        <td style="width:200px;">
 		        	<p>
 			        	<?php
