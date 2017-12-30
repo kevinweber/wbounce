@@ -137,14 +137,40 @@ class Wbounce_Admin_Options {
 					        <tr valign="top">
 					        	<th scope="row"><?php esc_html_e( 'Default status', WBOUNCE_TD ); ?></th>
 						        <td>
-									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default">
-								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Always fire', WBOUNCE_TD ); ?></option>
-								    	<option value="on_posts"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on posts', WBOUNCE_TD ); ?></option>
-		     							<option value="on_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on pages', WBOUNCE_TD ); ?></option>
-		     							<option value="on_posts_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts_pages') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on posts and pages', WBOUNCE_TD ); ?></option>
-		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Don&#39;t fire', WBOUNCE_TD ); ?></option>
-		     						</select>
-									<p><?php esc_html_e( 'Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.', WBOUNCE_TD ); ?></p>
+											<ul>
+											<?php $optionStatusDefault = get_option( WBOUNCE_OPTION_KEY.'_status_default' ); ?>
+												<li>
+													<label>
+														<input type="checkbox" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default[on]" value="1" <?php checked( isset( $optionStatusDefault['on'] ) ); ?> />
+														<?php esc_html_e( 'Always fire', WBOUNCE_TD ); ?>
+													</label>
+												</li>
+												<li>
+													<label>
+														<input type="checkbox" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default[on_posts]" value="1" <?php checked( isset( $optionStatusDefault['on_posts'] ) ); ?> />
+														<?php esc_html_e( 'Fire on posts', WBOUNCE_TD ); ?>
+													</label>
+												</li>
+												<li>
+													<label>
+														<input type="checkbox" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default[on_pages]" value="1" <?php checked( isset( $optionStatusDefault['on_pages'] ) ); ?> />
+														<?php esc_html_e( 'Fire on pages', WBOUNCE_TD ); ?>
+													</label>
+												</li>
+												<li>
+													<label>
+														<input type="checkbox" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default[on_posts_pages]" value="1" <?php checked( isset( $optionStatusDefault['on_posts_pages'] ) ); ?> />
+														<?php esc_html_e( 'Fire on posts and pages', WBOUNCE_TD ); ?>
+													</label>
+												</li>
+												<li>
+													<label>
+														<input type="checkbox" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default[off]" value="1" <?php checked( isset( $optionStatusDefault['off'] ) ); ?> />
+														<?php esc_html_e( 'Don&#39;t fire', WBOUNCE_TD ); ?>
+													</label>
+												</li>
+											</ul>
+											<p><?php esc_html_e( 'Define when wBounce should be fired by default. You can override the default setting on every post and page individually.', WBOUNCE_TD ); ?></p>
 						        </td>
 					        </tr>
 					        <tr valign="top">
