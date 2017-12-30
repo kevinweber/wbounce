@@ -5,7 +5,7 @@ License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page, piwik, google analytics
 Requires at least: 3.5
 Tested up to: 4.9.1
-Stable tag: 1.7
+Stable tag: 1.8
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
 
@@ -85,6 +85,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 
 == Changelog ==
+
+= 1.8 =
+* Fix: Enable meta box for posts with custom post type.
 
 = 1.7 =
 * New feature: Support event tracking for Piwik.
