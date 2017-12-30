@@ -113,7 +113,7 @@ class Wbounce_Admin_Options {
 		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?></a></li>
 		        <li><a href="#options"><?php esc_html_e( 'Options', WBOUNCE_TD ); ?></a></li>
 		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?></a></li>
-		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?><!--  <span class="newred_dot">&bull;</span> --></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -375,7 +375,7 @@ class Wbounce_Admin_Options {
 					    <tbody>
 					        <tr valign="top">
 						        <th scope="row">
-											<?php _e( 'Enable event tracking <span class="newred">Piwik</span>', WBOUNCE_TD ); ?>
+											<?php _e( 'Enable event tracking', WBOUNCE_TD ); ?>
 											<br>
 				        			<span class="description thin"><?php
 					        			printf( __( 'Supports and requires <a href="%1$s" target="_blank" title="Google Analytics Event Tracking">Google Analytics</a> or <a href="%2$s" target="_blank" title="Piwik Event Tracking">Piwik</a>.', WBOUNCE_TD ),
