@@ -67,7 +67,7 @@ class Wbounce_Admin_Options {
 			'_status_default',
 			'_template_engine',
 			'_content',
-            '_attribution',
+      '_attribution',
 			// Tab 'Options'
 			'_aggressive_mode',
 			'_autofire',

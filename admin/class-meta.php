@@ -198,8 +198,8 @@ class Wbounce_Meta {
 		$screens = $this->get_post_types();
 
 		foreach ( $screens as $screen ) {
-			add_filter( 'manage_'.$screen.'_columns', array( $this, 'add_post_columns' ) );
-			add_action( 'manage_'.$screen.'_custom_column', array( $this, 'render_post_columns' ), 10, 2 );
+			add_filter( 'manage_'.$screen.'s_columns', array( $this, 'add_post_columns' ) );
+			add_action( 'manage_'.$screen.'s_custom_column', array( $this, 'render_post_columns' ), 10, 2 );
 		}
 
 		add_action( 'admin_footer', array( $this, 'post_columns_css' ) );
