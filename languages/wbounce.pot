@@ -483,8 +483,8 @@ msgstr ""
 
 #: admin/class-admin-options.php:455
 msgid ""
-"<a href=\"%s\" title=\"Inline Comments\" target=\"_blank\">Inline Comments</"
-"a> (on my part)"
+"<a href=\"%s\" title=\"iThemes Security\" target=\"_blank\">iThemes Security</"
+"a>"
 msgstr ""
 
 #: admin/class-admin-options.php:462

@@ -14,6 +14,17 @@ class Wbounce_Meta {
 	}
 
 	/**
+	 * Get supported post types
+	 * @return array()
+	 * @since 1.8
+	 */
+	function get_post_types() {
+		$post_types = get_post_types();
+		$post_types = apply_filters( WBOUNCE_OPTION_KEY.'_post_types' , $post_types );
+		return $post_types;
+	}
+
+	/**
 	 * Add additonal fields to the page where you create your posts and pages
 	 * (Based on http://wp.tutsplus.com/tutorials/plugins/how-to-create-custom-wordpress-writemeta-boxes/)
 	 */
@@ -23,8 +34,7 @@ class Wbounce_Meta {
 	}
 
 	function add_meta_box() {
-
-		$screens = array( 'post', 'page' );
+		$screens = $this->get_post_types();
 
 		foreach ( $screens as $screen ) {
 			add_meta_box(
@@ -43,9 +53,9 @@ class Wbounce_Meta {
 		$id = $post->ID;
 		$values = get_post_custom( $id );
 		// $check = isset( $values['wbounce_check_custom'] ) ? esc_attr( $values['wbounce_check_custom'][0] ) : '';
-		
+
 		$select_name = $this->select_name;
-			$selected = isset( $values[$select_name] ) ? esc_attr( $values[$select_name][0] ) : '';
+		$selected = isset( $values[$select_name] ) ? esc_attr( $values[$select_name][0] ) : '';
 
 		$select_template = $this->select_template;
 		$selected = isset( $values[$select_template] ) ? esc_attr( $values[$select_template][0] ) : '';
@@ -68,7 +78,7 @@ class Wbounce_Meta {
 					printf( __( 'Use wBounce on this %s?', WBOUNCE_TD ),
 						get_current_screen()->post_type
 					);
-				?>				
+				?>
 			</label>
 		</p>
 		<p>
@@ -130,13 +140,13 @@ class Wbounce_Meta {
 
 		// Bail if we're doing an auto save
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-		
+
 		// // If our nonce isn't there, or we can't verify it, bail
-		// if ( 
+		// if (
 		// 	!empty( $_POST ) &&
 		// 	(
 		// 		!isset( $_POST['wbounce_meta_box_nonce'] )
-		// 		|| !wp_verify_nonce( $_POST['wbounce_meta_box_nonce'], 'add_wbounce_meta_box_nonce' ) 
+		// 		|| !wp_verify_nonce( $_POST['wbounce_meta_box_nonce'], 'add_wbounce_meta_box_nonce' )
 		// 	)
 		// ) {
 		// 	print 'Sorry, your nonce did not verify.';
@@ -164,7 +174,7 @@ class Wbounce_Meta {
 			$text_content = $this->text_content;
 			if( isset( $_POST[$text_content] ) )
 				update_post_meta( $post_id, $text_content, esc_attr( $_POST[$text_content] ) );
-			
+
 			do_action( WBOUNCE_OPTION_KEY.'_save_post', $post_id );
 
 		// }
@@ -185,17 +195,16 @@ class Wbounce_Meta {
 	 * (Based on http://shibashake.com/wordpress-theme/expand-the-wordpress-quick-edit-menu)
 	 */
 	function init_post_columns() {
-
-		$screens = array( 'posts', 'pages' );
+		$screens = $this->get_post_types();
 
 		foreach ( $screens as $screen ) {
-			add_filter( 'manage_'.$screen.'_columns', array( $this, 'add_post_columns' ) );
-			add_action( 'manage_'.$screen.'_custom_column', array( $this, 'render_post_columns' ), 10, 2 );
+			add_filter( 'manage_'.$screen.'s_columns', array( $this, 'add_post_columns' ) );
+			add_action( 'manage_'.$screen.'s_custom_column', array( $this, 'render_post_columns' ), 10, 2 );
 		}
 
 		add_action( 'admin_footer', array( $this, 'post_columns_css' ) );
 	}
-	 
+
 	function add_post_columns($columns) {
 	    $columns['wbounce'] = 'wBounce';
 	    return $columns;

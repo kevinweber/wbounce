@@ -131,7 +131,7 @@ span.thin {
 textarea {
 	width:100%;
 }
-	
+
 input.regular-text {
 	width:100%;
 }
@@ -174,13 +174,13 @@ div#informations div#text img.profilpic {
 	float:right;
 	width:38px;
 	height:50px;
-} 
+}
 div#informations div#text li {
 	text-align:left;
 	border-bottom:1px solid #ddd;
 	margin-bottom:4px;
 	padding-bottom:2px;
-} 
+}
 
 div#informations div#text li.center {
 	text-align:center;
@@ -197,7 +197,7 @@ div#informations div#text li.center {
 	color: red;
 	position: relative;
 	left: 3px;
-	top: 1px;
+	top: -1px;
 }
 .orange {
 	color: #f90;

@@ -110,10 +110,10 @@ class Wbounce_Admin_Options {
 			?>
 
 			<ul class="ui-tabs-nav">
-		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?></a></li>
+		        <li><a href="#content"><?php esc_html_e( 'Content', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
 		        <li><a href="#options"><?php esc_html_e( 'Options', WBOUNCE_TD ); ?></a></li>
 		        <li><a href="#styling"><?php esc_html_e( 'Styling', WBOUNCE_TD ); ?></a></li>
-		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?> <span class="newred_dot">&bull;</span></a></li>
+		        <li><a href="#analytics"><?php esc_html_e( 'Analytics', WBOUNCE_TD ); ?></a></li>
 		    	<?php do_action( WBOUNCE_OPTION_KEY.'_settings_page_tabs_link_after' ); ?>
 		    </ul>
 
@@ -135,16 +135,18 @@ class Wbounce_Admin_Options {
 						        </td>
 					        </tr>
 					        <tr valign="top">
-					        	<th scope="row"><?php esc_html_e( 'Default status', WBOUNCE_TD ); ?></th>
+					        	<th scope="row"><?php esc_html_e( 'Default status', WBOUNCE_TD ); ?> <span class="newred">Updated</span></th>
 						        <td>
-									<select class="select" typle="select" name="<?php echo WBOUNCE_OPTION_KEY; ?>_status_default">
-								    	<option value="on"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Always fire', WBOUNCE_TD ); ?></option>
-								    	<option value="on_posts"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on posts', WBOUNCE_TD ); ?></option>
-		     							<option value="on_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_pages') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on pages', WBOUNCE_TD ); ?></option>
-		     							<option value="on_posts_pages"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'on_posts_pages') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Fire on posts and pages', WBOUNCE_TD ); ?></option>
-		     							<option value="off"<?php if (get_option(WBOUNCE_OPTION_KEY.'_status_default') === 'off') { echo ' selected="selected"'; } ?>><?php esc_html_e( 'Don&#39;t fire', WBOUNCE_TD ); ?></option>
-		     						</select>
-									<p><?php esc_html_e( 'Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.', WBOUNCE_TD ); ?></p>
+    								<select class="select" type="select" name="<?php echo WBOUNCE_OPTION_KEY.'_status_default'; ?>">
+    									<?php $optionStatusDefault = get_option(WBOUNCE_OPTION_KEY.'_status_default'); ?>
+        						    	<option value="on" <?php selected($optionStatusDefault, 'on'); ?>><?php esc_html_e( 'Always fire', WBOUNCE_TD ); ?></option>
+                                        <option value="on_home" <?php selected($optionStatusDefault, 'on_home'); ?>><?php esc_html_e( 'Fire on home page', WBOUNCE_TD ); ?></option>
+             							<option value="on_posts" <?php selected($optionStatusDefault, 'on_posts'); ?>><?php esc_html_e( 'Fire on posts', WBOUNCE_TD ); ?></option>
+             							<option value="on_pages" <?php selected($optionStatusDefault, 'on_pages'); ?>><?php esc_html_e( 'Fire on pages', WBOUNCE_TD ); ?></option>
+             							<option value="on_posts_pages" <?php selected($optionStatusDefault, 'on_posts_pages'); ?>><?php esc_html_e( 'Fire on posts and pages', WBOUNCE_TD ); ?></option>
+             							<option value="off" <?php selected($optionStatusDefault, 'off'); ?>><?php esc_html_e( 'Don&#39;t fire', WBOUNCE_TD ); ?></option>
+					                </select>
+    								<p><?php esc_html_e( 'Define if wBounce should be fired on posts and/or pages by default. You can override the default setting on every post and page individually.', WBOUNCE_TD ); ?></p>
 						        </td>
 					        </tr>
 					        <tr valign="top">
@@ -211,7 +213,7 @@ class Wbounce_Admin_Options {
 									<input id="donate" class="radio" type="radio" name="<?php echo WBOUNCE_OPTION_KEY.'_attribution'; ?>" value="donate"<?php checked( 'donate' == $options ); ?> />
 									<label for="donate">
 										<?php esc_html_e( 'Donation: "I have donated already or will do so soon."', WBOUNCE_TD ); ?>
-										<?php printf( esc_html__( 'Please %1$sdonate now%2$s so that I can keep up the development of this plugin.', WBOUNCE_TD ),
+										<?php printf( esc_html__( 'Please %1$sdonate now%2$s so that I can keep up the development of this plugin and ensure compatibility with future versions of WordPress.', WBOUNCE_TD ),
 											'<a href="//kevinw.de/donate/wBounce/" target="_blank">',
 											'</a>'
 										); ?>
@@ -375,7 +377,7 @@ class Wbounce_Admin_Options {
 					    <tbody>
 					        <tr valign="top">
 						        <th scope="row">
-											<?php _e( 'Enable event tracking <span class="newred">Piwik</span>', WBOUNCE_TD ); ?>
+											<?php _e( 'Enable event tracking', WBOUNCE_TD ); ?>
 											<br>
 				        			<span class="description thin"><?php
 					        			printf( __( 'Supports and requires <a href="%1$s" target="_blank" title="Google Analytics Event Tracking">Google Analytics</a> or <a href="%2$s" target="_blank" title="Piwik Event Tracking">Piwik</a>.', WBOUNCE_TD ),
@@ -507,8 +509,8 @@ class Wbounce_Admin_Options {
 							</li>
 							<li>
 					        	<?php
-						        	printf( __( '<a href="%s" title="Inline Comments" target="_blank">Inline Comments</a> (on my part)', WBOUNCE_TD ),
-						        		'//kevinw.de/wb-ic'
+						        	printf( __( '<a href="%s" title="iThemes Security" target="_blank">iThemes Security</a>', WBOUNCE_TD ),
+						        		'//wordpress.org/plugins/better-wp-security/'
 						        	);
 					        	?>
 							</li>
