@@ -87,6 +87,7 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 == Changelog ==
 
 = 1.8 =
+* New option: Fire popup only on home page.
 * Fix: Enable meta box for posts with custom post type.
 
 = 1.7 =
