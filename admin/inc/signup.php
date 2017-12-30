@@ -2,7 +2,7 @@
 <form action="<?php echo WBOUNCE_NEWS_ACTION_URL; ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 	<div class="mc-field-group updated">
 		<label for="mce-EMAIL"><?php echo WBOUNCE_NEWS_TEXT; ?></label><br>
-		<input type="email" value="Enter your email address" name="EMAIL" class="required email" id="mce-EMAIL" onclick="this.focus();this.select()" onfocus="if(this.value == '') { this.value = this.defaultValue; }" onblur="if(this.value == '') { this.value = this.defaultValue; }">
+		<input type="email" value="Enter your email address" style="min-width:200px" name="EMAIL" class="required email" id="mce-EMAIL" onclick="this.focus();this.select()" onfocus="if(this.value == '') { this.value = this.defaultValue; }" onblur="if(this.value == '') { this.value = this.defaultValue; }">
 		<input type="hidden" name="GROUPS" id="GROUPS" value="<?php echo WBOUNCE_NEWS_GROUP; ?>" />
 		<input type="submit" value="<?php echo WBOUNCE_NEWS_BUTTON; ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
 	</div>
