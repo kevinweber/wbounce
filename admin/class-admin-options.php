@@ -507,8 +507,8 @@ class Wbounce_Admin_Options {
 							</li>
 							<li>
 					        	<?php
-						        	printf( __( '<a href="%s" title="Inline Comments" target="_blank">Inline Comments</a> (on my part)', WBOUNCE_TD ),
-						        		'//kevinw.de/wb-ic'
+						        	printf( __( '<a href="%s" title="iThemes Security" target="_blank">iThemes Security</a>', WBOUNCE_TD ),
+						        		'//wordpress.org/plugins/better-wp-security/'
 						        	);
 					        	?>
 							</li>
