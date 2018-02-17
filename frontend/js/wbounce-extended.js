@@ -2,6 +2,11 @@
 (function ($) {
   'use strict';
 
+  if (!$) {
+    console.warn('[wBounce] Required dependency jQuery isn\'t defined.')
+    return;
+  }
+
   if (typeof __gaTracker === 'function') {
     __gaTracker(function () {
       window.ga = __gaTracker;
@@ -174,4 +179,4 @@
       handleAutoFire(autoFire);
     }
   });
-}(jQuery));
+}(window.jQuery || window.$));
