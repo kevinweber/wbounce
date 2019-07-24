@@ -1,16 +1,16 @@
 === wBounce ===
 Contributors: kevinweber
-Donate link: http://kevinw.de/donate/wBounce/
+Donate link: https://www.kweber.com/donate/wBounce/
 License: MIT
 Tags: admin, newsletter, exit popup, exit popups, ab-testing, roi, conversion, conversion rate optimisation, free, plugin, wordpress, marketing, landing page, piwik, google analytics
 Requires at least: 3.5
-Tested up to: 4.9.1
-Stable tag: 1.8
+Tested up to: 5.2.2
+Stable tag: 1.8.1
 
 wBounce improves bounce rate to boost conversions and sales. The free alternative to Bounce Exchange for WordPress.
 
 == Description ==
-wBounce is the free exit popup software for WordPress, evolved by [Kevin Weber](http://kevinw.de). This plugin bases on [Ouibounce]( http://carlsednaoui.github.io/ouibounce/) by Carl Sednaoui.
+wBounce is the free exit popup software for WordPress, evolved by [Kevin Weber](https://www.kweber.com). This plugin bases on [Ouibounce]( http://carlsednaoui.github.io/ouibounce/) by Carl Sednaoui.
 
 Exit popups are not only "in vogue", they are provably increasing conversions and therefore boost marketing, signups and sales. wBounce displays an inline popup before the user leaves your site. ("Inline popup" means that this is NOT one of those out-dated, annoying popups windows.) Inline popups catch the visitor's attention even if they are in the process of leaving your site.
 
@@ -20,7 +20,7 @@ One concern in everyone's interest: Make sure to provide VALUE when you use wBou
 
 This plugin makes it extremely easy to implement exit popups. You don't have to manually "hack" your WordPress theme. Just activate and modify it via your admin backend. It works with WordPress Multisite so that you can define a wBounce template for each site in your network.
 
-Demo and more information on the developer's website: [kevinw.de/wbounce/](http://kevinw.de/wbounce/)
+Demo and more information on the developer's website: [kevinw.de/wbounce/](https://www.kweber.com/wbounce/)
 
 You want to enhance this plugin? Please [contribute on Github](https://github.com/kevinweber/wbounce).
 
@@ -85,6 +85,9 @@ You can even extend the shortcode using modifiers as [explained by Jetpack](http
 
 
 == Changelog ==
+
+= 1.8.1 =
+* Fix: Show appropriate cursor symbol when hovering the modal.
 
 = 1.8 =
 * New option: Fire popup only on home page.
